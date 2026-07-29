@@ -1,0 +1,52 @@
+name: WhoisFreaks
+description: >-
+  Domain and IP intelligence provider offering WHOIS, DNS, IP geolocation/security, SSL, subdomain, and domain
+  availability REST APIs, downloadable databases, monitoring services, and an official MCP server.
+url: https://whoisfreaks.apievangelist.com/apis.yml
+created: '2026-07-29'
+modified: '2026-07-29'
+specificationVersion: '0.21'
+tags:
+  - WHOIS
+  - DNS
+  - Domain Intelligence
+  - IP Intelligence / Geolocation
+  - Cybersecurity / Threat Intelligence
+  - OSINT
+  - Reverse Lookup
+  - SSL/Certificate
+  - Domain Monitoring
+  - Brand Protection
+apis:
+  - name: WhoisFreaks API
+    description: >-
+      REST API (JSON/XML) for Live WHOIS, WHOIS History, Bulk/Reverse WHOIS, IP/ASN WHOIS, DNS, Domain Availability, IP
+      Geolocation, IP Security, SSL, and Subdomains. API-key authenticated via query parameter.
+    humanURL: https://whoisfreaks.com/documentation/whois-api
+    baseURL: https://api.whoisfreaks.com/v2.0/
+    tags:
+      - WHOIS
+      - DNS
+      - Domain Intelligence
+      - IP Intelligence / Geolocation
+      - Cybersecurity / Threat Intelligence
+      - OSINT
+      - Reverse Lookup
+      - SSL/Certificate
+      - Domain Monitoring
+      - Brand Protection
+    properties:
+      - type: Documentation
+        url: https://whoisfreaks.com/documentation/whois-api
+      - type: PostmanCollection
+        url: https://whoisfreaks.com/integrations/third-party/postman-collection
+      - type: LLMSTxt
+        url: https://whoisfreaks.com/llms.txt
+maintainers:
+  - FN: WhoisFreaks
+    url: https://whoisfreaks.com
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 95
+  at: '2026-07-29T05:28:26.362Z'
