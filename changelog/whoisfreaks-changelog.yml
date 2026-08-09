@@ -1,0 +1,65 @@
+generated: '2026-08-09'
+method: searched
+source: https://pypi.org/pypi/whoisfreaks/json
+sources:
+  - https://pypi.org/pypi/whoisfreaks/json
+  - https://github.com/WhoisFreaks/whoisfreaks-python/tags
+  - https://proxy.golang.org/github.com/whoisfreaks/whoisfreaks-go/@v/list
+api_changelog:
+  published: false
+  probes:
+    - {url: 'https://whoisfreaks.com/changelog', status: 404}
+    - {url: 'https://whoisfreaks.com/documentation/changelog', status: 404}
+  note: >-
+    WhoisFreaks publishes no dated changelog or release-notes page for the API
+    itself. The only dated, machine-readable record of change the company
+    publishes is the release history of its ten OpenAPI-generated SDKs, which
+    are cut in lockstep from one spec — so an SDK version bump is the closest
+    available proxy for a spec change. That is what is captured below; it is not
+    an API changelog and should not be read as one.
+scheme: semver
+surface: SDK packages (all ten languages released in lockstep from spec/whoisfreaks-openapi.yaml)
+current_version: 0.21.0
+current_version_date: '2026-07-21'
+entries:
+  - version: 0.21.0
+    date: '2026-07-21'
+    breaking: unknown
+    highlights: Current release across Python, JavaScript, TypeScript, Java, Kotlin, C#, Go, Ruby, Swift and PHP.
+  - version: 0.20.0
+    date: '2026-07-16'
+    breaking: unknown
+  - version: 0.19.0
+    date: '2026-07-15'
+    breaking: unknown
+  - version: 0.18.0
+    date: '2026-07-13'
+    breaking: unknown
+  - version: 0.15.0
+    date: '2026-07-13'
+    breaking: unknown
+  - version: 0.14.0
+    date: '2026-07-13'
+    breaking: unknown
+  - version: 0.13.0
+    date: '2026-07-13'
+    breaking: unknown
+  - version: 0.12.0
+    date: '2026-07-10'
+    breaking: unknown
+  - version: 0.10.0
+    date: '2026-07-10'
+    breaking: unknown
+  - version: 0.5.0
+    date: '2026-07-09'
+    breaking: unknown
+    highlights: Start of the current SDK generation line; the previous line (0.0.45–0.0.48) dates to 2025-05-15.
+history_note: >-
+  Releases carry no notes or tag descriptions on GitHub or PyPI, so the change
+  content of each version is not recoverable from the published record — only
+  the dates and the ordering are. `breaking: unknown` is honest, not a
+  placeholder.
+gaps:
+  - No API changelog or release-notes page.
+  - No release notes attached to any SDK tag or PyPI release.
+  - No RSS/Atom feed for product or API changes.

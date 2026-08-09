@@ -1,0 +1,145 @@
+generated: '2026-08-09'
+method: searched
+source: https://github.com/WhoisFreaks + public package registries
+docs: https://github.com/WhoisFreaks/wf-sdks-docs
+notes: >-
+  All ten client libraries are OpenAPI-generated from the same
+  spec/whoisfreaks-openapi.yaml source and released in lockstep (0.21.0 as of
+  2026-07-21). Registry presence was verified by direct HTTP probe on
+  2026-08-09; entries that are documented but did not resolve on the registry
+  are marked published: false rather than dropped or asserted.
+packages:
+  - language: python
+    registry: pypi
+    name: whoisfreaks
+    version: 0.21.0
+    url: https://pypi.org/project/whoisfreaks/
+    install: pip install whoisfreaks
+    source: https://github.com/WhoisFreaks/whoisfreaks-python
+    official: true
+    published: true
+    probe: {url: 'https://pypi.org/pypi/whoisfreaks/json', status: 200}
+  - language: javascript
+    registry: npm
+    name: whoisfreaks-js
+    version: 0.21.0
+    url: https://www.npmjs.com/package/whoisfreaks-js
+    install: npm install whoisfreaks-js
+    source: https://github.com/WhoisFreaks/whoisfreaks-javascript
+    official: true
+    published: true
+    probe: {url: 'https://registry.npmjs.org/whoisfreaks-js', status: 200}
+  - language: typescript
+    registry: npm
+    name: whoisfreaks
+    version: 0.21.0
+    url: https://www.npmjs.com/package/whoisfreaks
+    install: npm install whoisfreaks
+    source: https://github.com/WhoisFreaks/whoisfreaks-typescript
+    official: true
+    published: true
+    probe: {url: 'https://registry.npmjs.org/whoisfreaks', status: 200}
+  - language: java
+    registry: maven-central
+    name: com.whoisfreaks:whoisfreaks
+    version: 0.21.0
+    url: https://repo1.maven.org/maven2/com/whoisfreaks/whoisfreaks/
+    install: "<dependency><groupId>com.whoisfreaks</groupId><artifactId>whoisfreaks</artifactId><version>0.21.0</version></dependency>"
+    source: https://github.com/WhoisFreaks/whoisfreaks-java
+    official: true
+    published: true
+    probe: {url: 'https://repo1.maven.org/maven2/com/whoisfreaks/whoisfreaks/maven-metadata.xml', status: 200}
+  - language: kotlin
+    registry: maven-central
+    name: com.whoisfreaks:whoisfreaks
+    url: https://repo1.maven.org/maven2/com/whoisfreaks/whoisfreaks/
+    install: implementation("com.whoisfreaks:whoisfreaks:0.21.0")
+    source: https://github.com/WhoisFreaks/whoisfreaks-kotlin
+    official: true
+    published: true
+    note: Kotlin consumes the same Maven Central coordinate as the Java SDK.
+  - language: csharp
+    registry: nuget
+    name: WhoisFreaks
+    version: 0.21.0
+    url: https://www.nuget.org/packages/WhoisFreaks
+    install: dotnet add package WhoisFreaks
+    source: https://github.com/WhoisFreaks/whoisfreaks-csharp
+    official: true
+    published: true
+    probe: {url: 'https://api.nuget.org/v3/registration5-semver1/whoisfreaks/index.json', status: 200}
+  - language: go
+    registry: go-modules
+    name: github.com/WhoisFreaks/whoisfreaks-go
+    version: v0.21.0
+    url: https://pkg.go.dev/github.com/WhoisFreaks/whoisfreaks-go
+    install: go get github.com/WhoisFreaks/whoisfreaks-go
+    source: https://github.com/WhoisFreaks/whoisfreaks-go
+    official: true
+    published: true
+    probe: {url: 'https://proxy.golang.org/github.com/whoisfreaks/whoisfreaks-go/@v/list', status: 200}
+  - language: ruby
+    registry: rubygems
+    name: whoisfreaks
+    version: 0.21.0
+    url: https://rubygems.org/gems/whoisfreaks
+    install: gem install whoisfreaks
+    source: https://github.com/WhoisFreaks/whoisfreaks-ruby
+    official: true
+    published: true
+    probe: {url: 'https://rubygems.org/api/v1/gems/whoisfreaks.json', status: 200}
+  - language: swift
+    registry: swift-package-manager
+    name: whoisfreaks-swift
+    version: v0.21.0
+    url: https://github.com/WhoisFreaks/whoisfreaks-swift
+    install: '.package(url: "https://github.com/WhoisFreaks/whoisfreaks-swift.git", from: "0.21.0")'
+    source: https://github.com/WhoisFreaks/whoisfreaks-swift
+    official: true
+    published: true
+    note: Distributed straight from the git repository; SwiftPM has no central registry.
+  - language: php
+    registry: packagist
+    name: WhoisFreaks/whoisfreaks-php
+    url: https://github.com/WhoisFreaks/whoisfreaks-php
+    install: composer require WhoisFreaks/whoisfreaks-php
+    source: https://github.com/WhoisFreaks/whoisfreaks-php
+    official: true
+    published: false
+    probe: {url: 'https://packagist.org/packages/whoisfreaks/whoisfreaks-php.json', status: 404}
+    note: >-
+      The official SDK docs publish `composer require WhoisFreaks/whoisfreaks-php`,
+      but the package did not resolve on Packagist on 2026-08-09 (404). The only
+      Packagist result for the term is the third-party qasimleoo/whoisfreaks-php.
+      Install from the GitHub repository until the vendor registers it.
+tools:
+  - language: go
+    registry: github
+    name: whoisfreaks-cli
+    url: https://github.com/WhoisFreaks/whoisfreaks-cli
+    kind: cli
+    official: true
+    see: cli/whoisfreaks-cli.yml
+  - language: typescript
+    registry: npm
+    name: n8n-nodes-whoisfreaks
+    url: https://www.npmjs.com/package/n8n-nodes-whoisfreaks
+    install: npm install n8n-nodes-whoisfreaks
+    source: https://github.com/WhoisFreaks/n8n-nodes-whoisfreaks
+    kind: workflow-node
+    official: true
+    published: true
+    probe: {url: 'https://registry.npmjs.org/n8n-nodes-whoisfreaks', status: 200}
+  - language: javascript
+    registry: github
+    name: ip-reputation-middleware
+    url: https://github.com/WhoisFreaks/ip-reputation-middleware
+    kind: middleware
+    description: Node.js/Express middleware for IP reputation checks and bot blocking.
+    official: true
+third_party:
+  - language: php
+    registry: packagist
+    name: qasimleoo/whoisfreaks-php
+    url: https://packagist.org/packages/qasimleoo/whoisfreaks-php
+    official: false

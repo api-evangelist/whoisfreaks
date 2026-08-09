@@ -1,0 +1,174 @@
+# WhoisFreaks
+> WHOIS Lookup, Domain Intelligence & DNS APIs
+
+WhoisFreaks provides WHOIS lookup, historical WHOIS, bulk WHOIS, DNS lookup, SSL lookup, and domain intelligence APIs for developers, researchers, and security professionals.
+
+## Root Pages
+
+- [Home](https://whoisfreaks.com/): Main landing page: WHOIS and domain intelligence overview.
+- [API Pricing](https://whoisfreaks.com/pricing): Current pricing plans and request limits for all APIs.
+- [API Documentation Hub](https://whoisfreaks.com/documentation): Full documentation index for all WhoisFreaks APIs.
+- [Resources](https://whoisfreaks.com/resources): Blogs, Guides, Domain Analytics and Tutorials
+- [Tools](https://whoisfreaks.com/tools): Tools for WHOIS lookup, DNS lookup, reverse WHOIS search, and many more.
+- [About Us](https://whoisfreaks.com/about): Company overview and mission.
+- [Contact](https://whoisfreaks.com/contact): Support and sales contact information.
+- [Terms of Service](https://whoisfreaks.com/terms): Terms of service and acceptable-use policy.
+- [Privacy Policy](https://whoisfreaks.com/privacy-policy): Privacy policy and data handling disclosures.
+- [Site Navigation](https://whoisfreaks.com/site-navigation): Overview of website structure, pages, and navigation links.
+- [Demo](https://whoisfreaks.com/demo): Interactive demonstration of features, APIs, and tools available on the site.
+- [Integrations](https://whoisfreaks.com/integrations): Overview of all available integrations, including third-party apps, SDKs, and automation tools.
+- [Resellers & Affiliates](https://whoisfreaks.com/resellers-and-affiliates): Information about the WhoisFreaks reseller and affiliate program.
+- [Supported TLDs](https://whoisfreaks.com/supported-tlds): List of all top-level domains (TLDs) supported by WhoisFreaks APIs and databases.
+- [Uptime Status](https://whoisfreaks.com/uptime-status): Real-time and historical uptime status for all WhoisFreaks services and APIs.
+
+## API Pages
+
+- [Whois API](https://whoisfreaks.com/products/whois-api): Retrieve WHOIS records and detailed domain registration data.
+- [Whois History API](https://whoisfreaks.com/products/whois-history-api): Access historical WHOIS records to track past domain ownership and registration changes over time.
+- [Bulk Whois API](https://whoisfreaks.com/products/bulk-whois-api): Perform bulk WHOIS queries for multiple domains simultaneously for efficient data retrieval.
+- [Reverse Whois API](https://whoisfreaks.com/products/reverse-whois-api): Returns every domain registered to a given email, registrant name, organization, or 3 to 63 character domain keyword, across 4.1B+ current and historical WHOIS records dating back to 1986. Regex supported on email, exact match on keyword, owner, and company. Paginated at 50 records per page or 100 in mini mode, JSON or XML, 10 requests per minute, 500 free credits on signup. Used for threat actor infrastructure pivots, cybersquatting discovery, M&A due diligence, and CRM enrichment. For a single browser search use the Reverse WHOIS Lookup tool; for ongoing daily alerts on a registrant use Registrant Monitoring.
+- [DNS Checker API](https://whoisfreaks.com/products/dns-checker-api): Check and validate DNS records across global resolvers.
+- [Domain Availability API](https://whoisfreaks.com/products/domain-availability-api): Verify domain name availability in real time.
+- [IP Geolocation API](https://whoisfreaks.com/products/ip-geolocation-api): Get geographic location and network details for IP addresses.
+- [IP Reputation API](https://whoisfreaks.com/products/ip-security-api): Detect proxies, VPNs, bots, and malicious IP activity.
+- [SSL Certificate API](https://whoisfreaks.com/products/ssl-certificate-api): Fetch SSL certificate details and validation information.
+- [Subdomain API](https://whoisfreaks.com/products/subdomains-api): Discover and enumerate subdomains for a given domain.
+- [ASN Whois API](https://whoisfreaks.com/products/asn-whois-api): Access WHOIS information for Autonomous System Numbers (ASNs) via API.
+- [IP Whois API](https://whoisfreaks.com/products/ip-whois-api): Retrieve WHOIS and registration details for IP addresses programmatically.
+
+## Monitoring Pages
+
+- [Brand Monitoring](https://whoisfreaks.com/products/brand-monitoring): Domain brand monitoring across 1528+ TLDs. Twice-daily scans detect lookalikes, typosquats, homoglyphs, and unauthorized trademark registrations with full WHOIS records per alert. Used by IP teams for UDRP evidence, security teams for phishing takedown, and marketing teams for brand protection.
+- [Domain Monitoring](https://whoisfreaks.com/products/domain-monitoring): WHOIS-record monitoring for any domain across 1528+ TLDs. Checks as frequent as every 10 minutes detect changes to registrant, registrar, nameservers, status codes, and expiry. Email and Telegram alerts. Used by security teams for hijack detection, domain owners for unauthorized-modification alerts, and domain investors for drop and re-registration tracking. Does not monitor HTTP uptime or DNS health.
+- [Registrant Monitoring](https://whoisfreaks.com/products/registrant-monitoring): Daily alerts on every new domain registered, updated, or dropped by a name, email, organization, phone, or postal code across 1528+ TLDs. Full WHOIS record per alert, by email and as JSON. Used by security teams for threat actor attribution and OSINT, brand teams for cybersquatting, legal teams for UDRP and trademark evidence, and competitive intelligence teams. Does not monitor a single domain (use Domain Monitoring) or run one-time lookups (use Reverse WHOIS API).
+
+## Database Pages
+
+- [DNS Database](https://whoisfreaks.com/products/dns-database): Access historical and current DNS records including A, MX, NS, TXT, and other record types.
+- [Expired & Dropped Domains](https://whoisfreaks.com/products/expiring-dropped-domains): Explore expiring and recently dropped domains for acquisition and research purposes.
+- [IP Geolocation Database](https://whoisfreaks.com/products/ip-geolocation-database): Download comprehensive IP geolocation datasets including country, region, city, and ISP data.
+- [Newly Registered Domains](https://whoisfreaks.com/products/newly-registered-domains): Daily feed of newly registered domains across 1528+ TLDs with WHOIS and DNS enrichment, delivered twice daily as CSV or REST API. Used by security teams for phishing detection, brand teams for cybersquatting alerts, and registrars for acquisition signals.
+- [Security Database](https://whoisfreaks.com/products/security-database): Identify malicious IPs, proxies, VPNs, TOR nodes, and other security-related intelligence data.
+- [Subdomain Database](https://whoisfreaks.com/products/subdomains-database): Retrieve large-scale subdomain datasets for reconnaissance and research.
+- [Whois Database](https://whoisfreaks.com/products/whois-database): Access extensive WHOIS records including historical domain ownership and registration details.
+- [IP Security Database](https://whoisfreaks.com/products/ip-security-database): Comprehensive database of IP addresses with security-related information and threat scoring.
+- [ASN Whois Database](https://whoisfreaks.com/products/whois-database/asn-whois-database): Complete historical and current ASN WHOIS records for research and monitoring.
+- [Country Whois Database](https://whoisfreaks.com/products/whois-database/country): WHOIS database filtered by country for domain registration and analytics purposes.
+- [IP Whois Database](https://whoisfreaks.com/products/whois-database/ip-whois-database): Comprehensive IP address WHOIS database for bulk and historical lookups.
+- [Registrar Whois Database](https://whoisfreaks.com/products/whois-database/registrar): WHOIS database organized by domain registrar for tracking and analytics.
+- [TLD Whois Database](https://whoisfreaks.com/products/whois-database/tld): WHOIS database filtered by top-level domains (TLDs) for research and monitoring.
+
+## Tools
+
+### Whois API Tools Pages
+
+- [Lookup](https://whoisfreaks.com/tools/whois/lookup): Perform real-time WHOIS lookups to retrieve domain registration and ownership details.
+- [History](https://whoisfreaks.com/tools/whois/history/lookup): Access historical WHOIS records to track domain ownership and registration changes over time.
+- [Reverse](https://whoisfreaks.com/tools/whois/reverse/search): Conduct reverse WHOIS searches to find domains associated with a specific registrant.
+- [IP Lookup](https://whoisfreaks.com/tools/ip-whois/lookup): Retrieve WHOIS information and ownership details for IP addresses.
+- [ASN Lookup](https://whoisfreaks.com/tools/asn-whois/lookup): Look up Autonomous System Number (ASN) details including network and organization information.
+
+### DNS API Tools Pages
+
+- [Lookup](https://whoisfreaks.com/tools/dns/lookup): Query DNS records including A, AAAA, CNAME, MX, TXT, and other standard record types.
+- [History](https://whoisfreaks.com/tools/dns/history/lookup): Access historical DNS records to track changes in domain configurations over time.
+- [Reverse](https://whoisfreaks.com/tools/dns/reverse/lookup): Perform reverse DNS lookups to identify domains associated with a specific IP address.
+- [NS Lookup](https://whoisfreaks.com/tools/dns/ns-lookup): Retrieve authoritative name server (NS) records for a given domain.
+- [MX Lookup](https://whoisfreaks.com/tools/dns/mx-lookup): Check mail exchange (MX) records to identify email routing servers for a domain.
+
+### Other Tools Pages
+
+- [SSL Lookup](https://whoisfreaks.com/tools/ssl/lookup): Retrieve SSL certificate details including issuer, validity period, and encryption information.
+- [Domain Availability](https://whoisfreaks.com/tools/domain/availability): Check domain name availability across multiple TLDs in real time.
+- [Domain Typosquats](https://whoisfreaks.com/tools/domain/typos): Discover registered and taken domains based on keyword searches.
+- [Subdomain Lookup](https://whoisfreaks.com/tools/subdomains/lookup): Identify and enumerate subdomains associated with a given domain.
+- [IP Reputation Lookup](https://whoisfreaks.com/tools/ip-security/lookup): Analyze IP or domain security data including proxy, VPN, TOR, and threat indicators.
+- [IP Geolocation Lookup](https://whoisfreaks.com/tools/ip-geolocation/lookup): Get IP geolocation details such as country, region, city, and ISP information.
+
+## Pricing Pages
+
+- [Whois Database](https://whoisfreaks.com/pricing/whois-database): Choose pricing plans for accessing comprehensive WHOIS database records.
+- [Country](https://whoisfreaks.com/pricing/whois-database/country): Plans for accessing WHOIS data filtered by country.
+- [Registrar](https://whoisfreaks.com/pricing/whois-database/registrar): Plans for accessing WHOIS data filtered by registrar.
+- [TLD](https://whoisfreaks.com/pricing/whois-database/tld): Plans for accessing WHOIS data filtered by top-level domain.
+- [API Plans](https://whoisfreaks.com/pricing/api-plans): Choose API subscription plans for various domain and IP services.
+- [ASN Database](https://whoisfreaks.com/pricing/asn-database): Pricing for accessing ASN database and related network information.
+- [DNS Database](https://whoisfreaks.com/pricing/dns-database): Pricing plans for querying and downloading DNS database records.
+- [Expiring Dropped Domains](https://whoisfreaks.com/pricing/expiring-dropped-domains): Plans for accessing expiring and dropped domain datasets.
+- [IP Whois Database](https://whoisfreaks.com/pricing/ip-whois-database): Pricing for IP WHOIS and security database access.
+- [Monitoring Packages](https://whoisfreaks.com/pricing/monitoring-packages): Plans for brand, domain, and registrant monitoring services.
+- [Newly Registered Domains](https://whoisfreaks.com/pricing/newly-registered-domains): Plans for accessing lists of newly registered domains.
+- [Subdomain Database](https://whoisfreaks.com/pricing/subdomain-database): Pricing for subdomain database access and lookup services.
+- [IP Geolocation Database](https://whoisfreaks.com/pricing/ip-geolocation-database): Pricing details and plan limits for the IP Geolocation Database subscription.
+- [IP Security Database](https://whoisfreaks.com/pricing/ip-security-database): Pricing details and plan limits for the IP Security Database subscription.
+
+## Documentation
+
+### Whois API Documentation
+
+- [Whois API](https://whoisfreaks.com/documentation/whois-api): Complete documentation for the WhoisFreaks WHOIS API including live lookup, IP lookup, and ASN lookup.
+- [Historical Lookup](https://whoisfreaks.com/documentation/whois-history-api): Access historical WHOIS records to track past domain ownership and registration changes.
+- [Reverse Lookup](https://whoisfreaks.com/documentation/reverse-whois-api): Find domains associated with a specific registrant or entity using reverse WHOIS queries.
+- [Bulk Domain Lookup](https://whoisfreaks.com/documentation/bulk-whois-api): Perform bulk WHOIS queries for multiple domains simultaneously.
+- [IP Whois API](https://whoisfreaks.com/documentation/ip-whois-api): Full documentation for retrieving WHOIS and registration details for IP addresses.
+- [ASN Whois API](https://whoisfreaks.com/documentation/asn-whois-api): Documentation for looking up Autonomous System Number (ASN) WHOIS details via API.
+- [Whois Database](https://whoisfreaks.com/documentation/whois-database): Documentation for accessing and querying the WhoisFreaks WHOIS database.
+- [ASN Whois Database](https://whoisfreaks.com/documentation/whois-database/asn-whois-database): Documentation for accessing historical and current ASN WHOIS database records.
+- [IP Whois Database](https://whoisfreaks.com/documentation/whois-database/ip-whois-database): Documentation for bulk and historical IP address WHOIS database lookups.
+
+### DNS API Documentation
+
+- [DNS Checker API](https://whoisfreaks.com/documentation/dns-checker-api): Complete documentation for the DNS Checker API including live, historical, reverse, and bulk lookups.
+- [DNS Database](https://whoisfreaks.com/documentation/dns-database): Documentation for accessing and querying historical and current DNS records from the database.
+
+### Other Documentation
+
+- [API Key Rotation](https://whoisfreaks.com/documentation/api-key-rotation): Guide on how to rotate your API keys safely and manage access.
+- [API Rate Limiting](https://whoisfreaks.com/documentation/api-rate-limiting): Understand per-minute request limits, response headers, handling 429 errors, and best practices for pacing API calls.
+- [Credit Usage](https://whoisfreaks.com/documentation/credit-usage): Instructions on monitoring and managing your API credit usage.
+- [Surcharge Usage](https://whoisfreaks.com/documentation/surcharge-usage): Details on surcharge application and tracking for your account usage.
+- [Domain Availability API](https://whoisfreaks.com/documentation/domain-availability-api): Documentation for checking single and bulk domain availability in real time using the API.
+- [IP Geolocation API](https://whoisfreaks.com/documentation/ip-geolocation-api): Documentation for retrieving geographic location and network details for IP addresses.
+- [IP Geolocation Database](https://whoisfreaks.com/documentation/ip-geolocation-database): Documentation for downloading and querying comprehensive IP geolocation datasets.
+- [IP Reputation API](https://whoisfreaks.com/documentation/ip-security-api): Documentation for detecting proxies, VPNs, bots, and malicious IP activity via the security API.
+- [IP Security Database](https://whoisfreaks.com/documentation/ip-security-database): Documentation for accessing IP addresses with security-related information and threat scoring.
+- [SSL Certificate API](https://whoisfreaks.com/documentation/ssl-certificate-api): Documentation for fetching SSL certificate details and validation information via API.
+- [Subdomains API](https://whoisfreaks.com/documentation/subdomains-api): Documentation for discovering and enumerating subdomains for a given domain.
+- [Subdomains Database](https://whoisfreaks.com/documentation/subdomains-database): Documentation for accessing large-scale subdomain datasets for reconnaissance and research.
+- [Newly Registered Domains](https://whoisfreaks.com/documentation/newly-registered-domains): Documentation for accessing continuously updated lists of newly registered domains.
+- [Expiring & Dropped Domains](https://whoisfreaks.com/documentation/expiring-dropped-domains): Documentation for exploring expiring and recently dropped domains for acquisition and research.
+- [Error Codes](https://whoisfreaks.com/documentation/errors): Reference guide for all API error codes, their meanings, and recommended handling strategies.
+
+## Resources Pages
+
+- [Blog](https://whoisfreaks.com/resources/blog): Read articles, insights, and industry updates related to domains, security, and web intelligence.
+- [Domain Analytics](https://whoisfreaks.com/resources/domain-analytic): Explore domain trends, analytics, and data-driven insights for research and monitoring.
+- [Guide](https://whoisfreaks.com/resources/guide): Step-by-step guides to help you understand domain, DNS, and IP intelligence tools.
+- [Tutorials](https://whoisfreaks.com/resources/tutorial): Practical tutorials and walkthroughs for using APIs, tools, and databases effectively.
+
+## Partner Pages
+
+- [50Pros Partner](https://whoisfreaks.com/partners/50pros): WhoisFreaks partnership page with 50Pros network for domain and web intelligence services.
+
+## Additional Pages
+
+- [/connectors-privacy-policy](https://whoisfreaks.com/connectors-privacy-policy)
+- [/documentation/database-file-status](https://whoisfreaks.com/documentation/database-file-status)
+- [/documentation/domain-reputation-api](https://whoisfreaks.com/documentation/domain-reputation-api)
+- [/documentation/domain-typosquats-api](https://whoisfreaks.com/documentation/domain-typosquats-api)
+- [/documentation/threat-intelligence-feed](https://whoisfreaks.com/documentation/threat-intelligence-feed)
+- [/integrations/sdk/go](https://whoisfreaks.com/integrations/sdk/go)
+- [/integrations/sdk/python](https://whoisfreaks.com/integrations/sdk/python)
+- [/integrations/third-party/postman-collection](https://whoisfreaks.com/integrations/third-party/postman-collection)
+- [/products/domain-reputation-api](https://whoisfreaks.com/products/domain-reputation-api)
+- [/products/domain-typosquats-api](https://whoisfreaks.com/products/domain-typosquats-api)
+- [/products/threat-intelligence-feed](https://whoisfreaks.com/products/threat-intelligence-feed)
+
+## Social Media Links
+
+- [GitHub](https://github.com/WhoisFreaks): SDK repositories, sample code, and developer resources.
+- [LinkedIn](https://www.linkedin.com/company/whoisfreaks/): Company profile, updates, and professional networking.
+- [X](https://x.com/whoisfreaks): Official updates, announcements, and support via X (formerly Twitter).
+- [Facebook](https://www.facebook.com/profile.php?id=100064752292525): Community page, news, and company updates.
+
+_Generated on: 2026-08-07T16:26:12.009Z_

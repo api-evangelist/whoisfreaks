@@ -1,0 +1,68 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for WhoisFreaks API
+  version: 1.0.0
+extends: openapi/whoisfreaks-openapi-original.yml
+x-provenance:
+  generated: '2026-08-09'
+  method: generated
+  source: >-
+    Derived from the harvested spec plus the searched docs surface
+    (rate limiting, error codes, uptime status, pricing). The original spec is
+    never mutated.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: whoisfreaks
+      x-apievangelist-source: https://raw.githubusercontent.com/WhoisFreaks/wf-sdks-docs/main/spec/whoisfreaks-openapi.yaml
+      x-apievangelist-harvested: '2026-08-09'
+      x-apievangelist-artifacts:
+        authentication: authentication/whoisfreaks-authentication.yml
+        conventions: conventions/whoisfreaks-conventions.yml
+        errors: errors/whoisfreaks-problem-types.yml
+        lifecycle: lifecycle/whoisfreaks-lifecycle.yml
+        rate_limits: rate-limits/whoisfreaks-rate-limits.yml
+        plans: plans/whoisfreaks-plans.yml
+        mcp: mcp/whoisfreaks-mcp.yml
+        crosswalk: mcp/whoisfreaks-tool-crosswalk.yml
+        skills: skills/_index.yml
+  - target: $.info
+    update:
+      x-rate-limit-headers:
+        allowed: x-ratelimit-allowed-requests
+        remaining: x-ratelimit-remaining-requests
+        reset: x-ratelimit-remaining-time
+        reset_unit: nanoseconds
+      x-rate-limit-classes:
+        live: 80 rpm
+        bulk: 20 rpm
+        historical-reverse: 10 rpm
+      x-rate-limit-docs: https://whoisfreaks.com/documentation/api-rate-limiting
+  - target: $.info
+    update:
+      x-error-catalog: https://whoisfreaks.com/documentation/errors
+      x-error-envelope:
+        fields: [timestamp, status, error, message, path]
+        media_type: application/json
+        rfc9457: false
+  - target: $.info
+    update:
+      x-status-page: https://whoisfreaks.com/uptime-status
+      x-sla-uptime-target: 99.99%
+      x-sla-source: https://whoisfreaks.com/terms
+  - target: $.components.securitySchemes.ApiKeyAuth
+    update:
+      x-key-rotation-docs: https://whoisfreaks.com/documentation/api-key-rotation
+      x-key-transport-warning: >-
+        The API key travels as a URL query parameter on every request, so it is
+        exposed to proxy logs, browser history and Referer headers. WhoisFreaks
+        documents a rotation endpoint (rotateApiKey) as the mitigation; a header
+        or Authorization-based scheme would remove the exposure.
+  - target: $.tags
+    update:
+      x-apievangelist-tag-note: >-
+        Tag families split cleanly into live lookup APIs (WHOIS, DNS, SSL,
+        Geolocation, IP/Domain Reputation, Subdomains, Domain Availability,
+        Typosquatting, ASN/IP WHOIS) and bulk file surfaces (Databases - *,
+        Threat Feed), which are served from a separate host,
+        https://files.whoisfreaks.com.

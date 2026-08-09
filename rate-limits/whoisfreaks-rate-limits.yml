@@ -1,0 +1,53 @@
+generated: '2026-08-09'
+method: searched
+source: https://whoisfreaks.com/documentation/api-rate-limiting
+sources:
+  - https://whoisfreaks.com/documentation/api-rate-limiting
+  - https://whoisfreaks.com/pricing/api-plans
+model: per-minute request ceilings, tiered by endpoint class and by plan size
+headers:
+  - name: x-ratelimit-allowed-requests
+    meaning: The request ceiling for the current window.
+  - name: x-ratelimit-remaining-requests
+    meaning: Requests remaining before throttling begins.
+  - name: x-ratelimit-remaining-time
+    meaning: Time until the window resets, expressed in NANOSECONDS (divide by 1e9 for seconds).
+throttled_response:
+  status: 429
+  consumes_credits: false
+  headers_present: true
+  retry_guidance: >-
+    Sleep for the converted remaining-time plus a 100–250ms buffer rather than
+    retrying immediately. Prefer reading the headers over client-side counting.
+rate_limits:
+  - class: live
+    description: Lightweight live lookups — WHOIS live, DNS live, SSL, geolocation, IP reputation, domain availability, subdomains.
+    limit_count: 80
+    limit_interval: minute
+    plan: 50K credits (one-time, monthly, or yearly)
+    source: https://whoisfreaks.com/pricing/api-plans
+  - class: bulk
+    description: Bulk POST queries — bulk WHOIS, bulk DNS, bulk domain availability, bulk geolocation, bulk IP reputation.
+    limit_count: 20
+    limit_interval: minute
+    plan: 50K credits (one-time, monthly, or yearly)
+    source: https://whoisfreaks.com/pricing/api-plans
+  - class: historical-reverse
+    description: Historical and reverse queries — WHOIS history, reverse WHOIS, DNS history, reverse DNS.
+    limit_count: 10
+    limit_interval: minute
+    plan: 50K credits (one-time, monthly, or yearly)
+    source: https://whoisfreaks.com/pricing/api-plans
+  - class: bulk-list-size
+    description: Maximum entries accepted in a single bulk request body.
+    limit_count: 100
+    limit_interval: request
+    source: https://whoisfreaks.com/documentation/errors
+    note: Exceeding this returns HTTP 413.
+notes:
+  - Limits scale with plan size; Enterprise plans are individually negotiated.
+  - The rate-limiting documentation page itself publishes no per-plan table —
+    the concrete 80/20/10 rpm figures above are read off the 50K-credit plan
+    cards on the pricing page.
+  - Reverse WHOIS product pages independently state 10 requests per minute,
+    consistent with the historical-reverse class.

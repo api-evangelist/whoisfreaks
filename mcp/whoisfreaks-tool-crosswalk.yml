@@ -1,0 +1,152 @@
+generated: '2026-08-09'
+method: derived
+source: mcp/whoisfreaks-mcp.yml + openapi/whoisfreaks-openapi-original.yml
+summary: >-
+  The WhoisFreaks MCP server is a thin, hand-curated projection of the live
+  lookup half of the REST API. Every one of its 14 tools binds cleanly to a
+  single REST operationId — there are no MCP-only composites — but the MCP
+  surface covers only 14 of the 60 published operations. The entire bulk
+  database, threat-feed, and account-utility surface (32 download/status
+  operations plus 2 account operations) has no agent-facing tool, and neither do
+  any of the bulk POST endpoints.
+surfaces:
+  openapi:
+    file: openapi/whoisfreaks-openapi-original.yml
+    version: 3.0.3
+    operations: 60
+    servers: [https://api.whoisfreaks.com, https://files.whoisfreaks.com]
+    gated: false
+  mcp:
+    manifest: mcp/whoisfreaks-mcp.yml
+    url: null
+    transport: [stdio, http-sse]
+    gated: true
+    note: >-
+      No vendor-hosted endpoint, so tools/list cannot be called anonymously.
+      Tool names and input schemas were read from the server's own Java sources
+      and smithery.yaml, so the bindings below are high-confidence rather than
+      name-matched guesses.
+  graphql:
+    endpoint: null
+crosswalk:
+  - tool: liveWhoisLookup
+    category: whois
+    rest: [whoisLive]
+    binding: rest
+    confidence: high
+    note: GET /v2.0/whois/live — the tool's domainName/format map to the operation's domainName/format query params.
+  - tool: whoisHistory
+    category: whois
+    rest: [whoisHistory]
+    binding: rest
+    confidence: high
+    note: GET /v2.0/whois/history
+  - tool: reverseWhoisLookup
+    category: whois
+    rest: [whoisReverse]
+    binding: rest
+    confidence: high
+    note: GET /v2.0/whois/reverse — email/keyword/owner/company/mode/exact/page all present as query params.
+  - tool: ipWhoisLookup
+    category: ip
+    rest: [ipWhois]
+    binding: rest
+    confidence: high
+    note: GET /v1.0/ip-whois
+  - tool: asnWhoisLookup
+    category: ip
+    rest: [asnWhois]
+    binding: rest
+    confidence: high
+    note: GET /v2.0/asn-whois
+  - tool: dnsLookup
+    category: dns
+    rest: [dnsLive]
+    binding: rest
+    confidence: high
+    note: GET /v2.0/dns/live
+  - tool: dnsHistory
+    category: dns
+    rest: [dnsHistorical]
+    binding: rest
+    confidence: high
+    note: GET /v2.0/dns/historical
+  - tool: reverseDnsLookup
+    category: dns
+    rest: [dnsReverse]
+    binding: rest
+    confidence: high
+    note: GET /v2.1/dns/reverse — the tool's `value` is the operation's reverse-lookup value param.
+  - tool: ipGeolocation
+    category: ip
+    rest: [geolocation]
+    binding: rest
+    confidence: high
+    note: GET /v1.0/geolocation — the tool exposes only `ip`, dropping the operation's optional params.
+  - tool: ipSecurity
+    category: ip
+    rest: [ipReputation]
+    binding: rest
+    confidence: high
+    note: GET /v1.0/security
+  - tool: sslLookup
+    category: ssl
+    rest: [sslLookup]
+    binding: rest
+    confidence: high
+    note: GET /v1.0/ssl/live — chain/sslRaw map to the operation's chain and sslRaw params.
+  - tool: domainAvailability
+    category: domain
+    rest: [domainAvailabilityV2]
+    binding: rest
+    confidence: high
+    note: GET /v2.0/domain/availability — suggestions/count map through; the bulk POST variant is not exposed.
+  - tool: subdomainLookup
+    category: domain
+    rest: [subdomains]
+    binding: rest
+    confidence: high
+    note: GET /v1.0/subdomains
+  - tool: domainDiscovery
+    category: domain
+    rest: [typosquatting]
+    binding: rest
+    confidence: medium
+    note: >-
+      GET /v3.0/domain/typos. The tool is named for discovery rather than
+      typosquatting and takes keyword/pattern/labelLength/page; those are the
+      typosquatting operation's parameters, but the naming divergence means the
+      binding is asserted on parameter shape rather than an identical label.
+mcp_only: []
+rest_only:
+  - capability: Bulk lookups
+    operations: [bulkWhois, dnsBulk, bulkDomainAvailabilityV2, bulkGeolocation, bulkIpReputation]
+    reason: The MCP server exposes only single-subject GET lookups; no bulk POST endpoint has a tool.
+  - capability: Domain reputation
+    operations: [domainReputation]
+    reason: No tool — the MCP server covers IP reputation but not domain reputation.
+  - capability: Account utilities
+    operations: [rotateApiKey, accountUsage, databaseFileStatus]
+    reason: Key rotation, credit usage and database file status are not agent-exposed.
+  - capability: Databases — newly registered domains
+    operations: [dbNewlyGtld, dbNewlyCctld, dbNewlyGtldCleaned, dbNewlyCctldCleaned, dbNewlyGtldJson, dbNewlyCctldJson, dbNewlyDns]
+    reason: Bulk CSV/JSON download surface; no tools.
+  - capability: Databases — expiring & dropped
+    operations: [dbExpired, dbExpiredCleaned, dbDropped, dbDroppedJson, dbDroppedBacklinks]
+    reason: Bulk download surface; no tools.
+  - capability: Databases — WHOIS / DNS / subdomains snapshots
+    operations: [dbWhoisDaily, dbWhoisWeekly, dbWhoisMonthly, dbDnsDaily, dbDnsWeekly, dbDnsMonthly, dbSubdomainsDaily, dbSubdomainsWeekly, dbSubdomainsMonthly]
+    reason: Bulk download surface; no tools.
+  - capability: Databases — IP / ASN snapshots
+    operations: [dbIpCountry, dbIpCountryStatus, dbIpCity, dbIpCityStatus, dbAsnWhois, dbAsnWhoisStatus, dbIpWhois, dbIpWhoisStatus, dbIpSecurity, dbIpSecurityStatus]
+    reason: Bulk snapshot download + status surface; no tools.
+  - capability: Threat feeds
+    operations: [downloadThreatFeedPhishing, downloadThreatFeedPhishingSample, downloadThreatFeedMalware, downloadThreatFeedMalwareSample, downloadThreatFeedSpam, downloadThreatFeedSpamSample]
+    reason: Daily CSV feed downloads; no tools.
+coverage:
+  tools_named: 14
+  tools_bound: 14
+  mcp_only: 0
+  rest_operations_total: 60
+  rest_operations_with_tool: 14
+  rest_coverage_pct: 23

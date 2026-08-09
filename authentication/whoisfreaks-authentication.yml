@@ -1,0 +1,67 @@
+generated: '2026-08-09'
+method: searched
+source: openapi/whoisfreaks-openapi-original.yml
+docs: https://whoisfreaks.com/documentation/api-key-rotation
+sources:
+  - openapi/whoisfreaks-openapi-original.yml
+  - https://whoisfreaks.com/documentation/api-key-rotation
+  - https://whoisfreaks.com/documentation/credit-usage
+summary:
+  types:
+    - apiKey
+  api_key_in:
+    - query
+  oauth2_flows: []
+  openid_connect: false
+  mutual_tls: false
+schemes:
+  - name: ApiKeyAuth
+    type: apiKey
+    in: query
+    parameter: apiKey
+    applied: globally (root-level `security` in the OpenAPI, inherited by all 60 operations)
+    sources:
+      - openapi/whoisfreaks-openapi-original.yml
+obtaining_a_key:
+  signup: https://whoisfreaks.com/signup
+  console: https://billing.whoisfreaks.com
+  free_grant: 500 credits on signup
+key_management:
+  rotation_docs: https://whoisfreaks.com/documentation/api-key-rotation
+  rotation_operation: rotateApiKey
+  rotation_path: GET /v1.0/api-key/rotate
+  rotation_note: >-
+    Rotation is itself a GET authenticated by the current key; it returns
+    text/plain and answers "Not allowed" with 401 when the caller is not
+    entitled. It is the one non-idempotent operation on the API — calling it
+    twice invalidates the key you just issued.
+  scopes: none — a key is all-or-nothing across every product
+  multiple_keys: not documented
+  ip_allowlisting: not documented
+  expiry: not documented
+sdk_conventions:
+  env_var: WHOISFREAKS_API_KEY
+  used_by: [whoisfreaks-cli, whoisfreaks-mcp-server]
+  go_sdk: whois.SetAPIKey("…")
+failure_modes:
+  - {status: 401, meaning: 'invalid or inactive key, inactive subscription, deactivated account, or suspicious activity'}
+  - {status: 412, meaning: plan request limit exhausted}
+  - {status: 429, meaning: 'per-minute rate limit reached (not an auth failure)'}
+failure_modes_see: errors/whoisfreaks-problem-types.yml
+risk:
+  key_in_url: true
+  assessment: >-
+    Because the credential is a query parameter, it is recorded in web-server
+    and proxy access logs, CDN logs, browser history and Referer headers on any
+    redirect. There is no header-based or Authorization-scheme alternative, no
+    scoping, and no per-key restriction — so a leaked key grants the full
+    product surface and the full credit balance until it is rotated. The
+    rotation endpoint is the only compensating control published.
+  recommendation_for_provider: >-
+    Accept the key in an Authorization or X-API-Key header (query parameter
+    retained for compatibility), and add per-key scoping and IP allowlisting.
+gaps:
+  - No OAuth 2.0 / OIDC.
+  - No scopes or least-privilege keys.
+  - No documented key expiry or multi-key support.
+  - No /.well-known/oauth-authorization-server or openid-configuration (404 on both hosts).

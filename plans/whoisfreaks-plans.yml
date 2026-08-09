@@ -1,0 +1,76 @@
+generated: '2026-08-09'
+method: searched
+source: https://whoisfreaks.com/pricing/api-plans
+sources:
+  - https://whoisfreaks.com/pricing
+  - https://whoisfreaks.com/pricing/api-plans
+  - https://whoisfreaks.com/documentation/credit-usage
+  - https://whoisfreaks.com/documentation/surcharge-usage
+model: prepaid credits — every API call debits credits; three purchase shapes over the same credit tiers
+credit_tiers: [5000, 15000, 50000, 150000, 450000, 1000000, 3000000]
+plans:
+  - name: Free
+    type: free
+    price: 0
+    currency: USD
+    credits: 500
+    period: one-time on signup
+    description: 500 free API credits granted at signup, no card required.
+    url: https://whoisfreaks.com/signup
+  - name: API Credits (one-time)
+    type: one-time
+    price: 150
+    currency: USD
+    credits: 50000
+    period: lifetime (non-expiring)
+    rate_limits: {live: 80/min, bulk: 20/min, historical_reverse: 10/min}
+    description: One-time prepaid credit pack; credits never expire. Priced example is the 50K tier.
+    url: https://whoisfreaks.com/pricing/api-plans
+  - name: Monthly Subscription
+    type: subscription
+    price: 75
+    currency: USD
+    period: month
+    credits: 50000
+    credits_period: month
+    overage: {price: 0.0030, currency: USD, unit: credit, cap: unlimited}
+    rollover: false
+    rate_limits: {live: 80/min, bulk: 20/min, historical_reverse: 10/min}
+    description: Monthly credit allotment; unused credits expire at period end. Priced example is the 50K tier.
+    url: https://whoisfreaks.com/pricing/api-plans
+  - name: Yearly Subscription
+    type: subscription
+    price: 63
+    currency: USD
+    period: month (billed yearly)
+    credits: 50000
+    credits_period: month
+    discount: two months free versus the $75 monthly rate
+    overage: {price: 0.0025, currency: USD, unit: credit, cap: unlimited}
+    rate_limits: {live: 80/min, bulk: 20/min, historical_reverse: 10/min}
+    description: Annual commitment at a discounted effective monthly rate. Priced example is the 50K tier.
+    url: https://whoisfreaks.com/pricing/api-plans
+  - name: Enterprise
+    type: custom
+    price: null
+    description: Custom credit volumes and negotiated rate limits; contact sales.
+    url: https://whoisfreaks.com/contact
+separate_catalogs:
+  - {name: WHOIS Database, url: 'https://whoisfreaks.com/pricing/whois-database'}
+  - {name: DNS Database, url: 'https://whoisfreaks.com/pricing/dns-database'}
+  - {name: Subdomain Database, url: 'https://whoisfreaks.com/pricing/subdomain-database'}
+  - {name: IP Geolocation Database, url: 'https://whoisfreaks.com/pricing/ip-geolocation-database'}
+  - {name: IP Security Database, url: 'https://whoisfreaks.com/pricing/ip-security-database'}
+  - {name: IP WHOIS Database, url: 'https://whoisfreaks.com/pricing/ip-whois-database'}
+  - {name: ASN Database, url: 'https://whoisfreaks.com/pricing/asn-database'}
+  - {name: Newly Registered Domains, url: 'https://whoisfreaks.com/pricing/newly-registered-domains'}
+  - {name: Expiring & Dropped Domains, url: 'https://whoisfreaks.com/pricing/expiring-dropped-domains'}
+  - {name: Monitoring Packages, url: 'https://whoisfreaks.com/pricing/monitoring-packages'}
+notes:
+  - Credits are consumed per call, with surcharges on some record types — see
+    https://whoisfreaks.com/documentation/surcharge-usage.
+  - Live usage and remaining credits are readable programmatically via the
+    accountUsage operation (GET /v1.0/whoisapi/usage).
+  - Prices captured 2026-08-09 for the 50,000-credit tier; the other six credit
+    tiers are listed on the same page but their prices were not captured here
+    rather than estimated.

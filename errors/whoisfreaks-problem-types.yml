@@ -1,0 +1,115 @@
+generated: '2026-08-09'
+method: searched
+source: https://whoisfreaks.com/documentation/errors
+derived_from: openapi/whoisfreaks-openapi-original.yml
+format: vendor-json
+rfc9457: false
+envelope:
+  media_type: application/json
+  schema: openapi/whoisfreaks-openapi-original.yml#/components/schemas/ErrorResponse
+  fields:
+    - {name: timestamp, type: string, description: ISO 8601 timestamp of when the error occurred.}
+    - {name: status, type: mixed, description: 'HTTP status code. Deliberately untyped in the spec — may be an integer, boolean or string depending on the endpoint.'}
+    - {name: error, type: string, description: Error type/category, e.g. "Invalid Param Exception".}
+    - {name: message, type: string, description: Human-readable explanation, often with a support-contact suffix.}
+    - {name: path, type: string, description: The API path that produced the error.}
+  example: |
+    {
+      "timestamp": "2024-07-10T13:38:43.883Z",
+      "status": 400,
+      "error": "Invalid Param Exception",
+      "message": "Please pass domain param correct value[For Technical Support: support@whoisfreaks.com]",
+      "path": "/v1.0/domain/availability"
+    }
+  notes: >-
+    WhoisFreaks does not use application/problem+json and publishes no problem
+    `type` URIs, so there is no stable machine-identifier for an error class —
+    callers must branch on HTTP status plus the free-text `error` string. The
+    OpenAPI declares 4XX with an empty body for 44 of 60 operations, so the
+    documented catalogue below is richer than the spec.
+partial_success_codes:
+  - {status: 200, meaning: Request processed successfully.}
+  - {status: 206, meaning: Partial response — an error occurred while processing part of the request.}
+  - {status: 210, meaning: Cached response returned because the upstream WHOIS server failed to respond. Non-standard status code.}
+problems:
+  - status: 400
+    error: Invalid Param Exception
+    title: Bad Request
+    meaning: Invalid parameters — malformed domain, missing required field, invalid date range.
+    action: Validate parameter formats against the endpoint documentation before retrying; do not retry unchanged.
+    spec_operations: [domainAvailabilityV2, bulkDomainAvailabilityV2, typosquatting, domainReputation]
+  - status: 401
+    title: Unauthorized
+    meaning: >-
+      Invalid or inactive API key, inactive subscription, deactivated account,
+      exceeded limits, or suspicious activity detected on the account.
+    action: Check the key in the billing console; rotate it with the rotateApiKey operation if compromised. Not retryable.
+    spec_operations: [whoisLive, dnsLive, domainAvailabilityV2, bulkDomainAvailabilityV2, rotateApiKey]
+  - status: 403
+    title: Forbidden
+    meaning: Unsupported TLD or inactive domain extension for the requested lookup.
+    action: Check the supported TLD list at https://whoisfreaks.com/supported-tlds. Not retryable.
+  - status: 404
+    title: Not Found
+    meaning: Record, resource or certificate does not exist; IP not present in the database.
+    action: Treat as a legitimate empty result, not a failure. Not retryable.
+    spec_operations: [whoisLive, domainReputation]
+  - status: 405
+    title: Method Not Allowed
+    meaning: Only GET and POST methods are accepted.
+    action: Fix the client verb.
+  - status: 408
+    title: Request Timeout
+    meaning: Upstream WHOIS/DNS fetch failed or processing exceeded the window.
+    action: Retryable with backoff — a 210 cached response may be returned instead on a later attempt.
+  - status: 412
+    title: Payment Failure / Plan Limit
+    meaning: Exceeded the request limit of the purchased API plan.
+    action: Top up credits or upgrade the plan; see plans/whoisfreaks-plans.yml. Not retryable.
+  - status: 413
+    title: Payload Too Large
+    meaning: Request exceeded the size limit — bulk list longer than 100 entries.
+    action: Chunk the bulk request to 100 items or fewer.
+  - status: 423
+    title: Locked
+    meaning: A bogon (unroutable/reserved) IP range was supplied.
+    action: Filter bogon ranges client-side. Not retryable.
+  - status: 429
+    title: Too Many Requests
+    meaning: The per-minute request limit for the endpoint class was reached.
+    action: >-
+      Read x-ratelimit-remaining-time (nanoseconds), divide by 1e9, sleep that
+      long plus a 100–250ms buffer, then retry. Throttled requests do not consume
+      credits.
+    spec_operations: [whoisLive, dnsLive, domainAvailabilityV2, bulkDomainAvailabilityV2]
+    see: rate-limits/whoisfreaks-rate-limits.yml
+  - status: 499
+    title: Client Closed Request
+    meaning: The client-supplied timeout was too short and the connection was closed.
+    action: Raise the client timeout; historical and reverse queries are the slowest class.
+  - status: 500
+    title: Internal Server Error
+    meaning: Server-side failure.
+    action: Retry with exponential backoff; escalate to support@whoisfreaks.com if persistent.
+  - status: 502
+    title: Bad Gateway
+    meaning: Upstream gateway failure.
+    action: Retry with backoff.
+  - status: 503
+    title: Service Unavailable
+    meaning: Service temporarily unavailable — check https://whoisfreaks.com/uptime-status.
+    action: Retry with backoff.
+  - status: 504
+    title: Gateway Timeout
+    meaning: Upstream gateway timed out.
+    action: Retry with backoff.
+  - status: 505
+    title: HTTP Version Not Supported
+    meaning: The HTTP version used by the client is not supported.
+    action: Use HTTP/1.1 or HTTP/2.
+gaps:
+  - No RFC 9457 problem+json; no stable error `type` URIs.
+  - 44 of 60 operations declare only a bodyless `4XX` catch-all in the OpenAPI, so
+    the spec alone cannot drive typed error handling.
+  - No documented error `code` vocabulary — the ErrorResponse schema declares an
+    optional integer `code` but the docs publish no registry of its values.

@@ -1,0 +1,31 @@
+generated: '2026-08-09'
+method: generated
+source: openapi/whoisfreaks-openapi-original.yml
+note: >-
+  WhoisFreaks publishes no AGENTS.md or skill files of its own (probed
+  2026-08-09: /skills.md 404, /agents.md 404, AGENTS.md absent from the MCP
+  server and SDK docs repositories). These skills are generated from the
+  harvested 60-operation OpenAPI plus the searched conventions, rate-limit and
+  error documentation. Every operationId referenced was verified present in the
+  spec.
+skills:
+  - file: whoisfreaks-domain-due-diligence.md
+    name: Domain due diligence
+    api: openapi/whoisfreaks-openapi-original.yml
+    operations: [whoisLive, dnsLive, sslLookup, subdomains]
+  - file: whoisfreaks-threat-actor-pivot.md
+    name: Threat actor infrastructure pivot
+    api: openapi/whoisfreaks-openapi-original.yml
+    operations: [whoisLive, whoisHistory, whoisReverse, dnsLive, dnsReverse]
+  - file: whoisfreaks-ip-triage.md
+    name: IP address triage
+    api: openapi/whoisfreaks-openapi-original.yml
+    operations: [ipReputation, geolocation, ipWhois, asnWhois, bulkIpReputation, bulkGeolocation]
+  - file: whoisfreaks-brand-typosquat-sweep.md
+    name: Brand typosquat sweep
+    api: openapi/whoisfreaks-openapi-original.yml
+    operations: [typosquatting, domainAvailabilityV2, bulkDomainAvailabilityV2, whoisLive, dnsLive, domainReputation]
+  - file: whoisfreaks-feed-ingest.md
+    name: Bulk feed and database ingest
+    api: openapi/whoisfreaks-openapi-original.yml
+    operations: [databaseFileStatus, dbNewlyGtldJson, dbNewlyCctldJson, dbNewlyGtld, dbNewlyCctld, dbDroppedJson, downloadThreatFeedPhishing, downloadThreatFeedPhishingSample, downloadThreatFeedMalware, downloadThreatFeedSpam, accountUsage]

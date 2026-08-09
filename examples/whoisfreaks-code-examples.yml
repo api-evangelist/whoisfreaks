@@ -1,0 +1,160 @@
+generated: '2026-08-09'
+method: searched
+source: https://github.com/WhoisFreaks/wf-sdks-docs/tree/main/examples
+sources:
+- https://github.com/WhoisFreaks/wf-sdks-docs
+- https://whoisfreaks.com/integrations/sdk/python
+- https://whoisfreaks.com/integrations/sdk/go
+summary: WhoisFreaks publishes a runnable code example for every endpoint in all ten official SDK languages
+  - 610 example files (61 examples x 10 languages) in the wf-sdks-docs repository, plus a per-endpoint
+  markdown reference under docs/endpoints/. The OpenAPI itself carries only 6 parameter-level example
+  values and no response examples, so this repository - not the spec - is where the worked examples live.
+in_spec:
+  operations: 60
+  operations_with_examples: 6
+  response_examples: 0
+  note: Only parameter-level examples; components.schemas carry no example payloads.
+languages:
+- python
+- javascript
+- typescript
+- java
+- kotlin
+- csharp
+- go
+- php
+- ruby
+- swift
+files_total: 610
+per_language: 61
+layout: examples/<language>/<Example>.<ext>
+endpoint_reference: https://github.com/WhoisFreaks/wf-sdks-docs/tree/main/docs/endpoints
+coverage:
+  examples: 61
+  bound_to_operationId: 60
+  operations_total: 60
+  note: Every one of the 60 OpenAPI operations has a matching example file. The one extra, WhoisHistoricalOrReverse,
+    is a combined walkthrough with no single backing operationId.
+examples:
+- example: AccountUsage
+  operationId: accountUsage
+- example: AsnWhois
+  operationId: asnWhois
+- example: BulkDomainAvailabilityV2
+  operationId: bulkDomainAvailabilityV2
+- example: BulkGeolocation
+  operationId: bulkGeolocation
+- example: BulkIpReputation
+  operationId: bulkIpReputation
+- example: BulkWhois
+  operationId: bulkWhois
+- example: DatabaseFileStatus
+  operationId: databaseFileStatus
+- example: DbAsnWhois
+  operationId: dbAsnWhois
+- example: DbAsnWhoisStatus
+  operationId: dbAsnWhoisStatus
+- example: DbDnsDaily
+  operationId: dbDnsDaily
+- example: DbDnsMonthly
+  operationId: dbDnsMonthly
+- example: DbDnsWeekly
+  operationId: dbDnsWeekly
+- example: DbDropped
+  operationId: dbDropped
+- example: DbDroppedBacklinks
+  operationId: dbDroppedBacklinks
+- example: DbDroppedJson
+  operationId: dbDroppedJson
+- example: DbExpired
+  operationId: dbExpired
+- example: DbExpiredCleaned
+  operationId: dbExpiredCleaned
+- example: DbIpCity
+  operationId: dbIpCity
+- example: DbIpCityStatus
+  operationId: dbIpCityStatus
+- example: DbIpCountry
+  operationId: dbIpCountry
+- example: DbIpCountryStatus
+  operationId: dbIpCountryStatus
+- example: DbIpSecurity
+  operationId: dbIpSecurity
+- example: DbIpSecurityStatus
+  operationId: dbIpSecurityStatus
+- example: DbIpWhois
+  operationId: dbIpWhois
+- example: DbIpWhoisStatus
+  operationId: dbIpWhoisStatus
+- example: DbNewlyCctld
+  operationId: dbNewlyCctld
+- example: DbNewlyCctldCleaned
+  operationId: dbNewlyCctldCleaned
+- example: DbNewlyCctldJson
+  operationId: dbNewlyCctldJson
+- example: DbNewlyDns
+  operationId: dbNewlyDns
+- example: DbNewlyGtld
+  operationId: dbNewlyGtld
+- example: DbNewlyGtldCleaned
+  operationId: dbNewlyGtldCleaned
+- example: DbNewlyGtldJson
+  operationId: dbNewlyGtldJson
+- example: DbSubdomainsDaily
+  operationId: dbSubdomainsDaily
+- example: DbSubdomainsMonthly
+  operationId: dbSubdomainsMonthly
+- example: DbSubdomainsWeekly
+  operationId: dbSubdomainsWeekly
+- example: DbWhoisDaily
+  operationId: dbWhoisDaily
+- example: DbWhoisMonthly
+  operationId: dbWhoisMonthly
+- example: DbWhoisWeekly
+  operationId: dbWhoisWeekly
+- example: DnsBulk
+  operationId: dnsBulk
+- example: DnsHistorical
+  operationId: dnsHistorical
+- example: DnsLive
+  operationId: dnsLive
+- example: DnsReverse
+  operationId: dnsReverse
+- example: DomainAvailabilityV2
+  operationId: domainAvailabilityV2
+- example: DomainReputation
+  operationId: domainReputation
+- example: DownloadThreatFeedMalware
+  operationId: downloadThreatFeedMalware
+- example: DownloadThreatFeedMalwareSample
+  operationId: downloadThreatFeedMalwareSample
+- example: DownloadThreatFeedPhishing
+  operationId: downloadThreatFeedPhishing
+- example: DownloadThreatFeedPhishingSample
+  operationId: downloadThreatFeedPhishingSample
+- example: DownloadThreatFeedSpam
+  operationId: downloadThreatFeedSpam
+- example: DownloadThreatFeedSpamSample
+  operationId: downloadThreatFeedSpamSample
+- example: Geolocation
+  operationId: geolocation
+- example: IpReputation
+  operationId: ipReputation
+- example: IpWhois
+  operationId: ipWhois
+- example: RotateApiKey
+  operationId: rotateApiKey
+- example: SslLookup
+  operationId: sslLookup
+- example: Subdomains
+  operationId: subdomains
+- example: Typosquatting
+  operationId: typosquatting
+- example: WhoisHistoricalOrReverse
+  operationId: null
+- example: WhoisHistory
+  operationId: whoisHistory
+- example: WhoisLive
+  operationId: whoisLive
+- example: WhoisReverse
+  operationId: whoisReverse

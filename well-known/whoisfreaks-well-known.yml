@@ -1,0 +1,38 @@
+generated: '2026-08-09'
+method: probed
+source: live HTTP probes on 2026-08-09
+summary: >-
+  No /.well-known/ discovery documents are served on either the marketing host
+  or the API host. whoisfreaks.com is a Next.js app that answers every unknown
+  path with an HTML 404 shell; api.whoisfreaks.com answers with a JSON 404
+  envelope. The only machine-readable discovery document WhoisFreaks publishes
+  at a well-known-style root path is /llms.txt (200), captured in
+  llms/whoisfreaks-llms.txt.
+hosts:
+  - host: https://whoisfreaks.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404, content_type: text/html}
+      - {path: /.well-known/openid-configuration, status: 404, content_type: text/html}
+      - {path: /.well-known/oauth-authorization-server, status: 404, content_type: text/html}
+      - {path: /.well-known/api-catalog, status: 404, content_type: text/html}
+      - {path: /.well-known/ai-plugin.json, status: 404, content_type: text/html}
+      - {path: /.well-known/agent-card.json, status: 404, content_type: text/html}
+      - {path: /.well-known/agent.json, status: 404, content_type: text/html}
+      - {path: /llms.txt, status: 200, content_type: text/plain, file: ../llms/whoisfreaks-llms.txt}
+      - {path: /robots.txt, status: 200, content_type: text/plain}
+      - {path: /sitemap.xml, status: 200, content_type: application/xml}
+  - host: https://api.whoisfreaks.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404, content_type: application/json}
+      - {path: /.well-known/openid-configuration, status: 404, content_type: application/json}
+      - {path: /.well-known/oauth-authorization-server, status: 404, content_type: application/json}
+      - {path: /.well-known/oauth-protected-resource, status: 404, content_type: application/json}
+      - {path: /.well-known/api-catalog, status: 404, content_type: application/json}
+      - {path: /.well-known/ai-plugin.json, status: 404, content_type: application/json}
+      - {path: /.well-known/agent-card.json, status: 404, content_type: application/json}
+gaps:
+  - No RFC 9116 security.txt on either host — there is no machine-readable
+    vulnerability-reporting contact.
+  - No RFC 9727 /.well-known/api-catalog, despite a 60-operation OpenAPI being
+    published in the SDK docs repository.
+  - No A2A agent card at either the canonical or the legacy path.

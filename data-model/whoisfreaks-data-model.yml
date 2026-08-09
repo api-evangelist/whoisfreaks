@@ -1,0 +1,134 @@
+generated: '2026-08-09'
+method: derived
+source: openapi/whoisfreaks-openapi-original.yml
+schemas_total: 78
+summary: >-
+  WhoisFreaks has no persistent, addressable resources — there are no ids, no
+  create/update/delete verbs and nothing to relate across calls. The data model
+  is therefore a lookup model, not an entity model: seven independent response
+  trees (WHOIS, DNS, SSL, Geolocation, IP Reputation, Domain Reputation, IP/ASN
+  WHOIS) each rooted at a query subject (a domain, an IP, or an ASN) and
+  composed of embedded value objects. Every "relationship" below is schema
+  composition via $ref, not a foreign key.
+subjects:
+  - name: domain
+    description: A registrable domain name — the query key for WHOIS, DNS, SSL, subdomains, availability, typosquatting and domain reputation.
+    id_field: domain_name / domainName (naming varies by family)
+  - name: ip
+    description: An IPv4 or IPv6 address — the query key for geolocation, IP reputation, IP WHOIS and reverse DNS.
+  - name: asn
+    description: An Autonomous System Number — the query key for ASN WHOIS.
+entities:
+  - name: WhoisResponse
+    root_of: [whoisLive]
+    embeds: [RegistryData, RegistrarInformation, PersonalInformation, ResellerContact, EligibilityInfo]
+  - name: WhoisHistoricalResponse
+    root_of: [whoisHistory]
+    embeds: [WhoisHistoricalItem]
+  - name: ReverseWhoisResponse
+    root_of: [whoisReverse]
+    embeds: [WhoisHistoricalItem]
+  - name: BulkWhoisResponse
+    root_of: [bulkWhois]
+    embeds: [BulkWhoisItem]
+  - name: DnsResponse
+    root_of: [dnsLive]
+    embeds: [DnsRecord]
+  - name: HistoricalDnsResponse
+    root_of: [dnsHistorical]
+    embeds: [DnsResponse]
+  - name: ReverseDnsResponse
+    root_of: [dnsReverse]
+    embeds: [DnsResponse]
+  - name: SubdomainsResponse
+    root_of: [subdomains]
+    embeds: [Subdomain, DnsResponse]
+  - name: SslResponse
+    root_of: [sslLookup]
+    embeds: [SslCertificate, SslExtensionsInfo, SslPublicKeyInfo, SslUnitInfo, SslAlternateNames, SslAuthorityInfo, SslCertificatePolicy]
+  - name: GeolocationResponse
+    root_of: [geolocation, bulkGeolocation]
+    embeds: [IpLocation, GeoNetwork, GeoAsn, GeoCompany, CountryMetadata, Currency]
+  - name: IpReputationResponse
+    root_of: [ipReputation, bulkIpReputation]
+    embeds: [IpLocation, IpSecurity, IpSecurityAsn, IpSecurityNetwork]
+  - name: DomainReputationResponse
+    root_of: [domainReputation]
+    embeds: [DomainReputationInput, DgaScore, DgaFeatures, RiskCategory, PivotMatch, ThreatSource, TrustSignals, ReputationIndicators, ReputationSignals, ReputationSignal, ReputationIntelligence, RelatedIoc, EvidenceSummary]
+  - name: IpWhoisResponse
+    root_of: [ipWhois]
+    embeds: [InetNum, Route, Irt, WhoisOrganization, WhoisPerson]
+  - name: AsnWhoisResponse
+    root_of: [asnWhois]
+    embeds: [AsnInfo, AsnPeer]
+  - name: DomainAvailabilityResponse
+    root_of: [domainAvailabilityV2, bulkDomainAvailabilityV2]
+    embeds: [DomainAvailabilityItem]
+  - name: TyposquattingResponse
+    root_of: [typosquatting]
+    embeds: [TyposquattingDomain]
+  - name: AccountUsageResponse
+    root_of: [accountUsage]
+    embeds: [ApiCredits, ApiSubscription]
+  - name: DatabaseFileStatus
+    root_of: [databaseFileStatus]
+    embeds: [DatabaseUpdates, UpdateFrequencies, NewlyStatus, ThreatFeedStatus, DateRangeStatus, SnapshotStatus]
+  - name: ErrorResponse
+    root_of: all operations (4xx/5xx)
+    embeds: []
+    see: errors/whoisfreaks-problem-types.yml
+relationships:
+  - {from: WhoisResponse, to: RegistryData, kind: has_one, via: '$ref'}
+  - {from: WhoisResponse, to: RegistrarInformation, kind: has_one, via: '$ref'}
+  - {from: WhoisResponse, to: PersonalInformation, kind: has_many, via: 'registrant/admin/technical/billing contact roles'}
+  - {from: RegistryData, to: RegistrarInformation, kind: has_one, via: '$ref'}
+  - {from: WhoisHistoricalResponse, to: WhoisHistoricalItem, kind: has_many, via: '$ref array'}
+  - {from: ReverseWhoisResponse, to: WhoisHistoricalItem, kind: has_many, via: '$ref array'}
+  - {from: BulkWhoisResponse, to: BulkWhoisItem, kind: has_many, via: '$ref array'}
+  - {from: DnsResponse, to: DnsRecord, kind: has_many, via: '$ref array'}
+  - {from: HistoricalDnsResponse, to: DnsResponse, kind: has_many, via: '$ref array'}
+  - {from: ReverseDnsResponse, to: DnsResponse, kind: has_many, via: '$ref array'}
+  - {from: BulkDnsResponse, to: DnsResponse, kind: has_many, via: '$ref array'}
+  - {from: Subdomain, to: DnsResponse, kind: has_one, via: '$ref'}
+  - {from: SubdomainsResponse, to: Subdomain, kind: has_many, via: '$ref array'}
+  - {from: SslResponse, to: SslCertificate, kind: has_one, via: '$ref'}
+  - {from: SslCertificate, to: SslExtensionsInfo, kind: has_one, via: '$ref'}
+  - {from: SslExtensionsInfo, to: SslAlternateNames, kind: has_one, via: '$ref'}
+  - {from: GeolocationResponse, to: GeoNetwork, kind: has_one, via: '$ref'}
+  - {from: GeoNetwork, to: GeoAsn, kind: has_one, via: '$ref'}
+  - {from: GeoNetwork, to: GeoCompany, kind: has_one, via: '$ref'}
+  - {from: GeolocationResponse, to: IpLocation, kind: has_one, via: '$ref'}
+  - {from: IpReputationResponse, to: IpSecurity, kind: has_one, via: '$ref'}
+  - {from: IpWhoisResponse, to: InetNum, kind: has_one, via: '$ref'}
+  - {from: IpWhoisResponse, to: WhoisOrganization, kind: has_one, via: '$ref'}
+  - {from: AsnWhoisResponse, to: AsnInfo, kind: has_one, via: '$ref'}
+  - {from: AsnInfo, to: AsnPeer, kind: has_many, via: '$ref array'}
+  - {from: DomainReputationResponse, to: RiskCategory, kind: has_many, via: '$ref array'}
+  - {from: DomainReputationResponse, to: TrustSignals, kind: has_one, via: '$ref'}
+  - {from: TrustSignals, to: ReputationSignals, kind: has_one, via: '$ref'}
+  - {from: ReputationSignals, to: ReputationSignal, kind: has_many, via: '$ref array'}
+  - {from: DomainReputationResponse, to: DgaScore, kind: has_one, via: '$ref'}
+  - {from: DgaScore, to: DgaFeatures, kind: has_one, via: '$ref'}
+  - {from: ReputationIntelligence, to: RelatedIoc, kind: has_many, via: '$ref array'}
+  - {from: DomainAvailabilityResponse, to: DomainAvailabilityItem, kind: has_many, via: '$ref array'}
+  - {from: TyposquattingResponse, to: TyposquattingDomain, kind: has_many, via: '$ref array'}
+  - {from: AccountUsageResponse, to: ApiCredits, kind: has_one, via: '$ref'}
+  - {from: AccountUsageResponse, to: ApiSubscription, kind: has_one, via: '$ref'}
+  - {from: DatabaseFileStatus, to: DatabaseUpdates, kind: has_one, via: '$ref'}
+  - {from: DatabaseUpdates, to: UpdateFrequencies, kind: has_one, via: '$ref'}
+  - {from: UpdateFrequencies, to: DateRangeStatus, kind: has_many, via: '$ref'}
+cross_subject_joins:
+  - {description: 'A WHOIS record yields registrant email/organization, which feeds whoisReverse to enumerate the rest of that registrant''s portfolio.', from: whoisLive, to: whoisReverse, via: 'registrant email / owner / company'}
+  - {description: 'A DNS A record yields an IP, which feeds geolocation, ipReputation and ipWhois.', from: dnsLive, to: [geolocation, ipReputation, ipWhois], via: 'A record value'}
+  - {description: 'An IP yields an ASN via geolocation/ipWhois, which feeds asnWhois.', from: [geolocation, ipWhois], to: asnWhois, via: 'asn number'}
+  - {description: 'A brand keyword yields typosquat candidates, each of which is a domain that feeds whoisLive and sslLookup.', from: typosquatting, to: [whoisLive, sslLookup], via: 'domain name'}
+cross_subject_joins_note: >-
+  These joins are the actual "relationships" a caller works with. They are
+  documented pivots in the product narrative, not $ref links — the API returns
+  no cross-references and no hypermedia links between families.
+gaps:
+  - No resource identifiers, no ETags, no created/updated metadata on responses.
+  - Field naming is inconsistent across families (domain_name vs domainName,
+    total_pages vs totalPages).
+  - ErrorResponse.status is deliberately untyped because the value is an
+    integer, boolean or string depending on the endpoint.

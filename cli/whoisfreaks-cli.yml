@@ -1,0 +1,74 @@
+generated: '2026-08-09'
+method: searched
+source: https://github.com/WhoisFreaks/whoisfreaks-cli
+sources:
+  - https://raw.githubusercontent.com/WhoisFreaks/whoisfreaks-cli/main/README.md
+name: whoisfreaks
+language: go
+official: true
+license: see repository
+latest_release: v1.0
+repository: https://github.com/WhoisFreaks/whoisfreaks-cli
+install:
+  - {method: go-get, command: go get -u github.com/WhoisFreaks/whoisfreaks}
+  - {method: go-install, command: go install github.com/WhoisFreaks/whoisfreaks}
+  - {method: source, command: 'git clone https://github.com/WhoisFreaks/whoisfreaks.git && go build'}
+authentication:
+  style: environment variable
+  variable: WHOISFREAKS_API_KEY
+  command: export WHOISFREAKS_API_KEY="..."
+surface_style: >-
+  Single binary with mode flags rather than subcommands — a product flag
+  (-whois / -dns / -ssl / -domainAvailability) is combined with a mode flag
+  (-live / -historical / -reverse / -bulk) and target flags.
+commands:
+  - group: whois
+    flag: -whois
+    modes:
+      - {mode: -live, example: 'whoisfreaks -whois -live -domain whoisfreaks.com', rest: whoisLive}
+      - {mode: '-live -bulk', example: 'whoisfreaks -whois -live -bulk -domains a.com,b.com', rest: bulkWhois, note: 'max 100 domains'}
+      - {mode: -historical, example: 'whoisfreaks -whois -historical -domain whoisfreaks.com', rest: whoisHistory}
+      - {mode: -reverse, example: 'whoisfreaks -whois -reverse -keyword whoisfreaks', rest: whoisReverse}
+      - {mode: -reverse, example: 'whoisfreaks -whois -reverse -owner <name>', rest: whoisReverse}
+      - {mode: -reverse, example: 'whoisfreaks -whois -reverse -company <company>', rest: whoisReverse}
+      - {mode: -reverse, example: 'whoisfreaks -whois -reverse -email <email>', rest: whoisReverse}
+    flags:
+      - {flag: -mini, description: 'Return a reduced WHOIS record (create_date, update_date, expiry_date and a few more fields).'}
+      - {flag: '-page n', description: 'Page through reverse results; 100 records per page, first page by default.'}
+  - group: domain availability
+    flag: -domainAvailability
+    modes:
+      - {mode: single, example: 'whoisfreaks -domainAvailability -domain whoisfreaks.com', rest: domainAvailabilityV2}
+      - {mode: -bulk, example: 'whoisfreaks -domainAvailability -bulk -domains a.com,b.com', rest: bulkDomainAvailabilityV2}
+    flags:
+      - {flag: -sug, description: 'Return five suggestions (single-domain lookups only).'}
+      - {flag: -count, description: 'Return more than five suggestions (single-domain lookups only).'}
+  - group: dns
+    flag: -dns
+    modes:
+      - {mode: -live, example: 'whoisfreaks -dns -live -domain whoisfreaks.com -dnsType all', rest: dnsLive}
+      - {mode: -historical, example: 'whoisfreaks -dns -historical -domain whoisfreaks.com -dnsType all', rest: dnsHistorical}
+      - {mode: -reverse, example: 'whoisfreaks -dns -reverse -value 8.8.8.8 -dnsType a', rest: dnsReverse}
+    flags:
+      - {flag: -dnsType, description: 'Record type or comma-separated list (a, mx, ns, ... or all).'}
+      - {flag: '-page n', description: '100 records per page.'}
+  - group: ssl
+    flag: -ssl
+    modes:
+      - {mode: -live, example: 'whoisfreaks -ssl -live -domain whoisfreaks.com', rest: sslLookup}
+    flags:
+      - {flag: -chain, description: 'Return the full certificate chain, end-entity to root.'}
+      - {flag: -raw, description: 'Return the raw openssl response.'}
+coverage:
+  rest_operations_reachable: 8
+  rest_operations_total: 60
+  note: >-
+    The CLI predates most of the catalog — it covers only WHOIS, DNS, SSL and
+    domain availability. IP geolocation, IP/domain reputation, subdomains,
+    typosquatting, ASN/IP WHOIS, every bulk database download and the threat
+    feeds have no CLI surface.
+staleness:
+  observed: >-
+    The README links product pages at legacy .html paths and a
+    tools.whoisfreaks.com host that no longer match the current site structure,
+    and pins SDK function links to v1.0.2. Last repository update 2026-05-22.

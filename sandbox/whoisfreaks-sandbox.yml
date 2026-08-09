@@ -1,0 +1,83 @@
+generated: '2026-08-09'
+method: searched
+source: https://whoisfreaks.com/tools
+sources:
+  - https://whoisfreaks.com/tools
+  - https://whoisfreaks.com/signup
+  - https://whoisfreaks.com/demo
+  - https://whoisfreaks.com/integrations/third-party/postman-collection
+test_mode:
+  exists: false
+  key_prefixes: none
+  note: >-
+    WhoisFreaks has no test/live key separation, no sandbox host and no mock
+    mode. There is one key, it is live, and every call bills real credits. The
+    substitute for a sandbox is the free 500-credit grant on signup.
+free_tier:
+  credits: 500
+  grant: on signup, no card required
+  url: https://whoisfreaks.com/signup
+console:
+  exists: true
+  url: https://whoisfreaks.com/tools
+  status: 200
+  kind: hosted interactive lookup tools (browser UI backed by the live API)
+  tools:
+    - {name: WHOIS Lookup, url: 'https://whoisfreaks.com/tools/whois/lookup'}
+    - {name: WHOIS History, url: 'https://whoisfreaks.com/tools/whois/history/lookup'}
+    - {name: Reverse WHOIS, url: 'https://whoisfreaks.com/tools/whois/reverse/search'}
+    - {name: IP WHOIS, url: 'https://whoisfreaks.com/tools/ip-whois/lookup'}
+    - {name: ASN WHOIS, url: 'https://whoisfreaks.com/tools/asn-whois/lookup'}
+    - {name: DNS Lookup, url: 'https://whoisfreaks.com/tools/dns/lookup'}
+    - {name: DNS History, url: 'https://whoisfreaks.com/tools/dns/history/lookup'}
+    - {name: Reverse DNS, url: 'https://whoisfreaks.com/tools/dns/reverse/lookup'}
+    - {name: NS Lookup, url: 'https://whoisfreaks.com/tools/dns/ns-lookup'}
+    - {name: MX Lookup, url: 'https://whoisfreaks.com/tools/dns/mx-lookup'}
+    - {name: SSL Lookup, url: 'https://whoisfreaks.com/tools/ssl/lookup'}
+    - {name: Domain Availability, url: 'https://whoisfreaks.com/tools/domain/availability'}
+    - {name: Domain Typosquats, url: 'https://whoisfreaks.com/tools/domain/typos'}
+    - {name: Subdomain Lookup, url: 'https://whoisfreaks.com/tools/subdomains/lookup'}
+    - {name: IP Reputation Lookup, url: 'https://whoisfreaks.com/tools/ip-security/lookup'}
+    - {name: IP Geolocation Lookup, url: 'https://whoisfreaks.com/tools/ip-geolocation/lookup'}
+  note: >-
+    These are product tools rather than an API console — they run the lookup and
+    render the result, but do not show the corresponding HTTP request or let you
+    supply your own key.
+try_it_surfaces:
+  - kind: postman
+    url: https://www.postman.com/wf-official/api
+    fork: https://app.getpostman.com/run-collection/55922329-e8f1c6c6-0f58-4324-bb3a-92662e75ca9b?action=collection%2Ffork&source=rip_markdown
+    description: >-
+      48 requests across 23 folders, preconfigured with sample responses,
+      validation tests and pre-filled example values. Closest thing to a
+      run-it-now console; still requires a real API key.
+  - kind: sample-data
+    description: >-
+      Sample/limited-volume data is published without a key for the bulk
+      surfaces — threat-feed sample downloads
+      (downloadThreatFeedPhishingSample / MalwareSample / SpamSample) and the
+      public GitHub datasets daily-newly-registered-domains and
+      daily-expired-and-dropped-domains.
+    urls:
+      - https://github.com/WhoisFreaks/daily-newly-registered-domains
+      - https://github.com/WhoisFreaks/daily-expired-and-dropped-domains
+  - kind: public-status-operation
+    operation: databaseFileStatus
+    path: /v3.4/status
+    description: Database File Status is documented as a public operation, usable to smoke-test connectivity.
+demo:
+  url: https://whoisfreaks.com/demo
+  kind: sales-scheduled demo (calendar booking + contact form)
+  provides_credentials: false
+test_values:
+  published: []
+  note: >-
+    No magic/test identifiers are published. WhoisFreaks' own docs and CLI use
+    real subjects (whoisfreaks.com, 8.8.8.8, AS15169) as examples; those are
+    live lookups that consume credits, not sandbox fixtures.
+gaps:
+  - No test-mode key, no sandbox host, no mock server.
+  - No time simulation or fixture/trigger tooling (not applicable to a read-only
+    intelligence API).
+  - The tools pages do not expose the underlying request, so there is no
+    "try it" that teaches the HTTP surface.

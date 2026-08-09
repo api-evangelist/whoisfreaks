@@ -1,0 +1,26 @@
+generated: '2026-08-09'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: whoisfreaks.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 30 07:57:18 2026 GMT
+  hsts: false
+- host: api.whoisfreaks.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 18 23:03:16 2026 GMT
+  hsts: null
+- host: files.whoisfreaks.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 21 03:42:07 2026 GMT
+  hsts: null
+domains:
+- domain: whoisfreaks.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

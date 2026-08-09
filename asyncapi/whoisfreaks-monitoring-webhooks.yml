@@ -1,0 +1,75 @@
+generated: '2026-08-09'
+method: searched
+source: https://whoisfreaks.com/products/brand-monitoring
+sources:
+  - https://whoisfreaks.com/products/brand-monitoring
+  - https://whoisfreaks.com/products/domain-monitoring
+  - https://whoisfreaks.com/products/registrant-monitoring
+  - https://whoisfreaks.com/pricing/monitoring-packages
+spec_type: none
+asyncapi:
+  published: false
+  probes:
+    - {url: 'https://whoisfreaks.com/asyncapi.yaml', status: 404}
+    - {url: 'https://whoisfreaks.com/documentation/webhooks', status: 404}
+  note: >-
+    WhoisFreaks publishes no AsyncAPI document and no webhook reference page.
+    The event surface below is asserted on the monitoring product pages only —
+    payload schemas, headers, signing, retry semantics and endpoint registration
+    are all undocumented publicly. Nothing here is modelled beyond what the
+    provider states in prose.
+event_surface:
+  kind: monitoring alerts
+  delivery_channels: [webhook, email, telegram]
+  webhook_evidence: >-
+    Brand Monitoring, "How We Detect / Notify": "Instant alerts are sent via
+    webhook or email as soon as a high-risk domain is registered or activated."
+  registration: via the monitoring product configuration in the billing console (not publicly documented)
+  signing: not documented
+  retries: not documented
+  payload_schema: not documented
+events:
+  - name: brand-monitoring.alert
+    product: Brand Monitoring
+    url: https://whoisfreaks.com/products/brand-monitoring
+    trigger: >-
+      A lookalike, typosquat, homoglyph or unauthorized trademark registration
+      is detected in a twice-daily scan across 1528+ TLDs.
+    channels: [webhook, email, telegram]
+    payload_documented: >-
+      Prose only — each alert is stated to include the full WHOIS record, the
+      domain and its registration date.
+  - name: domain-monitoring.change
+    product: Domain Monitoring
+    url: https://whoisfreaks.com/products/domain-monitoring
+    trigger: >-
+      A watched domain's registrant, registrar, nameservers, status codes or
+      expiry date changes. Check frequency as often as every 10 minutes.
+    channels: [email, telegram]
+    payload_documented: prose only — the changed WHOIS record
+    note: The product page advertises email and Telegram; it does not state webhook delivery.
+  - name: registrant-monitoring.registration
+    product: Registrant Monitoring
+    url: https://whoisfreaks.com/products/registrant-monitoring
+    trigger: >-
+      A watched name, email, organization, phone or postal code registers,
+      updates or drops a domain anywhere across 1528+ TLDs. Daily.
+    channels: [email]
+    payload_documented: 'prose only — "full WHOIS record per alert, by email and as JSON"'
+pull_based_feeds:
+  note: >-
+    The high-volume change surface is delivered by polling files, not by push.
+    These are REST operations in the OpenAPI, not events, and are listed here so
+    the event picture is complete.
+  feeds:
+    - {name: Newly Registered Domains, cadence: twice daily, operations: [dbNewlyGtld, dbNewlyCctld, dbNewlyGtldJson, dbNewlyCctldJson, dbNewlyDns]}
+    - {name: Expiring & Dropped Domains, cadence: daily, operations: [dbExpired, dbDropped, dbDroppedJson, dbDroppedBacklinks]}
+    - {name: Threat Feeds (phishing/malware/spam), cadence: daily, operations: [downloadThreatFeedPhishing, downloadThreatFeedMalware, downloadThreatFeedSpam]}
+    - {name: Database file status, cadence: on demand, operations: [databaseFileStatus]}
+gaps:
+  - No AsyncAPI document for the alert surface.
+  - >-
+    No webhook reference — no payload schema, no signature scheme, no retry or
+    replay contract, no endpoint-registration API.
+  - Webhook delivery is advertised for Brand Monitoring only; the other two
+    monitoring products advertise email/Telegram.

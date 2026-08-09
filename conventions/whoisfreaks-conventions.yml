@@ -1,0 +1,107 @@
+generated: '2026-08-09'
+method: searched
+source: https://whoisfreaks.com/documentation
+sources:
+  - https://whoisfreaks.com/documentation/api-rate-limiting
+  - https://whoisfreaks.com/documentation/errors
+  - https://whoisfreaks.com/documentation/api-key-rotation
+  - https://whoisfreaks.com/documentation/credit-usage
+  - openapi/whoisfreaks-openapi-original.yml
+authentication:
+  style: api-key
+  transport: query parameter
+  parameter: apiKey
+  applies_to: every operation (global `security` in the OpenAPI)
+  rotation: https://whoisfreaks.com/documentation/api-key-rotation
+  rotation_operation: rotateApiKey (GET /v1.0/api-key/rotate)
+  header_alternative: none
+  caveat: >-
+    Keys travel in the URL, so they land in proxy/CDN logs, browser history and
+    Referer headers. There is no header-based or Authorization-scheme
+    alternative documented.
+  see: authentication/whoisfreaks-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    No Idempotency-Key header, parameter or documentation exists — the string
+    "idempoten" appears nowhere in the OpenAPI or the docs. In practice the
+    surface is read-only: 55 of 60 operations are GET, and the five POST
+    operations are bulk-read fan-outs (bulkWhois, dnsBulk,
+    bulkDomainAvailabilityV2, bulkGeolocation, bulkIpReputation) that create no
+    server-side state, so a naive retry is safe but is billed again in credits.
+    The one genuinely mutating operation, rotateApiKey, is a GET and is NOT safe
+    to retry blindly — it invalidates the previous key.
+pagination:
+  style: page-number
+  parameter: page
+  applies_to:
+    - whoisReverse
+    - dnsHistorical
+    - dnsReverse
+    - subdomains
+    - typosquatting
+  page_size: 50 records per page on reverse WHOIS (100 in "mini" mode); 100 records per page on DNS history
+  response_fields: [total_pages, current_page, total_records, totalPages, currentPage]
+  note: >-
+    Field naming is inconsistent across product families — the spec carries both
+    snake_case (total_pages/current_page/total_records) and camelCase
+    (totalPages/currentPage) pagination blocks depending on the endpoint. There
+    is no cursor/keyset option and no Link header. Several paginated endpoints
+    bill per page (2 credits/page for DNS history, 5 credits/page for reverse
+    DNS and typosquatting).
+response_format:
+  default: JSON
+  alternatives: [XML]
+  selector: format query parameter (format=json|xml)
+  note: The `format` parameter is carried through to every MCP tool as well.
+versioning:
+  scheme: uri-path
+  observed_versions: [v1.0, v1, v2.0, v2.1, v3.0, v3.1, v3.2, v3.3, v3.4]
+  policy_published: false
+  note: >-
+    Versions are per-endpoint rather than per-API — a single integration spans
+    nine distinct path prefixes at once (e.g. /v2.0/whois/live alongside
+    /v3.4/download/threat-feed/phishing). No deprecation or sunset policy is
+    published for any of them.
+  see: lifecycle/whoisfreaks-lifecycle.yml
+rate_limiting:
+  headers: [x-ratelimit-allowed-requests, x-ratelimit-remaining-requests, x-ratelimit-remaining-time]
+  reset_unit: nanoseconds
+  classes: {live: 80/min, bulk: 20/min, historical_reverse: 10/min}
+  throttled_status: 429
+  throttled_billing: not charged
+  see: rate-limits/whoisfreaks-rate-limits.yml
+errors:
+  envelope_fields: [timestamp, status, error, message, path]
+  media_type: application/json
+  rfc9457: false
+  partial_success: 206 (partial) and 210 (cached upstream failure) are returned as successes, not errors
+  see: errors/whoisfreaks-problem-types.yml
+metering:
+  unit: credit
+  usage_operation: accountUsage (GET /v1.0/whoisapi/usage)
+  usage_docs: https://whoisfreaks.com/documentation/credit-usage
+  surcharges: https://whoisfreaks.com/documentation/surcharge-usage
+  plan_exhausted_status: 412
+bulk:
+  method: POST with a JSON list body
+  max_items: 100
+  over_limit_status: 413
+  operations: [bulkWhois, dnsBulk, bulkDomainAvailabilityV2, bulkGeolocation, bulkIpReputation]
+hosts:
+  api: https://api.whoisfreaks.com
+  files: https://files.whoisfreaks.com
+  billing: https://billing.whoisfreaks.com
+  note: Bulk database and threat-feed downloads are served from the files host, not the API host.
+request_tracing:
+  request_id_header: none documented
+  note: >-
+    No request-id/correlation header is documented, so a failed call cannot be
+    quoted back to support by identifier — only by timestamp and path from the
+    error envelope.
+gaps:
+  - No idempotency contract.
+  - No request-id / correlation header.
+  - No cursor pagination and no Link header.
+  - No documented deprecation or sunset headers.
