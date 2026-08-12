@@ -28,59 +28,427 @@ tags:
   - Threat Feeds
   - Domain Availability
 apis:
-  - name: WhoisFreaks API
-    description: >-
-      REST API (JSON/XML) for Live WHOIS, WHOIS History, Bulk/Reverse WHOIS, IP/ASN WHOIS, live/historical/reverse
-      DNS, Domain Availability, Typosquatting, IP Geolocation, IP Reputation, Domain Reputation, SSL, Subdomains,
-      account utilities, and bulk database/threat-feed downloads. 60 operations across 57 paths. API-key
-      authenticated via the apiKey query parameter.
-    humanURL: https://whoisfreaks.com/documentation/whois-api
-    baseURL: https://api.whoisfreaks.com
-    tags:
-      - WHOIS
-      - DNS
-      - Domain Intelligence
-      - IP Intelligence / Geolocation
-      - Cybersecurity / Threat Intelligence
-      - OSINT
-      - Reverse Lookup
-      - SSL/Certificate
-      - Domain Monitoring
-      - Brand Protection
-    properties:
-      - type: OpenAPI
-        url: openapi/whoisfreaks-openapi-original.yml
-      - type: Overlay
-        url: overlays/whoisfreaks-openapi-overlay.yaml
-      - type: Documentation
-        url: https://whoisfreaks.com/documentation/whois-api
-      - type: APIReference
-        url: https://whoisfreaks.com/documentation
-      - type: PostmanCollection
-        url: https://www.postman.com/wf-official/api
-      - type: LLMSTxt
-        url: https://whoisfreaks.com/llms.txt
-  - name: WhoisFreaks MCP Server
-    description: >-
-      Official open-source Model Context Protocol server (Java) exposing 14 WhoisFreaks domain-intelligence tools
-      to MCP-compatible AI clients. Distributed as source and as the whoisfreaks/mcp-server Docker image; runs
-      over stdio locally or HTTP/SSE on port 3100 when self-hosted. No vendor-hosted public MCP endpoint.
-    humanURL: https://github.com/WhoisFreaks/whoisfreaks-mcp-server
-    baseURL: https://api.whoisfreaks.com
-    tags:
-      - MCP
-      - Domain Intelligence
-      - WHOIS
-      - DNS
-      - Cybersecurity / Threat Intelligence
-    properties:
-      - type: MCPServer
-        url: mcp/whoisfreaks-mcp.yml
-      - type: ToolCrosswalk
-        url: mcp/whoisfreaks-tool-crosswalk.yml
-      - type: SourceCode
-        url: https://github.com/WhoisFreaks/whoisfreaks-mcp-server
+- name: WhoisFreaks MCP Server
+  description: >-
+    Official open-source Model Context Protocol server (Java) exposing 14 WhoisFreaks domain-intelligence
+    tools to MCP-compatible AI clients. Distributed as source and as the whoisfreaks/mcp-server Docker
+    image; runs over stdio locally or HTTP/SSE on port 3100 when self-hosted. No vendor-hosted public
+    MCP endpoint.
+  humanURL: https://github.com/WhoisFreaks/whoisfreaks-mcp-server
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - MCP
+  - Domain Intelligence
+  - WHOIS
+  - DNS
+  - Cybersecurity / Threat Intelligence
+  properties:
+  - type: MCPServer
+    url: mcp/whoisfreaks-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/whoisfreaks-tool-crosswalk.yml
+  - type: SourceCode
+    url: https://github.com/WhoisFreaks/whoisfreaks-mcp-server
+- aid: whoisfreaks:whoisfreaks-account-api
+  name: WhoisFreaks Account API
+  description: Account, API key, and usage utilities
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-account-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-asn-whois-api
+  name: WhoisFreaks ASN WHOIS API
+  description: Autonomous System Number WHOIS
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - ASN WHOIS
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-asn-whois-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-asn-whois-api
+  name: WhoisFreaks Databases - ASN WHOIS API
+  description: ASN WHOIS database snapshots
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - ASN WHOIS
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-asn-whois-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-dns-api
+  name: WhoisFreaks Databases - DNS API
+  description: DNS database snapshots
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - DNS
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-dns-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-expiring-dropped-api
+  name: WhoisFreaks Databases - Expiring & Dropped API
+  description: Expiring and dropped domain downloads
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - Expiring & Dropped
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-expiring-dropped-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-ip-geolocation-api
+  name: WhoisFreaks Databases - IP Geolocation API
+  description: IP geolocation database snapshots
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - IP Geolocation
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-ip-geolocation-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-ip-security-api
+  name: WhoisFreaks Databases - IP Security API
+  description: IP security database snapshots
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - IP Security
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-ip-security-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-ip-whois-api
+  name: WhoisFreaks Databases - IP WHOIS API
+  description: IP WHOIS database snapshots
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - IP WHOIS
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-ip-whois-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-newly-registered-api
+  name: WhoisFreaks Databases - Newly Registered API
+  description: Newly registered domain downloads
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - Newly Registered
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-newly-registered-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-subdomains-api
+  name: WhoisFreaks Databases - Subdomains API
+  description: Subdomain database snapshots
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - Subdomains
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-subdomains-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-threat-feed-api
+  name: WhoisFreaks Databases - Threat Feed API
+  description: >-
+    The Databases - Threat Feed API from WhoisFreaks — 6 operation(s) for databases - threat feed.
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - Threat Feed
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-threat-feed-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-databases-whois-api
+  name: WhoisFreaks Databases - WHOIS API
+  description: WHOIS database snapshots
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Databases - WHOIS
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-databases-whois-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-dns-api
+  name: WhoisFreaks DNS API
+  description: DNS lookup APIs (live, historical, reverse, bulk)
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - DNS
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-dns-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-domain-availability-api
+  name: WhoisFreaks Domain Availability API
+  description: Check domain availability
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Domain Availability
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-domain-availability-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-domain-reputation-api
+  name: WhoisFreaks Domain Reputation API
+  description: Real-time domain threat assessment and trust scoring
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Domain Reputation
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-domain-reputation-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-geolocation-api
+  name: WhoisFreaks Geolocation API
+  description: IP geolocation lookup
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Geolocation
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-geolocation-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-ip-reputation-api
+  name: WhoisFreaks IP Reputation API
+  description: IP threat intelligence
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - IP Reputation
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-ip-reputation-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-ip-whois-api
+  name: WhoisFreaks IP WHOIS API
+  description: IP address WHOIS
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - IP WHOIS
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-ip-whois-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-ssl-api
+  name: WhoisFreaks SSL API
+  description: SSL certificate lookup
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - SSL
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-ssl-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-subdomains-api
+  name: WhoisFreaks Subdomains API
+  description: Subdomain enumeration
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Subdomains
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-subdomains-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-typosquatting-api
+  name: WhoisFreaks Typosquatting API
+  description: Detect typo variants of brand domains
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - Typosquatting
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-typosquatting-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
+- aid: whoisfreaks:whoisfreaks-whois-api
+  name: WhoisFreaks WHOIS API
+  description: WHOIS lookup APIs (live, historical, reverse, bulk)
+  humanURL: https://whoisfreaks.com/documentation/whois-api
+  baseURL: https://api.whoisfreaks.com
+  tags:
+  - WHOIS
+  properties:
+  - type: OpenAPI
+    url: openapi/whoisfreaks-whois-api-openapi.yml
+  - type: Documentation
+    url: https://whoisfreaks.com/documentation/whois-api
+  - type: APIReference
+    url: https://whoisfreaks.com/documentation
+  - type: PostmanCollection
+    url: https://www.postman.com/wf-official/api
+  - type: LLMSTxt
+    url: https://whoisfreaks.com/llms.txt
 common:
+  - type: Overlay
+    url: overlays/whoisfreaks-openapi-overlay.yaml
   - type: DeveloperPortal
     url: https://whoisfreaks.com/documentation
   - type: Documentation
