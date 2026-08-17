@@ -10,7 +10,7 @@ description: >-
   open-source MCP server exposing fourteen domain-intelligence tools to AI assistants. Authentication is a single
   apiKey query parameter across every endpoint.
 image: https://whoisfreaks.com/images/logo.png
-url: https://whoisfreaks.apievangelist.com/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/whoisfreaks/refs/heads/main/apis.yml
 created: '2026-07-29'
 modified: '2026-08-09'
 specificationVersion: '0.21'
