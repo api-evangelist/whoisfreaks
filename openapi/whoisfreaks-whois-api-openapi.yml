@@ -1,0 +1,508 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks WHOIS API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: WHOIS
+  description: WHOIS lookup APIs (live, historical, reverse, bulk)
+paths:
+  /v2.0/whois/live:
+    get:
+      tags:
+      - WHOIS
+      summary: Live WHOIS Lookup
+      description: Real-time WHOIS lookup from authoritative servers. Cost 1 credit.
+      operationId: whoisLive
+      parameters:
+      - name: domainName
+        in: query
+        schema:
+          type: string
+        required: true
+        example: whoisfreaks.com
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhoisResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /v2.0/bulkwhois/live:
+    post:
+      tags:
+      - WHOIS
+      summary: Bulk WHOIS Lookup
+      description: Up to 100 domains in one request. 1 credit per successful domain.
+      operationId: bulkWhois
+      parameters:
+      - $ref: '#/components/parameters/Format'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - domainNames
+              properties:
+                domainNames:
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 100
+              example:
+                domainNames:
+                - whoisfreaks.com
+                - jfreaks.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkWhoisResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+  /v2.0/whois/history:
+    get:
+      tags:
+      - WHOIS
+      operationId: whoisHistory
+      summary: Historical WHOIS records for a domain
+      parameters:
+      - name: domainName
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Domain to fetch historical WHOIS records for
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Page number
+      - name: format
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - json
+          - xml
+      responses:
+        '200':
+          description: Historical WHOIS records
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhoisHistoricalResponse'
+  /v2.0/whois/reverse:
+    get:
+      tags:
+      - WHOIS
+      operationId: whoisReverse
+      summary: Reverse WHOIS lookup by keyword
+      parameters:
+      - name: keyword
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Keyword to search across WHOIS records
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Page number
+      - name: format
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - json
+          - xml
+      responses:
+        '200':
+          description: Reverse WHOIS results (paginated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReverseWhoisResponse'
+components:
+  responses:
+    RateLimited:
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
+  schemas:
+    BulkWhoisItem:
+      type: object
+      properties:
+        status:
+          type: boolean
+        domain_name:
+          type: string
+        error:
+          type: string
+      additionalProperties: true
+      description: One bulk WHOIS result; success items also carry all WhoisResponse fields.
+    RegistryData:
+      type: object
+      properties:
+        domain_name:
+          type: string
+        query_time:
+          type: string
+        whois_server:
+          type: string
+        domain_registered:
+          type: string
+        create_date:
+          type: string
+        update_date:
+          type: string
+        expiry_date:
+          type: string
+        domain_registrar:
+          $ref: '#/components/schemas/RegistrarInformation'
+        name_servers:
+          type: array
+          items:
+            type: string
+        domain_status:
+          type: array
+          items:
+            type: string
+        whois_raw_domain:
+          type: string
+      additionalProperties: true
+    WhoisResponse:
+      type: object
+      properties:
+        status:
+          type: boolean
+        domain_name:
+          type: string
+        query_time:
+          type: string
+        whois_server:
+          type: string
+        domain_registered:
+          type: string
+        secure_dns:
+          type: boolean
+        domain_handle:
+          type: string
+        create_date:
+          type: string
+        update_date:
+          type: string
+        expiry_date:
+          type: string
+        domain_registrar:
+          $ref: '#/components/schemas/RegistrarInformation'
+        reseller_contact:
+          $ref: '#/components/schemas/ResellerContact'
+        registrant_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        administrative_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        technical_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        billing_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        eligibility_info:
+          $ref: '#/components/schemas/EligibilityInfo'
+        abuse_contact:
+          $ref: '#/components/schemas/RegistrarInformation'
+        name_servers:
+          type: array
+          items:
+            type: string
+        domain_status:
+          type: array
+          items:
+            type: string
+        whois_raw_domain:
+          type: string
+        registry_data:
+          $ref: '#/components/schemas/RegistryData'
+      additionalProperties: true
+      description: Live WHOIS lookup response (DomainInfo).
+    PersonalInformation:
+      type: object
+      properties:
+        id:
+          type: string
+        id_type:
+          type: string
+        handle:
+          type: string
+        name:
+          type: string
+        company:
+          type: string
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country_name:
+          type: string
+        country_code:
+          type: string
+        email_address:
+          type: string
+        phone:
+          type: string
+        fax:
+          type: string
+        mailing_address:
+          type: string
+      additionalProperties: true
+      description: Contact block (registrant/administrative/technical/billing).
+    RegistrarInformation:
+      type: object
+      properties:
+        id:
+          type: string
+        id_type:
+          type: string
+        iana_id:
+          type: string
+        registry_id:
+          type: string
+        handle:
+          type: string
+        status:
+          type: string
+        registrar_name:
+          type: string
+        normalized_name:
+          type: string
+        whois_server:
+          type: string
+        rdap_server:
+          type: string
+        website_url:
+          type: string
+        email_address:
+          type: string
+        phone_number:
+          type: string
+        authoritative_registry_name:
+          type: string
+        organization_number:
+          type: string
+        is_sponsor:
+          type: boolean
+      additionalProperties: true
+      description: Registrar details (used by domain_registrar, abuse_contact).
+    ReverseWhoisResponse:
+      type: object
+      properties:
+        Total_Result:
+          type: integer
+        Total_Pages:
+          type: integer
+        Current_Page:
+          type: integer
+        whois_domains_historical:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisHistoricalItem'
+      additionalProperties: true
+      description: Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page) as returned by the API.
+    EligibilityInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+      additionalProperties: true
+    WhoisHistoricalResponse:
+      type: object
+      properties:
+        status:
+          type: boolean
+        whois:
+          type: string
+        total_records:
+          type: string
+        whois_domains_historical:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisHistoricalItem'
+      additionalProperties: true
+    WhoisHistoricalItem:
+      type: object
+      properties:
+        num:
+          type: integer
+        status:
+          type: boolean
+        domain_name:
+          type: string
+        query_time:
+          type: string
+        whois_server:
+          type: string
+        domain_registered:
+          type: string
+        secure_dns:
+          type: boolean
+        domain_handle:
+          type: string
+        create_date:
+          type: string
+        update_date:
+          type: string
+        expiry_date:
+          type: string
+        domain_registrar:
+          $ref: '#/components/schemas/RegistrarInformation'
+        reseller_contact:
+          $ref: '#/components/schemas/ResellerContact'
+        registrant_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        administrative_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        technical_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        billing_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        eligibility_info:
+          $ref: '#/components/schemas/EligibilityInfo'
+        abuse_contact:
+          $ref: '#/components/schemas/RegistrarInformation'
+        name_servers:
+          type: array
+          items:
+            type: string
+        domain_status:
+          type: array
+          items:
+            type: string
+        whois_raw_domain:
+          type: string
+        registry_data:
+          $ref: '#/components/schemas/RegistryData'
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    BulkWhoisResponse:
+      type: object
+      properties:
+        bulk_whois_response:
+          type: array
+          items:
+            $ref: '#/components/schemas/BulkWhoisItem'
+      additionalProperties: true
+    ResellerContact:
+      type: object
+      properties:
+        name:
+          type: string
+        email_address:
+          type: string
+        phone:
+          type: string
+      additionalProperties: true
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

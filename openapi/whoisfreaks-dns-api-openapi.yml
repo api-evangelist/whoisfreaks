@@ -1,0 +1,344 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks DNS API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: DNS
+  description: DNS lookup APIs (live, historical, reverse, bulk)
+paths:
+  /v2.0/dns/live:
+    get:
+      tags:
+      - DNS
+      summary: Live DNS Lookup
+      description: Real-time DNS record lookup. 1 credit per query.
+      operationId: dnsLive
+      parameters:
+      - name: domainName
+        in: query
+        schema:
+          type: string
+      - name: ipAddress
+        in: query
+        schema:
+          type: string
+        description: Use for PTR lookups
+      - name: type
+        in: query
+        schema:
+          type: string
+          default: all
+        required: true
+        description: 'all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME'
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DnsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+  /v2.0/dns/historical:
+    get:
+      tags:
+      - DNS
+      summary: Historical DNS Lookup
+      description: All historical DNS records. 2 credits per page (100 records/page).
+      operationId: dnsHistorical
+      parameters:
+      - name: domainName
+        in: query
+        schema:
+          type: string
+        required: true
+      - name: type
+        in: query
+        schema:
+          type: string
+          default: all
+        required: true
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HistoricalDnsResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+  /v2.1/dns/reverse:
+    get:
+      tags:
+      - DNS
+      summary: Reverse DNS Lookup
+      description: Search domains by IP or DNS value. 5 credits per page.
+      operationId: dnsReverse
+      parameters:
+      - name: value
+        in: query
+        schema:
+          type: string
+        required: true
+        description: IP, CIDR, or record value
+      - name: type
+        in: query
+        schema:
+          type: string
+          enum:
+          - a
+          - mx
+          - cname
+          - ns
+          - aaaa
+          - txt
+          - soa
+        required: true
+      - name: exact
+        in: query
+        schema:
+          type: boolean
+          default: true
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReverseDnsResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+  /v2.0/dns/bulk/live:
+    post:
+      tags:
+      - DNS
+      summary: Bulk DNS Lookup
+      description: Up to 100 domains + 100 IPs in one request.
+      operationId: dnsBulk
+      parameters:
+      - name: type
+        in: query
+        schema:
+          type: string
+          default: all
+        required: true
+      - $ref: '#/components/parameters/Format'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                domainNames:
+                  type: array
+                  items:
+                    type: string
+                ipAddresses:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDnsResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  responses:
+    RateLimited:
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
+  schemas:
+    HistoricalDnsResponse:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        currenPage:
+          type: integer
+        totalRecords:
+          type: integer
+        historicalDns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsResponse'
+      additionalProperties: true
+      description: 'Note: ''currenPage'' spelling matches the API.'
+    ReverseDnsResponse:
+      type: object
+      properties:
+        totalRecords:
+          type: integer
+        totalPages:
+          type: integer
+        currentPage:
+          type: integer
+        reverseDnsRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsResponse'
+      additionalProperties: true
+    DnsResponse:
+      type: object
+      properties:
+        domainName:
+          type: string
+        ipAddress:
+          type: string
+        queryTime:
+          type: string
+        status:
+          type: boolean
+        domainRegistered:
+          type: boolean
+        dnsTypes:
+          type: object
+        dnsRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
+      additionalProperties: true
+      description: Live DNS response (DnsInfo).
+    DnsRecord:
+      type: object
+      properties:
+        type:
+          type: string
+        name:
+          type: string
+        ttl:
+          type: integer
+        address:
+          type: string
+        priority:
+          type: integer
+        exchange:
+          type: string
+        target:
+          type: string
+        strings:
+          type: array
+          items:
+            type: string
+        host:
+          type: string
+        admin:
+          type: string
+        serial:
+          type: integer
+        refresh:
+          type: integer
+        retry:
+          type: integer
+        expire:
+          type: integer
+        minimum:
+          type: integer
+      additionalProperties: true
+      description: Union of all DNS record variants (A/AAAA/MX/NS/CNAME/PTR/TXT/SPF/SOA).
+    BulkDnsResponse:
+      type: object
+      properties:
+        bulk_dns_info:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsResponse'
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

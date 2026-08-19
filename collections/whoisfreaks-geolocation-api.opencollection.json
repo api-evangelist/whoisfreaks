@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Geolocation API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Geolocation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "IP Geolocation Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v1.0/geolocation",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get location, ASN, currency for an IP. 1 credit."
+        },
+        {
+          "info": {
+            "name": "Bulk IP Geolocation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.whoisfreaks.com/v1.0/geolocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Up to 100 IPs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,348 @@
+{
+  "item": [
+    {
+      "id": "3aad279c-c7c0-4450-bec5-29c5d2a8a85e",
+      "name": "Domain Reputation",
+      "description": {
+        "content": "Real-time domain threat assessment and trust scoring",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ea4e80f8-75f5-4261-9d49-7118da6ae928",
+          "name": "Domain Reputation Lookup",
+          "request": {
+            "name": "Domain Reputation Lookup",
+            "description": {
+              "content": "Real-time domain threat assessment. Returns risk verdict, trust score, DGA analysis, threat intelligence matches, and security signals. 1 credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "domain",
+                "security"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) The domain name to assess"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2284953-cda6-4532-bcf3-d5a7d363420f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "domain",
+                    "security"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "amazon.com"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"input\": {\n    \"domain\": \"string\",\n    \"key_0\": 8440.304235403835\n  },\n  \"assessed_at\": \"string\",\n  \"version\": \"string\",\n  \"processing_time_ms\": 7240,\n  \"risk_category\": {\n    \"verdict\": \"string\",\n    \"confidence\": 4543.490441318604,\n    \"primary_threat\": \"string\",\n    \"severity\": \"string\",\n    \"threat_types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"sources\": [\n      {\n        \"source\": \"string\",\n        \"indicator\": \"string\",\n        \"threat_type\": \"string\",\n        \"confidence\": 8272.406747215455,\n        \"first_seen\": \"string\",\n        \"last_seen\": \"string\"\n      },\n      {\n        \"source\": \"string\",\n        \"indicator\": \"string\",\n        \"threat_type\": \"string\",\n        \"confidence\": 4730.366663299551,\n        \"first_seen\": \"string\",\n        \"last_seen\": \"string\"\n      }\n    ],\n    \"pivot_matches\": [\n      {\n        \"pivot\": \"string\",\n        \"pivot_type\": \"string\",\n        \"total_related_threats\": 320,\n        \"confidence\": 7531.910288873759\n      },\n      {\n        \"pivot\": \"string\",\n        \"pivot_type\": \"string\",\n        \"total_related_threats\": 1780,\n        \"confidence\": 196.63171317450212\n      }\n    ]\n  },\n  \"dga_score\": {\n    \"score\": 1244.2598286956952,\n    \"is_dga\": false,\n    \"model\": \"string\",\n    \"features\": {\n      \"domain_length\": 3833,\n      \"vowel_consonant_ratio\": 9154.635538918606,\n      \"ngram_perplexity\": 5553.449318601968,\n      \"shannon_entropy\": 3554.4685163305776,\n      \"digit_letter_ratio\": 104.60505552136401,\n      \"consonant_streak_max\": 7466,\n      \"tld_in_known_dga_set\": true\n    },\n    \"interpretation\": \"string\"\n  },\n  \"trust_signals\": {\n    \"trust_score\": 9968,\n    \"trust_band\": \"string\",\n    \"signals\": {\n      \"positive\": [\n        {\n          \"code\": \"string\",\n          \"weight\": 972,\n          \"polarity\": \"string\",\n          \"category\": \"string\",\n          \"evidence\": \"string\",\n          \"confidence\": 802.8812411870545,\n          \"key_0\": 9771.02704929384,\n          \"key_1\": false\n        },\n        {\n          \"code\": \"string\",\n          \"weight\": 7210,\n          \"polarity\": \"string\",\n          \"category\": \"string\",\n          \"evidence\": \"string\",\n          \"confidence\": 3628.001357051558,\n          \"key_0\": true\n        }\n      ],\n      \"negative\": [\n        {\n          \"code\": \"string\",\n          \"weight\": 5975,\n          \"polarity\": \"string\",\n          \"category\": \"string\",\n          \"evidence\": \"string\",\n          \"confidence\": 8043.8792182544985\n        },\n        {\n          \"code\": \"string\",\n          \"weight\": 5323,\n          \"polarity\": \"string\",\n          \"category\": \"string\",\n          \"evidence\": \"string\",\n          \"confidence\": 3609.671297740306,\n          \"key_0\": false\n        }\n      ],\n      \"neutral\": [\n        {\n          \"code\": \"string\",\n          \"weight\": 9169,\n          \"polarity\": \"string\",\n          \"category\": \"string\",\n          \"evidence\": \"string\",\n          \"confidence\": 4171.925066479147\n        },\n        {\n          \"code\": \"string\",\n          \"weight\": 8144,\n          \"polarity\": \"string\",\n          \"category\": \"string\",\n          \"evidence\": \"string\",\n          \"confidence\": 6980.244806216993\n        }\n      ]\n    },\n    \"indicators\": {\n      \"is_newly_registered\": true,\n      \"uses_free_extension\": true,\n      \"uses_free_ssl\": true,\n      \"has_privacy_whois\": true,\n      \"ssl_age_days\": 8688,\n      \"has_dmarc\": false,\n      \"has_spf\": true,\n      \"redirects_externally\": false,\n      \"javascript_obfuscated\": true,\n      \"domain_age_days\": 5076,\n      \"registrar\": \"string\"\n    }\n  },\n  \"intelligence\": {\n    \"ioc_type\": \"string\",\n    \"ioc_value\": \"string\",\n    \"related_iocs\": [\n      {\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"confidence\": 4322.78365921359,\n        \"key_0\": 9208.706266286441\n      },\n      {\n        \"type\": \"string\",\n        \"value\": \"string\",\n        \"confidence\": 8006.821626914662\n      }\n    ],\n    \"feed_tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"stix_pattern\": \"string\",\n    \"recommended_action\": \"string\",\n    \"first_seen\": \"string\",\n    \"last_seen\": \"string\",\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": 5734.223577249874\n  },\n  \"evidence_summary\": {\n    \"why_flagged\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "385169df-c633-4d90-a044-e8b08d3a8e1f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "domain",
+                    "security"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "amazon.com"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 63\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa6a9382-aef2-4820-8b5f-fc7834f015d1",
+              "name": "Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "domain",
+                    "security"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "amazon.com"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 63\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2a07e32-aa34-44a4-ad0d-a2b02e2c31cb",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "domain",
+                    "security"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "amazon.com"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 63\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05c80ff8-2369-4918-821b-e2379709042d",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "domain",
+                    "security"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "amazon.com"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 63\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a1b633f6-3bda-41c6-8315-5ae2a50dd7e1",
+    "name": "WhoisFreaks Domain Reputation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

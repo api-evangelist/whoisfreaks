@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Databases - IP Geolocation API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases - IP Geolocation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "IP to Country Snapshot Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/status/snapshot/ip/country"
+          },
+          "docs": "IP to Country Snapshot Status. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "IP to Country Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/download/snapshot/ip/country",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "IP to Country Snapshot. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "IP to City Snapshot Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/status/snapshot/ip/city"
+          },
+          "docs": "IP to City Snapshot Status. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "IP to City Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/download/snapshot/ip/city",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "IP to City Snapshot. Returns the file/snapshot described by this operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

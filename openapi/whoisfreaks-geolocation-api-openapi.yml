@@ -1,0 +1,251 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks Geolocation API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: Geolocation
+  description: IP geolocation lookup
+paths:
+  /v1.0/geolocation:
+    get:
+      tags:
+      - Geolocation
+      summary: IP Geolocation Lookup
+      description: Get location, ASN, currency for an IP. 1 credit.
+      operationId: geolocation
+      parameters:
+      - name: ip
+        in: query
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeolocationResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+    post:
+      tags:
+      - Geolocation
+      summary: Bulk IP Geolocation
+      description: Up to 100 IPs.
+      operationId: bulkGeolocation
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - ips
+              properties:
+                ips:
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 100
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GeolocationResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  schemas:
+    IpLocation:
+      type: object
+      properties:
+        continent_code:
+          type: string
+        continent_name:
+          type: string
+        country_code2:
+          type: string
+        country_code3:
+          type: string
+        country_name:
+          type: string
+        country_name_official:
+          type: string
+        country_capital:
+          type: string
+        state_prov:
+          type: string
+        state_code:
+          type: string
+        district:
+          type: string
+        city:
+          type: string
+        locality:
+          type: string
+        accuracy_radius:
+          type: string
+        confidence:
+          type: string
+        zipcode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        is_eu:
+          type: boolean
+        geoname_id:
+          type: string
+        country_emoji:
+          type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    GeoNetwork:
+      type: object
+      properties:
+        asn:
+          $ref: '#/components/schemas/GeoAsn'
+        connection_type:
+          type: string
+        company:
+          $ref: '#/components/schemas/GeoCompany'
+      additionalProperties: true
+    GeoAsn:
+      type: object
+      properties:
+        as_number:
+          type: string
+        organization:
+          type: string
+        country:
+          type: string
+        asn_name:
+          type: string
+        type:
+          type: string
+        domain:
+          type: string
+        date_allocated:
+          type: string
+        allocation_status:
+          type: string
+        num_of_ipv4_routes:
+          type: string
+        num_of_ipv6_routes:
+          type: string
+        rir:
+          type: string
+      additionalProperties: true
+    GeoCompany:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        domain:
+          type: string
+      additionalProperties: true
+    GeolocationResponse:
+      type: object
+      properties:
+        ip:
+          type: string
+        location:
+          $ref: '#/components/schemas/IpLocation'
+        country_metadata:
+          $ref: '#/components/schemas/CountryMetadata'
+        network:
+          $ref: '#/components/schemas/GeoNetwork'
+        currency:
+          $ref: '#/components/schemas/Currency'
+      additionalProperties: true
+    Currency:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+      additionalProperties: true
+    CountryMetadata:
+      type: object
+      properties:
+        calling_code:
+          type: string
+        tld:
+          type: string
+        languages:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

@@ -1,0 +1,195 @@
+{
+  "item": [
+    {
+      "id": "109cd9c4-3162-41a1-b1fa-cf583ddec10a",
+      "name": "IP WHOIS",
+      "description": {
+        "content": "IP address WHOIS",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2203341c-a667-4527-9c9f-716169340365",
+          "name": "IP WHOIS Lookup",
+          "request": {
+            "name": "IP WHOIS Lookup",
+            "description": {
+              "content": "WHOIS for an IP address. 1 credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "ip-whois"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ip",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8aee7a91-1d41-4cf8-b865-f65e127926bb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "ip-whois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"ip_address\": \"string\",\n  \"as_number\": \"string\",\n  \"query_time\": \"string\",\n  \"whois_server\": \"string\",\n  \"whois_raw_response\": \"string\",\n  \"r_whois_raw_response\": \"string\",\n  \"inet_nums\": [\n    {\n      \"start_ip\": \"string\",\n      \"end_ip\": \"string\",\n      \"cidr\": [\n        \"string\",\n        \"string\"\n      ],\n      \"net_name\": \"string\",\n      \"net_handle\": \"string\",\n      \"description\": [\n        \"string\",\n        \"string\"\n      ],\n      \"countries\": [\n        \"string\",\n        \"string\"\n      ],\n      \"geofeed\": \"string\",\n      \"latitude\": 3521.4672496117882,\n      \"longitude\": 2727.223014748178,\n      \"city\": \"string\",\n      \"languages\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"string\",\n      \"organization\": \"string\",\n      \"sponsoring_organization\": \"string\",\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assignment_size\": \"string\",\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_lower\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_domains\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_routes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_irt\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\",\n      \"parents\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"start_ip\": \"string\",\n      \"end_ip\": \"string\",\n      \"cidr\": [\n        \"string\",\n        \"string\"\n      ],\n      \"net_name\": \"string\",\n      \"net_handle\": \"string\",\n      \"description\": [\n        \"string\",\n        \"string\"\n      ],\n      \"countries\": [\n        \"string\",\n        \"string\"\n      ],\n      \"geofeed\": \"string\",\n      \"latitude\": 9308.490474312548,\n      \"longitude\": 6813.654946784259,\n      \"city\": \"string\",\n      \"languages\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"string\",\n      \"organization\": \"string\",\n      \"sponsoring_organization\": \"string\",\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"assignment_size\": \"string\",\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_lower\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_domains\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_routes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_irt\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\",\n      \"parents\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"organization\": {\n    \"handle\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"description\": [\n      \"string\",\n      \"string\"\n    ],\n    \"address\": [\n      \"string\",\n      \"string\"\n    ],\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"district\": \"string\",\n    \"state\": \"string\",\n    \"zip_code\": \"string\",\n    \"country\": [\n      \"string\",\n      \"string\"\n    ],\n    \"latitude\": 2100.6986185158426,\n    \"longitude\": 8762.16881295577,\n    \"email\": [\n      \"string\",\n      \"string\"\n    ],\n    \"abuse_mailbox\": [\n      \"string\",\n      \"string\"\n    ],\n    \"phone\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fax_no\": [\n      \"string\",\n      \"string\"\n    ],\n    \"organizations\": [\n      \"string\",\n      \"string\"\n    ],\n    \"admin_contacts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tech_contacts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"abuse_contacts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"languages\": [\n      \"string\",\n      \"string\"\n    ],\n    \"remarks\": [\n      \"string\",\n      \"string\"\n    ],\n    \"notify\": [\n      \"string\",\n      \"string\"\n    ],\n    \"ref_nfy\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mnt_ref\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mnt_by\": [\n      \"string\",\n      \"string\"\n    ],\n    \"date_created\": \"string\",\n    \"date_updated\": \"string\",\n    \"source\": \"string\"\n  },\n  \"irt\": {\n    \"handle\": \"string\",\n    \"address\": [\n      \"string\",\n      \"string\"\n    ],\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"district\": \"string\",\n    \"state\": \"string\",\n    \"zip_code\": \"string\",\n    \"country\": \"string\",\n    \"email\": [\n      \"string\",\n      \"string\"\n    ],\n    \"abuse_mailbox\": [\n      \"string\",\n      \"string\"\n    ],\n    \"phone\": [\n      \"string\",\n      \"string\"\n    ],\n    \"fax_no\": [\n      \"string\",\n      \"string\"\n    ],\n    \"organizations\": [\n      \"string\",\n      \"string\"\n    ],\n    \"admin_contacts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"tech_contacts\": [\n      \"string\",\n      \"string\"\n    ],\n    \"remarks\": [\n      \"string\",\n      \"string\"\n    ],\n    \"signature\": [\n      \"string\",\n      \"string\"\n    ],\n    \"encryption\": [\n      \"string\",\n      \"string\"\n    ],\n    \"auth\": [\n      \"string\",\n      \"string\"\n    ],\n    \"notify\": [\n      \"string\",\n      \"string\"\n    ],\n    \"irt_nfy\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mnt_by\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mnt_ref\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"administrative_contacts\": [\n    {\n      \"handle\": \"string\",\n      \"name\": \"string\",\n      \"address\": [\n        \"string\",\n        \"string\"\n      ],\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"district\": \"string\",\n      \"state\": \"string\",\n      \"zip_code\": \"string\",\n      \"country\": \"string\",\n      \"email\": [\n        \"string\",\n        \"string\"\n      ],\n      \"abuse_mailbox\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phone\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fax_no\": [\n        \"string\",\n        \"string\"\n      ],\n      \"organizations\": [\n        \"string\",\n        \"string\"\n      ],\n      \"admin_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tech_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_ref\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\",\n      \"key_0\": 7502.728799273176,\n      \"key_1\": \"string\",\n      \"key_2\": 9702,\n      \"key_3\": 6122\n    },\n    {\n      \"handle\": \"string\",\n      \"name\": \"string\",\n      \"address\": [\n        \"string\",\n        \"string\"\n      ],\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"district\": \"string\",\n      \"state\": \"string\",\n      \"zip_code\": \"string\",\n      \"country\": \"string\",\n      \"email\": [\n        \"string\",\n        \"string\"\n      ],\n      \"abuse_mailbox\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phone\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fax_no\": [\n        \"string\",\n        \"string\"\n      ],\n      \"organizations\": [\n        \"string\",\n        \"string\"\n      ],\n      \"admin_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tech_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_ref\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\"\n    }\n  ],\n  \"technical_contacts\": [\n    {\n      \"handle\": \"string\",\n      \"name\": \"string\",\n      \"address\": [\n        \"string\",\n        \"string\"\n      ],\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"district\": \"string\",\n      \"state\": \"string\",\n      \"zip_code\": \"string\",\n      \"country\": \"string\",\n      \"email\": [\n        \"string\",\n        \"string\"\n      ],\n      \"abuse_mailbox\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phone\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fax_no\": [\n        \"string\",\n        \"string\"\n      ],\n      \"organizations\": [\n        \"string\",\n        \"string\"\n      ],\n      \"admin_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tech_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_ref\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\"\n    },\n    {\n      \"handle\": \"string\",\n      \"name\": \"string\",\n      \"address\": [\n        \"string\",\n        \"string\"\n      ],\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"district\": \"string\",\n      \"state\": \"string\",\n      \"zip_code\": \"string\",\n      \"country\": \"string\",\n      \"email\": [\n        \"string\",\n        \"string\"\n      ],\n      \"abuse_mailbox\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phone\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fax_no\": [\n        \"string\",\n        \"string\"\n      ],\n      \"organizations\": [\n        \"string\",\n        \"string\"\n      ],\n      \"admin_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tech_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_ref\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\"\n    }\n  ],\n  \"abuse_contacts\": [\n    {\n      \"handle\": \"string\",\n      \"name\": \"string\",\n      \"address\": [\n        \"string\",\n        \"string\"\n      ],\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"district\": \"string\",\n      \"state\": \"string\",\n      \"zip_code\": \"string\",\n      \"country\": \"string\",\n      \"email\": [\n        \"string\",\n        \"string\"\n      ],\n      \"abuse_mailbox\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phone\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fax_no\": [\n        \"string\",\n        \"string\"\n      ],\n      \"organizations\": [\n        \"string\",\n        \"string\"\n      ],\n      \"admin_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tech_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_ref\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\"\n    },\n    {\n      \"handle\": \"string\",\n      \"name\": \"string\",\n      \"address\": [\n        \"string\",\n        \"string\"\n      ],\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"district\": \"string\",\n      \"state\": \"string\",\n      \"zip_code\": \"string\",\n      \"country\": \"string\",\n      \"email\": [\n        \"string\",\n        \"string\"\n      ],\n      \"abuse_mailbox\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phone\": [\n        \"string\",\n        \"string\"\n      ],\n      \"fax_no\": [\n        \"string\",\n        \"string\"\n      ],\n      \"organizations\": [\n        \"string\",\n        \"string\"\n      ],\n      \"admin_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"tech_contacts\": [\n        \"string\",\n        \"string\"\n      ],\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_ref\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\"\n    }\n  ],\n  \"routes\": [\n    {\n      \"route\": \"string\",\n      \"description\": [\n        \"string\",\n        \"string\"\n      ],\n      \"origin\": \"string\",\n      \"pingable\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ping_hdl\": [\n        \"string\",\n        \"string\"\n      ],\n      \"holes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"country\": \"string\",\n      \"organizations\": [\n        \"string\",\n        \"string\"\n      ],\n      \"member_of\": [\n        \"string\",\n        \"string\"\n      ],\n      \"inject\": [\n        \"string\",\n        \"string\"\n      ],\n      \"aggr_mtd\": \"string\",\n      \"aggr_bndry\": \"string\",\n      \"export_comps\": \"string\",\n      \"components\": \"string\",\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_lower\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_routes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\"\n    },\n    {\n      \"route\": \"string\",\n      \"description\": [\n        \"string\",\n        \"string\"\n      ],\n      \"origin\": \"string\",\n      \"pingable\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ping_hdl\": [\n        \"string\",\n        \"string\"\n      ],\n      \"holes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"country\": \"string\",\n      \"organizations\": [\n        \"string\",\n        \"string\"\n      ],\n      \"member_of\": [\n        \"string\",\n        \"string\"\n      ],\n      \"inject\": [\n        \"string\",\n        \"string\"\n      ],\n      \"aggr_mtd\": \"string\",\n      \"aggr_bndry\": \"string\",\n      \"export_comps\": \"string\",\n      \"components\": \"string\",\n      \"remarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"notify\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_lower\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_routes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"mnt_by\": [\n        \"string\",\n        \"string\"\n      ],\n      \"date_created\": \"string\",\n      \"date_updated\": \"string\",\n      \"source\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a54c596-aa2e-4649-8b95-a3270e515e93",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "ip-whois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 654\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2d333665-1eb1-43f4-885b-2b3d7da3d3ac",
+    "name": "WhoisFreaks IP WHOIS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

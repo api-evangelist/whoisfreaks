@@ -1,0 +1,218 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks Domain Availability API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: Domain Availability
+  description: Check domain availability
+paths:
+  /v2.0/domain/availability:
+    get:
+      tags:
+      - Domain Availability
+      summary: Domain Availability Check with Suggestions
+      description: Check availability of a single domain and optionally get suggestions across multiple TLDs. 1 credit per domain checked. sug=false checks only the queried domain; sug=true returns up to `count` (max 100) TLD suggestions.
+      operationId: domainAvailabilityV2
+      parameters:
+      - name: domain
+        in: query
+        schema:
+          type: string
+        required: true
+        description: The domain name to check
+        example: google.com
+      - name: sug
+        in: query
+        schema:
+          type: boolean
+          default: false
+        description: Whether to return TLD suggestions alongside the queried domain.
+      - name: count
+        in: query
+        schema:
+          type: integer
+          default: 5
+          minimum: 1
+          maximum: 100
+        description: Number of TLD suggestions to return when sug=true. Maximum is 100.
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainAvailabilityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+    post:
+      tags:
+      - Domain Availability
+      summary: Bulk Domain Availability Check
+      description: 'Two bulk modes. Mode 1: POST domainNames array. Mode 2: POST tld array plus domain query param. Max 100 domains per request. 1 credit per domain checked.'
+      operationId: bulkDomainAvailabilityV2
+      parameters:
+      - name: domain
+        in: query
+        schema:
+          type: string
+        description: Required for TLD-mode bulk check (base domain).
+        example: google.com
+      - $ref: '#/components/parameters/Format'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkDomainAvailabilityRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDomainAvailabilityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
+  responses:
+    RateLimited:
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    DomainAvailabilityResponse:
+      type: object
+      properties:
+        domain:
+          type: string
+        availability:
+          type: string
+        message:
+          type: string
+        domain_available_response:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainAvailabilityItem'
+      additionalProperties: true
+    BulkDomainAvailabilityResponse:
+      type: object
+      properties:
+        bulk_domain_availability_response:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainAvailabilityItem'
+      additionalProperties: true
+    DomainAvailabilityItem:
+      type: object
+      properties:
+        domain:
+          type: string
+        availability:
+          type: string
+        status:
+          type: boolean
+      additionalProperties: true
+    BulkDomainAvailabilityRequest:
+      type: object
+      properties:
+        domainNames:
+          type: array
+          items:
+            type: string
+          maxItems: 100
+          description: Mode 1 — list of full domain names. Cannot be used with tld.
+        tld:
+          type: array
+          items:
+            type: string
+          maxItems: 100
+          description: Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames.
+      description: Request body for POST /v2.0/domain/availability. Use domainNames OR tld.
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

@@ -1,0 +1,554 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks IP WHOIS API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: IP WHOIS
+  description: IP address WHOIS
+paths:
+  /v1.0/ip-whois:
+    get:
+      tags:
+      - IP WHOIS
+      summary: IP WHOIS Lookup
+      description: WHOIS for an IP address. 1 credit.
+      operationId: ipWhois
+      parameters:
+      - name: ip
+        in: query
+        schema:
+          type: string
+        required: true
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IpWhoisResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  schemas:
+    WhoisOrganization:
+      type: object
+      properties:
+        handle:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: array
+          items:
+            type: string
+        address:
+          type: array
+          items:
+            type: string
+        street:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: array
+          items:
+            type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        email:
+          type: array
+          items:
+            type: string
+        abuse_mailbox:
+          type: array
+          items:
+            type: string
+        phone:
+          type: array
+          items:
+            type: string
+        fax_no:
+          type: array
+          items:
+            type: string
+        organizations:
+          type: array
+          items:
+            type: string
+        admin_contacts:
+          type: array
+          items:
+            type: string
+        tech_contacts:
+          type: array
+          items:
+            type: string
+        abuse_contacts:
+          type: array
+          items:
+            type: string
+        languages:
+          type: array
+          items:
+            type: string
+        remarks:
+          type: array
+          items:
+            type: string
+        notify:
+          type: array
+          items:
+            type: string
+        ref_nfy:
+          type: array
+          items:
+            type: string
+        mnt_ref:
+          type: array
+          items:
+            type: string
+        mnt_by:
+          type: array
+          items:
+            type: string
+        date_created:
+          type: string
+        date_updated:
+          type: string
+        source:
+          type: string
+      additionalProperties: true
+    InetNum:
+      type: object
+      properties:
+        start_ip:
+          type: string
+        end_ip:
+          type: string
+        cidr:
+          type: array
+          items:
+            type: string
+        net_name:
+          type: string
+        net_handle:
+          type: string
+        description:
+          type: array
+          items:
+            type: string
+        countries:
+          type: array
+          items:
+            type: string
+        geofeed:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        city:
+          type: string
+        languages:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        organization:
+          type: string
+        sponsoring_organization:
+          type: string
+        remarks:
+          type: array
+          items:
+            type: string
+        assignment_size:
+          type: string
+        notify:
+          type: array
+          items:
+            type: string
+        mnt_by:
+          type: array
+          items:
+            type: string
+        mnt_lower:
+          type: array
+          items:
+            type: string
+        mnt_domains:
+          type: array
+          items:
+            type: string
+        mnt_routes:
+          type: array
+          items:
+            type: string
+        mnt_irt:
+          type: array
+          items:
+            type: string
+        date_created:
+          type: string
+        date_updated:
+          type: string
+        source:
+          type: string
+        parents:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    IpWhoisResponse:
+      type: object
+      properties:
+        status:
+          type: boolean
+        ip_address:
+          type: string
+        as_number:
+          type: string
+        query_time:
+          type: string
+        whois_server:
+          type: string
+        whois_raw_response:
+          type: string
+        r_whois_raw_response:
+          type: string
+        inet_nums:
+          type: array
+          items:
+            $ref: '#/components/schemas/InetNum'
+        organization:
+          $ref: '#/components/schemas/WhoisOrganization'
+        irt:
+          $ref: '#/components/schemas/Irt'
+        administrative_contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisPerson'
+        technical_contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisPerson'
+        abuse_contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisPerson'
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    Irt:
+      type: object
+      properties:
+        handle:
+          type: string
+        address:
+          type: array
+          items:
+            type: string
+        street:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+        email:
+          type: array
+          items:
+            type: string
+        abuse_mailbox:
+          type: array
+          items:
+            type: string
+        phone:
+          type: array
+          items:
+            type: string
+        fax_no:
+          type: array
+          items:
+            type: string
+        organizations:
+          type: array
+          items:
+            type: string
+        admin_contacts:
+          type: array
+          items:
+            type: string
+        tech_contacts:
+          type: array
+          items:
+            type: string
+        remarks:
+          type: array
+          items:
+            type: string
+        signature:
+          type: array
+          items:
+            type: string
+        encryption:
+          type: array
+          items:
+            type: string
+        auth:
+          type: array
+          items:
+            type: string
+        notify:
+          type: array
+          items:
+            type: string
+        irt_nfy:
+          type: array
+          items:
+            type: string
+        mnt_by:
+          type: array
+          items:
+            type: string
+        mnt_ref:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    Route:
+      type: object
+      properties:
+        route:
+          type: string
+        description:
+          type: array
+          items:
+            type: string
+        origin:
+          type: string
+        pingable:
+          type: array
+          items:
+            type: string
+        ping_hdl:
+          type: array
+          items:
+            type: string
+        holes:
+          type: array
+          items:
+            type: string
+        country:
+          type: string
+        organizations:
+          type: array
+          items:
+            type: string
+        member_of:
+          type: array
+          items:
+            type: string
+        inject:
+          type: array
+          items:
+            type: string
+        aggr_mtd:
+          type: string
+        aggr_bndry:
+          type: string
+        export_comps:
+          type: string
+        components:
+          type: string
+        remarks:
+          type: array
+          items:
+            type: string
+        notify:
+          type: array
+          items:
+            type: string
+        mnt_lower:
+          type: array
+          items:
+            type: string
+        mnt_routes:
+          type: array
+          items:
+            type: string
+        mnt_by:
+          type: array
+          items:
+            type: string
+        date_created:
+          type: string
+        date_updated:
+          type: string
+        source:
+          type: string
+      additionalProperties: true
+    WhoisPerson:
+      type: object
+      properties:
+        handle:
+          type: string
+        name:
+          type: string
+        address:
+          type: array
+          items:
+            type: string
+        street:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+        email:
+          type: array
+          items:
+            type: string
+        abuse_mailbox:
+          type: array
+          items:
+            type: string
+        phone:
+          type: array
+          items:
+            type: string
+        fax_no:
+          type: array
+          items:
+            type: string
+        organizations:
+          type: array
+          items:
+            type: string
+        admin_contacts:
+          type: array
+          items:
+            type: string
+        tech_contacts:
+          type: array
+          items:
+            type: string
+        remarks:
+          type: array
+          items:
+            type: string
+        notify:
+          type: array
+          items:
+            type: string
+        mnt_by:
+          type: array
+          items:
+            type: string
+        mnt_ref:
+          type: array
+          items:
+            type: string
+        date_created:
+          type: string
+        date_updated:
+          type: string
+        source:
+          type: string
+      additionalProperties: true
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

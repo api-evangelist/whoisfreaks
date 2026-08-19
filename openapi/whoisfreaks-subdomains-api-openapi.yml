@@ -1,0 +1,218 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks Subdomains API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: Subdomains
+  description: Subdomain enumeration
+paths:
+  /v1.0/subdomains:
+    get:
+      tags:
+      - Subdomains
+      summary: Subdomains Lookup
+      description: All subdomains including nested. 2 credits per query.
+      operationId: subdomains
+      parameters:
+      - name: domain
+        in: query
+        schema:
+          type: string
+        required: true
+      - name: after
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: before
+        in: query
+        schema:
+          type: string
+          format: date
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - active
+          - inactive
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubdomainsResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  schemas:
+    Subdomain:
+      type: object
+      properties:
+        subdomain:
+          type: string
+        first_seen:
+          type: string
+        last_seen:
+          type: string
+        inactive_from:
+          type: string
+        dns_records:
+          $ref: '#/components/schemas/DnsResponse'
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    DnsResponse:
+      type: object
+      properties:
+        domainName:
+          type: string
+        ipAddress:
+          type: string
+        queryTime:
+          type: string
+        status:
+          type: boolean
+        domainRegistered:
+          type: boolean
+        dnsTypes:
+          type: object
+        dnsRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
+      additionalProperties: true
+      description: Live DNS response (DnsInfo).
+    DnsRecord:
+      type: object
+      properties:
+        type:
+          type: string
+        name:
+          type: string
+        ttl:
+          type: integer
+        address:
+          type: string
+        priority:
+          type: integer
+        exchange:
+          type: string
+        target:
+          type: string
+        strings:
+          type: array
+          items:
+            type: string
+        host:
+          type: string
+        admin:
+          type: string
+        serial:
+          type: integer
+        refresh:
+          type: integer
+        retry:
+          type: integer
+        expire:
+          type: integer
+        minimum:
+          type: integer
+      additionalProperties: true
+      description: Union of all DNS record variants (A/AAAA/MX/NS/CNAME/PTR/TXT/SPF/SOA).
+    SubdomainsResponse:
+      type: object
+      properties:
+        domain:
+          type: string
+        status:
+          type: boolean
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+        query_time:
+          type: string
+        total_records:
+          type: integer
+        subdomains:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subdomain'
+      additionalProperties: true
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

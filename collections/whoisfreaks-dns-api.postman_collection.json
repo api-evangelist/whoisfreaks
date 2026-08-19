@@ -1,0 +1,829 @@
+{
+  "item": [
+    {
+      "id": "d56ed604-5278-40fc-92d6-4f87a95a28a4",
+      "name": "DNS",
+      "description": {
+        "content": "DNS lookup APIs (live, historical, reverse, bulk)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3cc9e8b3-2994-4a11-b1f7-dc1eda3bcd3b",
+          "name": "Live DNS Lookup",
+          "request": {
+            "name": "Live DNS Lookup",
+            "description": {
+              "content": "Real-time DNS record lookup. 1 credit per query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2.0",
+                "dns",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ipAddress",
+                  "value": "<string>",
+                  "description": "Use for PTR lookups"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "all",
+                  "description": "(Required) all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65edfd55-f33e-483b-8b33-7aaf45e3486b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "dns",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ipAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"domainName\": \"string\",\n  \"ipAddress\": \"string\",\n  \"queryTime\": \"string\",\n  \"status\": true,\n  \"domainRegistered\": true,\n  \"dnsTypes\": {},\n  \"dnsRecords\": [\n    {\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"ttl\": 9284,\n      \"address\": \"string\",\n      \"priority\": 691,\n      \"exchange\": \"string\",\n      \"target\": \"string\",\n      \"strings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"host\": \"string\",\n      \"admin\": \"string\",\n      \"serial\": 2909,\n      \"refresh\": 1633,\n      \"retry\": 3492,\n      \"expire\": 5836,\n      \"minimum\": 1573\n    },\n    {\n      \"type\": \"string\",\n      \"name\": \"string\",\n      \"ttl\": 3391,\n      \"address\": \"string\",\n      \"priority\": 2376,\n      \"exchange\": \"string\",\n      \"target\": \"string\",\n      \"strings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"host\": \"string\",\n      \"admin\": \"string\",\n      \"serial\": 1200,\n      \"refresh\": 1941,\n      \"retry\": 2692,\n      \"expire\": 5872,\n      \"minimum\": 3837\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ec376a7-3cc6-4cf7-a15f-c3f2f420415f",
+              "name": "Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "dns",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ipAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 8616,\n  \"key_0\": 5122.814729983093,\n  \"key_1\": false,\n  \"key_2\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5347b1b0-a867-43e1-be7e-cb73a9e9905a",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "dns",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ipAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 8616,\n  \"key_0\": 5122.814729983093,\n  \"key_1\": false,\n  \"key_2\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "899f5a00-b738-4ffa-be77-a6f9f95408b2",
+          "name": "Historical DNS Lookup",
+          "request": {
+            "name": "Historical DNS Lookup",
+            "description": {
+              "content": "All historical DNS records. 2 credits per page (100 records/page).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2.0",
+                "dns",
+                "historical"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "all",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8bd273fd-da63-4ee0-a101-ceffda96e491",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "dns",
+                    "historical"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalPages\": 5456,\n  \"currenPage\": 3709,\n  \"totalRecords\": 6053,\n  \"historicalDns\": [\n    {\n      \"domainName\": \"string\",\n      \"ipAddress\": \"string\",\n      \"queryTime\": \"string\",\n      \"status\": false,\n      \"domainRegistered\": false,\n      \"dnsTypes\": {},\n      \"dnsRecords\": [\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 5357,\n          \"address\": \"string\",\n          \"priority\": 1014,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 1913,\n          \"refresh\": 7917,\n          \"retry\": 604,\n          \"expire\": 7028,\n          \"minimum\": 9424,\n          \"key_0\": \"string\",\n          \"key_1\": 1871,\n          \"key_2\": true\n        },\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 8675,\n          \"address\": \"string\",\n          \"priority\": 5418,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 3667,\n          \"refresh\": 6943,\n          \"retry\": 7372,\n          \"expire\": 9647,\n          \"minimum\": 6404\n        }\n      ]\n    },\n    {\n      \"domainName\": \"string\",\n      \"ipAddress\": \"string\",\n      \"queryTime\": \"string\",\n      \"status\": false,\n      \"domainRegistered\": false,\n      \"dnsTypes\": {},\n      \"dnsRecords\": [\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 8828,\n          \"address\": \"string\",\n          \"priority\": 9638,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 1884,\n          \"refresh\": 9380,\n          \"retry\": 9995,\n          \"expire\": 169,\n          \"minimum\": 804,\n          \"key_0\": \"string\",\n          \"key_1\": 5589,\n          \"key_2\": 1876.3420550819953,\n          \"key_3\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 7407,\n          \"address\": \"string\",\n          \"priority\": 2021,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 2114,\n          \"refresh\": 3119,\n          \"retry\": 8013,\n          \"expire\": 7509,\n          \"minimum\": 1934,\n          \"key_0\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fe6976d-8c9e-47c4-9a43-df90c301d333",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "dns",
+                    "historical"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 8616,\n  \"key_0\": 5122.814729983093,\n  \"key_1\": false,\n  \"key_2\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45daa438-9c73-49b4-b518-882232be43bd",
+          "name": "Reverse DNS Lookup",
+          "request": {
+            "name": "Reverse DNS Lookup",
+            "description": {
+              "content": "Search domains by IP or DNS value. 5 credits per page.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2.1",
+                "dns",
+                "reverse"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "(Required) IP, CIDR, or record value"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "exact",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96cbf702-de97-4066-831e-264810a3d631",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.1",
+                    "dns",
+                    "reverse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exact",
+                      "value": "true"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalRecords\": 2149,\n  \"totalPages\": 7954,\n  \"currentPage\": 6545,\n  \"reverseDnsRecords\": [\n    {\n      \"domainName\": \"string\",\n      \"ipAddress\": \"string\",\n      \"queryTime\": \"string\",\n      \"status\": false,\n      \"domainRegistered\": false,\n      \"dnsTypes\": {},\n      \"dnsRecords\": [\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 137,\n          \"address\": \"string\",\n          \"priority\": 9832,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 5220,\n          \"refresh\": 215,\n          \"retry\": 2595,\n          \"expire\": 4225,\n          \"minimum\": 1145\n        },\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 7516,\n          \"address\": \"string\",\n          \"priority\": 5813,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 2045,\n          \"refresh\": 3460,\n          \"retry\": 3700,\n          \"expire\": 1505,\n          \"minimum\": 7452\n        }\n      ]\n    },\n    {\n      \"domainName\": \"string\",\n      \"ipAddress\": \"string\",\n      \"queryTime\": \"string\",\n      \"status\": true,\n      \"domainRegistered\": false,\n      \"dnsTypes\": {},\n      \"dnsRecords\": [\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 7213,\n          \"address\": \"string\",\n          \"priority\": 7990,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 2703,\n          \"refresh\": 7161,\n          \"retry\": 7027,\n          \"expire\": 4976,\n          \"minimum\": 2985\n        },\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 8195,\n          \"address\": \"string\",\n          \"priority\": 2641,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 8790,\n          \"refresh\": 7919,\n          \"retry\": 9207,\n          \"expire\": 7364,\n          \"minimum\": 3228\n        }\n      ],\n      \"key_0\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c212c934-2579-4bc7-bc2a-168ce2432354",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.1",
+                    "dns",
+                    "reverse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exact",
+                      "value": "true"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 8616,\n  \"key_0\": 5122.814729983093,\n  \"key_1\": false,\n  \"key_2\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6bfa472-98a7-496c-8f2c-1a9db69f422c",
+          "name": "Bulk DNS Lookup",
+          "request": {
+            "name": "Bulk DNS Lookup",
+            "description": {
+              "content": "Up to 100 domains + 100 IPs in one request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2.0",
+                "dns",
+                "bulk",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "all",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domainNames\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ipAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a57abe9-d3bf-4649-997e-41eae9d8e1a5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "dns",
+                    "bulk",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domainNames\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ipAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulk_dns_info\": [\n    {\n      \"domainName\": \"string\",\n      \"ipAddress\": \"string\",\n      \"queryTime\": \"string\",\n      \"status\": false,\n      \"domainRegistered\": true,\n      \"dnsTypes\": {},\n      \"dnsRecords\": [\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 8796,\n          \"address\": \"string\",\n          \"priority\": 4745,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 241,\n          \"refresh\": 8423,\n          \"retry\": 9773,\n          \"expire\": 5747,\n          \"minimum\": 81\n        },\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 6094,\n          \"address\": \"string\",\n          \"priority\": 6421,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 5900,\n          \"refresh\": 3036,\n          \"retry\": 9311,\n          \"expire\": 6907,\n          \"minimum\": 9568\n        }\n      ],\n      \"key_0\": true\n    },\n    {\n      \"domainName\": \"string\",\n      \"ipAddress\": \"string\",\n      \"queryTime\": \"string\",\n      \"status\": true,\n      \"domainRegistered\": true,\n      \"dnsTypes\": {},\n      \"dnsRecords\": [\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 1214,\n          \"address\": \"string\",\n          \"priority\": 558,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 293,\n          \"refresh\": 7192,\n          \"retry\": 4778,\n          \"expire\": 921,\n          \"minimum\": 3596\n        },\n        {\n          \"type\": \"string\",\n          \"name\": \"string\",\n          \"ttl\": 5445,\n          \"address\": \"string\",\n          \"priority\": 4394,\n          \"exchange\": \"string\",\n          \"target\": \"string\",\n          \"strings\": [\n            \"string\",\n            \"string\"\n          ],\n          \"host\": \"string\",\n          \"admin\": \"string\",\n          \"serial\": 1860,\n          \"refresh\": 7161,\n          \"retry\": 4999,\n          \"expire\": 6951,\n          \"minimum\": 5805\n        }\n      ],\n      \"key_0\": 8428.723991091814,\n      \"key_1\": true,\n      \"key_2\": \"string\",\n      \"key_3\": 8344\n    }\n  ],\n  \"key_0\": 2950,\n  \"key_1\": 9234\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce0c4caa-34c2-468a-9703-39aac3a8bc45",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "dns",
+                    "bulk",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "all"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domainNames\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ipAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 8616,\n  \"key_0\": 5122.814729983093,\n  \"key_1\": false,\n  \"key_2\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c84b4a69-854d-4f4b-aa28-aa9dcdacae4b",
+    "name": "WhoisFreaks DNS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

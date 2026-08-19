@@ -1,0 +1,329 @@
+{
+  "item": [
+    {
+      "id": "19fec52f-43d5-459c-8f11-e6418ab74579",
+      "name": "IP Reputation",
+      "description": {
+        "content": "IP threat intelligence",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4939ff2a-4e27-4861-acc8-24dee44ca1f8",
+          "name": "IP Reputation Lookup",
+          "request": {
+            "name": "IP Reputation Lookup",
+            "description": {
+              "content": "Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "security"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ip",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c792bb19-fcdd-4f18-9c26-5415ec0c60d6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "security"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ip\": \"string\",\n  \"location\": {\n    \"continent_code\": \"string\",\n    \"continent_name\": \"string\",\n    \"country_code2\": \"string\",\n    \"country_code3\": \"string\",\n    \"country_name\": \"string\",\n    \"country_name_official\": \"string\",\n    \"country_capital\": \"string\",\n    \"state_prov\": \"string\",\n    \"state_code\": \"string\",\n    \"district\": \"string\",\n    \"city\": \"string\",\n    \"locality\": \"string\",\n    \"accuracy_radius\": \"string\",\n    \"confidence\": \"string\",\n    \"zipcode\": \"string\",\n    \"latitude\": \"string\",\n    \"longitude\": \"string\",\n    \"is_eu\": false,\n    \"geoname_id\": \"string\",\n    \"country_emoji\": \"string\"\n  },\n  \"network\": {\n    \"connection_type\": \"string\",\n    \"route\": \"string\",\n    \"is_anycast\": true\n  },\n  \"asn\": {\n    \"as_number\": \"string\",\n    \"organization\": \"string\",\n    \"country\": \"string\",\n    \"type\": \"string\",\n    \"domain\": \"string\",\n    \"date_allocated\": \"string\",\n    \"rir\": \"string\"\n  },\n  \"security\": {\n    \"threat_score\": 2789,\n    \"is_tor\": true,\n    \"is_proxy\": true,\n    \"proxy_provider_names\": [\n      \"string\",\n      \"string\"\n    ],\n    \"proxy_confidence_score\": 6579,\n    \"proxy_last_seen\": \"string\",\n    \"is_residential_proxy\": false,\n    \"is_vpn\": false,\n    \"vpn_provider_names\": [\n      \"string\",\n      \"string\"\n    ],\n    \"vpn_confidence_score\": 2156,\n    \"vpn_last_seen\": \"string\",\n    \"is_relay\": true,\n    \"relay_provider_name\": \"string\",\n    \"is_anonymous\": true,\n    \"is_known_attacker\": false,\n    \"is_bot\": true,\n    \"is_spam\": true,\n    \"is_cloud_provider\": false,\n    \"cloud_provider_name\": \"string\",\n    \"key_0\": 1800.2098116945997\n  },\n  \"key_0\": 7689,\n  \"key_1\": \"string\",\n  \"key_2\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74562f08-35c4-4079-85df-198582ef8749",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "security"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 7327\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "076ffa77-e23e-42f8-ad05-a8f04d2397e5",
+          "name": "Bulk IP Reputation",
+          "request": {
+            "name": "Bulk IP Reputation",
+            "description": {
+              "content": "Up to 100 IPs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "security"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ips\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6d1f060f-de05-4f4c-a787-762b201a913c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "security"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ips\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ip\": \"string\",\n    \"location\": {\n      \"continent_code\": \"string\",\n      \"continent_name\": \"string\",\n      \"country_code2\": \"string\",\n      \"country_code3\": \"string\",\n      \"country_name\": \"string\",\n      \"country_name_official\": \"string\",\n      \"country_capital\": \"string\",\n      \"state_prov\": \"string\",\n      \"state_code\": \"string\",\n      \"district\": \"string\",\n      \"city\": \"string\",\n      \"locality\": \"string\",\n      \"accuracy_radius\": \"string\",\n      \"confidence\": \"string\",\n      \"zipcode\": \"string\",\n      \"latitude\": \"string\",\n      \"longitude\": \"string\",\n      \"is_eu\": true,\n      \"geoname_id\": \"string\",\n      \"country_emoji\": \"string\"\n    },\n    \"network\": {\n      \"connection_type\": \"string\",\n      \"route\": \"string\",\n      \"is_anycast\": true,\n      \"key_0\": 7807.03479864024\n    },\n    \"asn\": {\n      \"as_number\": \"string\",\n      \"organization\": \"string\",\n      \"country\": \"string\",\n      \"type\": \"string\",\n      \"domain\": \"string\",\n      \"date_allocated\": \"string\",\n      \"rir\": \"string\"\n    },\n    \"security\": {\n      \"threat_score\": 6588,\n      \"is_tor\": true,\n      \"is_proxy\": false,\n      \"proxy_provider_names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"proxy_confidence_score\": 1115,\n      \"proxy_last_seen\": \"string\",\n      \"is_residential_proxy\": true,\n      \"is_vpn\": true,\n      \"vpn_provider_names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"vpn_confidence_score\": 4733,\n      \"vpn_last_seen\": \"string\",\n      \"is_relay\": false,\n      \"relay_provider_name\": \"string\",\n      \"is_anonymous\": true,\n      \"is_known_attacker\": false,\n      \"is_bot\": true,\n      \"is_spam\": false,\n      \"is_cloud_provider\": true,\n      \"cloud_provider_name\": \"string\"\n    }\n  },\n  {\n    \"ip\": \"string\",\n    \"location\": {\n      \"continent_code\": \"string\",\n      \"continent_name\": \"string\",\n      \"country_code2\": \"string\",\n      \"country_code3\": \"string\",\n      \"country_name\": \"string\",\n      \"country_name_official\": \"string\",\n      \"country_capital\": \"string\",\n      \"state_prov\": \"string\",\n      \"state_code\": \"string\",\n      \"district\": \"string\",\n      \"city\": \"string\",\n      \"locality\": \"string\",\n      \"accuracy_radius\": \"string\",\n      \"confidence\": \"string\",\n      \"zipcode\": \"string\",\n      \"latitude\": \"string\",\n      \"longitude\": \"string\",\n      \"is_eu\": true,\n      \"geoname_id\": \"string\",\n      \"country_emoji\": \"string\"\n    },\n    \"network\": {\n      \"connection_type\": \"string\",\n      \"route\": \"string\",\n      \"is_anycast\": true,\n      \"key_0\": 7048,\n      \"key_1\": false\n    },\n    \"asn\": {\n      \"as_number\": \"string\",\n      \"organization\": \"string\",\n      \"country\": \"string\",\n      \"type\": \"string\",\n      \"domain\": \"string\",\n      \"date_allocated\": \"string\",\n      \"rir\": \"string\"\n    },\n    \"security\": {\n      \"threat_score\": 9192,\n      \"is_tor\": false,\n      \"is_proxy\": true,\n      \"proxy_provider_names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"proxy_confidence_score\": 9762,\n      \"proxy_last_seen\": \"string\",\n      \"is_residential_proxy\": true,\n      \"is_vpn\": false,\n      \"vpn_provider_names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"vpn_confidence_score\": 8573,\n      \"vpn_last_seen\": \"string\",\n      \"is_relay\": true,\n      \"relay_provider_name\": \"string\",\n      \"is_anonymous\": true,\n      \"is_known_attacker\": false,\n      \"is_bot\": false,\n      \"is_spam\": true,\n      \"is_cloud_provider\": false,\n      \"cloud_provider_name\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75e15328-b394-40c0-9353-9f7df67befad",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "security"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ips\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 7327\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "afa996e4-d002-458d-99ae-72bd5ebf8003",
+    "name": "WhoisFreaks IP Reputation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

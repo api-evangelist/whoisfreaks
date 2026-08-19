@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks DNS API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DNS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Live DNS Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v2.0/dns/live",
+            "params": [
+              {
+                "name": "domainName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ipAddress",
+                "value": "",
+                "type": "query",
+                "description": "Use for PTR lookups"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Real-time DNS record lookup. 1 credit per query."
+        },
+        {
+          "info": {
+            "name": "Historical DNS Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v2.0/dns/historical",
+            "params": [
+              {
+                "name": "domainName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "All historical DNS records. 2 credits per page (100 records/page)."
+        },
+        {
+          "info": {
+            "name": "Reverse DNS Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v2.1/dns/reverse",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query",
+                "description": "IP, CIDR, or record value"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "exact",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search domains by IP or DNS value. 5 credits per page."
+        },
+        {
+          "info": {
+            "name": "Bulk DNS Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.whoisfreaks.com/v2.0/dns/bulk/live",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Up to 100 domains + 100 IPs in one request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

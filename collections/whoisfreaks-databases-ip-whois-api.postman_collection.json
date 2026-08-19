@@ -1,0 +1,328 @@
+{
+  "item": [
+    {
+      "id": "0ad54963-056a-4444-a2b1-a5f22b1505cf",
+      "name": "Databases - IP WHOIS",
+      "description": {
+        "content": "IP WHOIS database snapshots",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1a5b5c57-12b9-4316-935f-9fde34e1a517",
+          "name": "IP WHOIS Snapshot",
+          "request": {
+            "name": "IP WHOIS Snapshot",
+            "description": {
+              "content": "IP WHOIS Snapshot. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.3",
+                "download",
+                "snapshot",
+                "ip",
+                "whois"
+              ],
+              "host": [
+                "{{v3.3-download-snapshot-ip-whois-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7eacc80-85ac-4a3a-95c6-60bb2c013d83",
+              "name": "JSON gzipped",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "snapshot",
+                    "ip",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-snapshot-ip-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1837d6b2-e66e-41ba-90c7-ed8454c9f297",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "snapshot",
+                    "ip",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-snapshot-ip-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 3170\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2689d488-8c81-4181-a819-b73bc3c583bf",
+          "name": "IP WHOIS Snapshot Status",
+          "request": {
+            "name": "IP WHOIS Snapshot Status",
+            "description": {
+              "content": "IP WHOIS Snapshot Status. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.3",
+                "status",
+                "snapshot",
+                "ip",
+                "whois"
+              ],
+              "host": [
+                "{{v3.3-status-snapshot-ip-whois-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c532f11-c2be-490f-9377-155315ee0e3c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "status",
+                    "snapshot",
+                    "ip",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-status-snapshot-ip-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"snapshot_creation_date\": \"string\",\n  \"snapshot_name\": \"string\",\n  \"snapshot_deletion_time\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e05f38f3-1f98-429c-abe0-eaf2e1774a3a",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "status",
+                    "snapshot",
+                    "ip",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-status-snapshot-ip-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 3170\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.3-download-snapshot-ip-whois-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.3-status-snapshot-ip-whois-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f544fa58-b09d-4a2e-a423-c83fba4bb3e8",
+    "name": "WhoisFreaks Databases - IP WHOIS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

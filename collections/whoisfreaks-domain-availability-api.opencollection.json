@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Domain Availability API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Domain Availability",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Domain Availability Check with Suggestions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v2.0/domain/availability",
+            "params": [
+              {
+                "name": "domain",
+                "value": "google.com",
+                "type": "query",
+                "description": "The domain name to check"
+              },
+              {
+                "name": "sug",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return TLD suggestions alongside the queried domain."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of TLD suggestions to return when sug=true. Maximum is 100."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Check availability of a single domain and optionally get suggestions across multiple TLDs. 1 credit per domain checked. sug=false checks only the queried domain; sug=true returns up to `count` (max 100) TLD suggestions."
+        },
+        {
+          "info": {
+            "name": "Bulk Domain Availability Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.whoisfreaks.com/v2.0/domain/availability",
+            "params": [
+              {
+                "name": "domain",
+                "value": "google.com",
+                "type": "query",
+                "description": "Required for TLD-mode bulk check (base domain)."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Two bulk modes. Mode 1: POST domainNames array. Mode 2: POST tld array plus domain query param. Max 100 domains per request. 1 credit per domain checked."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

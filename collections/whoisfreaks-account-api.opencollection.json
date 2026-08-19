@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Account API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Rotate API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v1.0/api-key/rotate"
+          },
+          "docs": "Rotate API Key. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Account Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v1.0/whoisapi/usage"
+          },
+          "docs": "Account Usage. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Database File Status (Public)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.4/status"
+          },
+          "docs": "No API key required. Returns freshness of all downloadable files."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

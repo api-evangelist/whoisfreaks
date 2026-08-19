@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks ASN WHOIS API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ASN WHOIS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ASN WHOIS Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v2.0/asn-whois",
+            "params": [
+              {
+                "name": "asn",
+                "value": "as15169",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "WHOIS for an ASN. 1 credit."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

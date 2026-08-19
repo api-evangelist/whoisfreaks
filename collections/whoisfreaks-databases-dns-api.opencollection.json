@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Databases - DNS API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases - DNS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "DNS Database Daily",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.2/download/dbupdate/daily/dns",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "DNS Database Daily. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "DNS Database Weekly",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.2/download/dbupdate/weekly/dns",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "DNS Database Weekly. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "DNS Database Monthly",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.2/download/dbupdate/monthly/dns",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "DNS Database Monthly. Returns the file/snapshot described by this operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

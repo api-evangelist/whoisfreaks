@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Databases - WHOIS API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases - WHOIS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "WHOIS Database Daily",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/download/dbupdate/daily/domains/whois",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "WHOIS Database Daily. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "WHOIS Database Weekly",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/download/dbupdate/weekly/domains/whois",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "WHOIS Database Weekly. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "WHOIS Database Monthly",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/download/dbupdate/monthly/domains/whois",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "WHOIS Database Monthly. Returns the file/snapshot described by this operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

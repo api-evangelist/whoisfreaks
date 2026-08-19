@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Databases - Expiring & Dropped API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases - Expiring & Dropped",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Expiring Domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/download/domainer/expired",
+            "params": [
+              {
+                "name": "whois",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "Expiring Domains. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Expiring Cleaned WHOIS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/download/domainer/expired/cleaned",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "Expiring Cleaned WHOIS. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Dropped Domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/download/domainer/dropped",
+            "params": [
+              {
+                "name": "whois",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "Dropped Domains. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Dropped Domains (JSON)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/domains/dropped",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              },
+              {
+                "name": "tlds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Dropped Domains (JSON). Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Dropped With Backlinks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/download/domainer/dropped/backlinks",
+            "params": [
+              {
+                "name": "whois",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "Dropped With Backlinks. Returns the file/snapshot described by this operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

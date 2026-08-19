@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Databases - IP Security API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases - IP Security",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "IP Security Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/download/snapshot/ip/security",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "IP Security Snapshot. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "IP Security Snapshot Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/status/snapshot/ip/security"
+          },
+          "docs": "IP Security Snapshot Status. Returns the file/snapshot described by this operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

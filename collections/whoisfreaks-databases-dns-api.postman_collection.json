@@ -1,0 +1,490 @@
+{
+  "item": [
+    {
+      "id": "d0f14456-4372-4060-9cf7-1c99939ab306",
+      "name": "Databases - DNS",
+      "description": {
+        "content": "DNS database snapshots",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa344f02-ed67-4624-917b-a4cf1428869f",
+          "name": "DNS Database Daily",
+          "request": {
+            "name": "DNS Database Daily",
+            "description": {
+              "content": "DNS Database Daily. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.2",
+                "download",
+                "dbupdate",
+                "daily",
+                "dns"
+              ],
+              "host": [
+                "{{v3.2-download-dbupdate-daily-dns-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4bca4d3-8a8f-49eb-9fce-805d5127bb6c",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "daily",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-daily-dns-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28f79745-63ae-48ea-a344-515ced7844bb",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "daily",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-daily-dns-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 3313\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d8c55b9-c5ed-4eee-88c5-ad33ed8d3d45",
+          "name": "DNS Database Weekly",
+          "request": {
+            "name": "DNS Database Weekly",
+            "description": {
+              "content": "DNS Database Weekly. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.2",
+                "download",
+                "dbupdate",
+                "weekly",
+                "dns"
+              ],
+              "host": [
+                "{{v3.2-download-dbupdate-weekly-dns-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "74df471d-45f5-4d0c-95ab-7b1218f18e79",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "weekly",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-weekly-dns-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f75dea44-43cd-4b5c-ac20-70bff7e4f6f7",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "weekly",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-weekly-dns-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 3313\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6ee4b7b-e670-4f6b-9036-1f13265ec6aa",
+          "name": "DNS Database Monthly",
+          "request": {
+            "name": "DNS Database Monthly",
+            "description": {
+              "content": "DNS Database Monthly. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.2",
+                "download",
+                "dbupdate",
+                "monthly",
+                "dns"
+              ],
+              "host": [
+                "{{v3.2-download-dbupdate-monthly-dns-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b46a216-c7ed-4549-8dd8-0ec555b6ccd9",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "monthly",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-monthly-dns-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12a8f31d-8acb-40f6-b047-94ab93f5e833",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "monthly",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-monthly-dns-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 3313\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.2-download-dbupdate-daily-dns-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.2-download-dbupdate-weekly-dns-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.2-download-dbupdate-monthly-dns-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fb96385d-5773-4024-9523-119f317bdcb0",
+    "name": "WhoisFreaks Databases - DNS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

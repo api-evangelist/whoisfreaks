@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Databases - Threat Feed API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases - Threat Feed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download the daily phishing threat feed (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.4/download/threat-feed/phishing",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Feed date (yyyy-MM-dd); defaults to latest available"
+              }
+            ]
+          },
+          "docs": "Download the daily phishing threat feed (CSV)"
+        },
+        {
+          "info": {
+            "name": "Download a sample of the phishing threat feed (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.4/download/threat-feed/phishing/sample"
+          },
+          "docs": "Download a sample of the phishing threat feed (CSV)"
+        },
+        {
+          "info": {
+            "name": "Download the daily malware threat feed (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.4/download/threat-feed/malware",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Feed date (yyyy-MM-dd); defaults to latest available"
+              }
+            ]
+          },
+          "docs": "Download the daily malware threat feed (CSV)"
+        },
+        {
+          "info": {
+            "name": "Download a sample of the malware threat feed (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.4/download/threat-feed/malware/sample"
+          },
+          "docs": "Download a sample of the malware threat feed (CSV)"
+        },
+        {
+          "info": {
+            "name": "Download the daily spam threat feed (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.4/download/threat-feed/spam",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Feed date (yyyy-MM-dd); defaults to latest available"
+              }
+            ]
+          },
+          "docs": "Download the daily spam threat feed (CSV)"
+        },
+        {
+          "info": {
+            "name": "Download a sample of the spam threat feed (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.4/download/threat-feed/spam/sample"
+          },
+          "docs": "Download a sample of the spam threat feed (CSV)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

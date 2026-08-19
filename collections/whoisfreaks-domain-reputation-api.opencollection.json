@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Domain Reputation API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Domain Reputation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Domain Reputation Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v1/domain/security",
+            "params": [
+              {
+                "name": "domainName",
+                "value": "amazon.com",
+                "type": "query",
+                "description": "The domain name to assess"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Real-time domain threat assessment. Returns risk verdict, trust score, DGA analysis, threat intelligence matches, and security signals. 1 credit."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

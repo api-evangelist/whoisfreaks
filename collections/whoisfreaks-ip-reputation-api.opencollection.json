@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks IP Reputation API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IP Reputation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "IP Reputation Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v1.0/security",
+            "params": [
+              {
+                "name": "ip",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Threat intel for IP — VPN, proxy, Tor, bots. 1 credit."
+        },
+        {
+          "info": {
+            "name": "Bulk IP Reputation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.whoisfreaks.com/v1.0/security",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Up to 100 IPs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

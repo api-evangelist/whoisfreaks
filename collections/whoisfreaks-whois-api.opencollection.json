@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks WHOIS API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WHOIS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Live WHOIS Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v2.0/whois/live",
+            "params": [
+              {
+                "name": "domainName",
+                "value": "whoisfreaks.com",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Real-time WHOIS lookup from authoritative servers. Cost 1 credit."
+        },
+        {
+          "info": {
+            "name": "Bulk WHOIS Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.whoisfreaks.com/v2.0/bulkwhois/live",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Up to 100 domains in one request. 1 credit per successful domain."
+        },
+        {
+          "info": {
+            "name": "Historical WHOIS records for a domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v2.0/whois/history",
+            "params": [
+              {
+                "name": "domainName",
+                "value": "",
+                "type": "query",
+                "description": "Domain to fetch historical WHOIS records for"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Historical WHOIS records for a domain"
+        },
+        {
+          "info": {
+            "name": "Reverse WHOIS lookup by keyword",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v2.0/whois/reverse",
+            "params": [
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "Keyword to search across WHOIS records"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Reverse WHOIS lookup by keyword"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

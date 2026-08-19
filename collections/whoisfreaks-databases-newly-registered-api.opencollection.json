@@ -1,0 +1,189 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Databases - Newly Registered API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases - Newly Registered",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Newly Registered gTLD (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/download/domainer/gtld",
+            "params": [
+              {
+                "name": "whois",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              },
+              {
+                "name": "tlds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Newly Registered gTLD (CSV). Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Newly Registered ccTLD (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/download/domainer/cctld",
+            "params": [
+              {
+                "name": "whois",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              },
+              {
+                "name": "tlds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Newly Registered ccTLD (CSV). Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Newly Registered gTLD Cleaned WHOIS (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/download/domainer/gtld/cleaned",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "Newly Registered gTLD Cleaned WHOIS (CSV). Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Newly Registered ccTLD Cleaned WHOIS (CSV)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/download/domainer/cctld/cleaned",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "Newly Registered ccTLD Cleaned WHOIS (CSV). Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Newly Registered gTLD (JSON)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/domains/newly/gtld",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              },
+              {
+                "name": "tlds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Newly Registered gTLD (JSON). Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Newly Registered ccTLD (JSON)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/domains/newly/cctld",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              },
+              {
+                "name": "tlds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Newly Registered ccTLD (JSON). Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "Newly Registered With DNS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.1/download/domainer/newly/dns",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "yyyy-MM-dd; omit for latest"
+              }
+            ]
+          },
+          "docs": "Newly Registered With DNS. Returns the file/snapshot described by this operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

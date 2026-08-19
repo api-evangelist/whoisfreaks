@@ -1,0 +1,328 @@
+{
+  "item": [
+    {
+      "id": "3bb66a87-0cce-44ba-9323-050532f858f8",
+      "name": "Databases - ASN WHOIS",
+      "description": {
+        "content": "ASN WHOIS database snapshots",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53032381-1b25-4c8c-9da7-3f07c5e76cf3",
+          "name": "ASN WHOIS Snapshot",
+          "request": {
+            "name": "ASN WHOIS Snapshot",
+            "description": {
+              "content": "ASN WHOIS Snapshot. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.3",
+                "download",
+                "snapshot",
+                "asn",
+                "whois"
+              ],
+              "host": [
+                "{{v3.3-download-snapshot-asn-whois-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd888cf0-0a38-48dc-ae4f-a05bba8ba250",
+              "name": "JSON gzipped",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "snapshot",
+                    "asn",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-snapshot-asn-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c660236d-8ad1-4b81-b14e-dbfc1240ea67",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "snapshot",
+                    "asn",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-snapshot-asn-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 7281,\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f98ef1d-6e7e-4290-950b-023f52ade31f",
+          "name": "ASN WHOIS Snapshot Status",
+          "request": {
+            "name": "ASN WHOIS Snapshot Status",
+            "description": {
+              "content": "ASN WHOIS Snapshot Status. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.3",
+                "status",
+                "snapshot",
+                "asn",
+                "whois"
+              ],
+              "host": [
+                "{{v3.3-status-snapshot-asn-whois-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1730dc27-09a0-425a-9a05-c323bffd5f36",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "status",
+                    "snapshot",
+                    "asn",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-status-snapshot-asn-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"snapshot_creation_date\": \"string\",\n  \"snapshot_name\": \"string\",\n  \"snapshot_deletion_time\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9819d3f-44ba-4f50-8bc1-39021b91816c",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "status",
+                    "snapshot",
+                    "asn",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-status-snapshot-asn-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 7281,\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.3-download-snapshot-asn-whois-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.3-status-snapshot-asn-whois-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "06834f16-0337-4edf-a953-905c0074f38f",
+    "name": "WhoisFreaks Databases - ASN WHOIS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

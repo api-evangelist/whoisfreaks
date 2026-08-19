@@ -1,0 +1,130 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks Databases - IP WHOIS API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: Databases - IP WHOIS
+  description: IP WHOIS database snapshots
+paths:
+  /v3.3/download/snapshot/ip/whois:
+    servers:
+    - url: https://files.whoisfreaks.com
+    get:
+      tags:
+      - Databases - IP WHOIS
+      summary: IP WHOIS Snapshot
+      operationId: dbIpWhois
+      parameters:
+      - name: date
+        in: query
+        schema:
+          type: string
+          format: date
+        required: true
+      responses:
+        '200':
+          description: JSON gzipped
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+      description: IP WHOIS Snapshot. Returns the file/snapshot described by this operation.
+  /v3.3/status/snapshot/ip/whois:
+    servers:
+    - url: https://files.whoisfreaks.com
+    get:
+      tags:
+      - Databases - IP WHOIS
+      summary: IP WHOIS Snapshot Status
+      operationId: dbIpWhoisStatus
+      parameters: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SnapshotStatus'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+      description: IP WHOIS Snapshot Status. Returns the file/snapshot described by this operation.
+components:
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    SnapshotStatus:
+      type: object
+      properties:
+        status:
+          type: string
+        snapshot_creation_date:
+          type: string
+        snapshot_name:
+          type: string
+        snapshot_deletion_time:
+          type: string
+        message:
+          type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

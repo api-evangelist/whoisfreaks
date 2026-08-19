@@ -1,0 +1,247 @@
+{
+  "item": [
+    {
+      "id": "1bd3c4fb-0ddd-4345-b10d-8ea72803a459",
+      "name": "Subdomains",
+      "description": {
+        "content": "Subdomain enumeration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9b991c39-1054-4471-a876-b6abe9624799",
+          "name": "Subdomains Lookup",
+          "request": {
+            "name": "Subdomains Lookup",
+            "description": {
+              "content": "All subdomains including nested. 2 credits per query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "subdomains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domain",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "938b8f3e-590a-4d35-b7d4-f2f132649eb2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "subdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"domain\": \"string\",\n  \"status\": true,\n  \"current_page\": 3294,\n  \"total_pages\": 8056,\n  \"query_time\": \"string\",\n  \"total_records\": 300,\n  \"subdomains\": [\n    {\n      \"subdomain\": \"string\",\n      \"first_seen\": \"string\",\n      \"last_seen\": \"string\",\n      \"inactive_from\": \"string\",\n      \"dns_records\": {\n        \"domainName\": \"string\",\n        \"ipAddress\": \"string\",\n        \"queryTime\": \"string\",\n        \"status\": true,\n        \"domainRegistered\": true,\n        \"dnsTypes\": {},\n        \"dnsRecords\": [\n          {\n            \"type\": \"string\",\n            \"name\": \"string\",\n            \"ttl\": 8096,\n            \"address\": \"string\",\n            \"priority\": 9221,\n            \"exchange\": \"string\",\n            \"target\": \"string\",\n            \"strings\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"host\": \"string\",\n            \"admin\": \"string\",\n            \"serial\": 1333,\n            \"refresh\": 3045,\n            \"retry\": 3565,\n            \"expire\": 302,\n            \"minimum\": 9987\n          },\n          {\n            \"type\": \"string\",\n            \"name\": \"string\",\n            \"ttl\": 1074,\n            \"address\": \"string\",\n            \"priority\": 6450,\n            \"exchange\": \"string\",\n            \"target\": \"string\",\n            \"strings\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"host\": \"string\",\n            \"admin\": \"string\",\n            \"serial\": 3951,\n            \"refresh\": 3421,\n            \"retry\": 8163,\n            \"expire\": 6597,\n            \"minimum\": 5780\n          }\n        ]\n      }\n    },\n    {\n      \"subdomain\": \"string\",\n      \"first_seen\": \"string\",\n      \"last_seen\": \"string\",\n      \"inactive_from\": \"string\",\n      \"dns_records\": {\n        \"domainName\": \"string\",\n        \"ipAddress\": \"string\",\n        \"queryTime\": \"string\",\n        \"status\": true,\n        \"domainRegistered\": false,\n        \"dnsTypes\": {},\n        \"dnsRecords\": [\n          {\n            \"type\": \"string\",\n            \"name\": \"string\",\n            \"ttl\": 6697,\n            \"address\": \"string\",\n            \"priority\": 5226,\n            \"exchange\": \"string\",\n            \"target\": \"string\",\n            \"strings\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"host\": \"string\",\n            \"admin\": \"string\",\n            \"serial\": 1893,\n            \"refresh\": 2513,\n            \"retry\": 7869,\n            \"expire\": 8880,\n            \"minimum\": 8023,\n            \"key_0\": 4805.174269160321,\n            \"key_1\": 9793.19484668014\n          },\n          {\n            \"type\": \"string\",\n            \"name\": \"string\",\n            \"ttl\": 4814,\n            \"address\": \"string\",\n            \"priority\": 6680,\n            \"exchange\": \"string\",\n            \"target\": \"string\",\n            \"strings\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"host\": \"string\",\n            \"admin\": \"string\",\n            \"serial\": 9183,\n            \"refresh\": 7402,\n            \"retry\": 2976,\n            \"expire\": 3207,\n            \"minimum\": 6065\n          }\n        ],\n        \"key_0\": 4495,\n        \"key_1\": 3979,\n        \"key_2\": 1549\n      },\n      \"key_0\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96209330-f88c-490c-9ca2-9b31195f9fb6",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "subdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 9109,\n  \"key_0\": true,\n  \"key_1\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5cc8bc52-5cab-49e2-81a4-92f9a386812e",
+    "name": "WhoisFreaks Subdomains API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

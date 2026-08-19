@@ -1,0 +1,329 @@
+{
+  "item": [
+    {
+      "id": "23be64fe-7bfc-495e-a81a-08338e10565e",
+      "name": "Geolocation",
+      "description": {
+        "content": "IP geolocation lookup",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f335f47-a83d-4adf-a11a-8bab7a58fe28",
+          "name": "IP Geolocation Lookup",
+          "request": {
+            "name": "IP Geolocation Lookup",
+            "description": {
+              "content": "Get location, ASN, currency for an IP. 1 credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "geolocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ip",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "703a4a1e-4583-479f-a8b1-570d6eb8d1cb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "geolocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ip\": \"string\",\n  \"location\": {\n    \"continent_code\": \"string\",\n    \"continent_name\": \"string\",\n    \"country_code2\": \"string\",\n    \"country_code3\": \"string\",\n    \"country_name\": \"string\",\n    \"country_name_official\": \"string\",\n    \"country_capital\": \"string\",\n    \"state_prov\": \"string\",\n    \"state_code\": \"string\",\n    \"district\": \"string\",\n    \"city\": \"string\",\n    \"locality\": \"string\",\n    \"accuracy_radius\": \"string\",\n    \"confidence\": \"string\",\n    \"zipcode\": \"string\",\n    \"latitude\": \"string\",\n    \"longitude\": \"string\",\n    \"is_eu\": false,\n    \"geoname_id\": \"string\",\n    \"country_emoji\": \"string\"\n  },\n  \"country_metadata\": {\n    \"calling_code\": \"string\",\n    \"tld\": \"string\",\n    \"languages\": [\n      \"string\",\n      \"string\"\n    ],\n    \"key_0\": 4449\n  },\n  \"network\": {\n    \"asn\": {\n      \"as_number\": \"string\",\n      \"organization\": \"string\",\n      \"country\": \"string\",\n      \"asn_name\": \"string\",\n      \"type\": \"string\",\n      \"domain\": \"string\",\n      \"date_allocated\": \"string\",\n      \"allocation_status\": \"string\",\n      \"num_of_ipv4_routes\": \"string\",\n      \"num_of_ipv6_routes\": \"string\",\n      \"rir\": \"string\"\n    },\n    \"connection_type\": \"string\",\n    \"company\": {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"domain\": \"string\",\n      \"key_0\": false,\n      \"key_1\": \"string\"\n    }\n  },\n  \"currency\": {\n    \"code\": \"string\",\n    \"name\": \"string\",\n    \"symbol\": \"string\",\n    \"key_0\": 9684.28853439233,\n    \"key_1\": \"string\",\n    \"key_2\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3da28ea0-ef21-4b54-aa74-2ca1fc3508bc",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "geolocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ip",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 1187\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cca07a3-7ea1-4ae1-a27e-a6508b595189",
+          "name": "Bulk IP Geolocation",
+          "request": {
+            "name": "Bulk IP Geolocation",
+            "description": {
+              "content": "Up to 100 IPs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "geolocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ips\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e12e850b-9599-4919-bc93-4c229d37cf1f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "geolocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ips\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ip\": \"string\",\n    \"location\": {\n      \"continent_code\": \"string\",\n      \"continent_name\": \"string\",\n      \"country_code2\": \"string\",\n      \"country_code3\": \"string\",\n      \"country_name\": \"string\",\n      \"country_name_official\": \"string\",\n      \"country_capital\": \"string\",\n      \"state_prov\": \"string\",\n      \"state_code\": \"string\",\n      \"district\": \"string\",\n      \"city\": \"string\",\n      \"locality\": \"string\",\n      \"accuracy_radius\": \"string\",\n      \"confidence\": \"string\",\n      \"zipcode\": \"string\",\n      \"latitude\": \"string\",\n      \"longitude\": \"string\",\n      \"is_eu\": false,\n      \"geoname_id\": \"string\",\n      \"country_emoji\": \"string\"\n    },\n    \"country_metadata\": {\n      \"calling_code\": \"string\",\n      \"tld\": \"string\",\n      \"languages\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"network\": {\n      \"asn\": {\n        \"as_number\": \"string\",\n        \"organization\": \"string\",\n        \"country\": \"string\",\n        \"asn_name\": \"string\",\n        \"type\": \"string\",\n        \"domain\": \"string\",\n        \"date_allocated\": \"string\",\n        \"allocation_status\": \"string\",\n        \"num_of_ipv4_routes\": \"string\",\n        \"num_of_ipv6_routes\": \"string\",\n        \"rir\": \"string\",\n        \"key_0\": true\n      },\n      \"connection_type\": \"string\",\n      \"company\": {\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"domain\": \"string\"\n      },\n      \"key_0\": 399\n    },\n    \"currency\": {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"symbol\": \"string\",\n      \"key_0\": \"string\",\n      \"key_1\": true,\n      \"key_2\": 6566,\n      \"key_3\": \"string\"\n    }\n  },\n  {\n    \"ip\": \"string\",\n    \"location\": {\n      \"continent_code\": \"string\",\n      \"continent_name\": \"string\",\n      \"country_code2\": \"string\",\n      \"country_code3\": \"string\",\n      \"country_name\": \"string\",\n      \"country_name_official\": \"string\",\n      \"country_capital\": \"string\",\n      \"state_prov\": \"string\",\n      \"state_code\": \"string\",\n      \"district\": \"string\",\n      \"city\": \"string\",\n      \"locality\": \"string\",\n      \"accuracy_radius\": \"string\",\n      \"confidence\": \"string\",\n      \"zipcode\": \"string\",\n      \"latitude\": \"string\",\n      \"longitude\": \"string\",\n      \"is_eu\": false,\n      \"geoname_id\": \"string\",\n      \"country_emoji\": \"string\",\n      \"key_0\": \"string\"\n    },\n    \"country_metadata\": {\n      \"calling_code\": \"string\",\n      \"tld\": \"string\",\n      \"languages\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"network\": {\n      \"asn\": {\n        \"as_number\": \"string\",\n        \"organization\": \"string\",\n        \"country\": \"string\",\n        \"asn_name\": \"string\",\n        \"type\": \"string\",\n        \"domain\": \"string\",\n        \"date_allocated\": \"string\",\n        \"allocation_status\": \"string\",\n        \"num_of_ipv4_routes\": \"string\",\n        \"num_of_ipv6_routes\": \"string\",\n        \"rir\": \"string\"\n      },\n      \"connection_type\": \"string\",\n      \"company\": {\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"domain\": \"string\"\n      },\n      \"key_0\": true,\n      \"key_1\": false,\n      \"key_2\": 8958.614077787353,\n      \"key_3\": 7112\n    },\n    \"currency\": {\n      \"code\": \"string\",\n      \"name\": \"string\",\n      \"symbol\": \"string\",\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"key_0\": 3331\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f9a37b2-d188-4c3b-9961-572d86a5c8d6",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "geolocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ips\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 1187\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2759c18c-6bdd-4ea1-b87a-40d500a45c9b",
+    "name": "WhoisFreaks Geolocation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

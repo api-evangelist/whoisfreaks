@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks Databases - ASN WHOIS API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Databases - ASN WHOIS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ASN WHOIS Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/download/snapshot/asn/whois",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "ASN WHOIS Snapshot. Returns the file/snapshot described by this operation."
+        },
+        {
+          "info": {
+            "name": "ASN WHOIS Snapshot Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v3.3/status/snapshot/asn/whois"
+          },
+          "docs": "ASN WHOIS Snapshot Status. Returns the file/snapshot described by this operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

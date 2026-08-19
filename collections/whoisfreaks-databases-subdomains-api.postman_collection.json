@@ -1,0 +1,490 @@
+{
+  "item": [
+    {
+      "id": "9c782c66-9b8e-47c8-b5f2-c5cf9a37018d",
+      "name": "Databases - Subdomains",
+      "description": {
+        "content": "Subdomain database snapshots",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5716a5fb-7942-442f-8d16-2a55b30e1440",
+          "name": "Subdomains Daily",
+          "request": {
+            "name": "Subdomains Daily",
+            "description": {
+              "content": "Subdomains Daily. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.2",
+                "download",
+                "dbupdate",
+                "daily",
+                "subdomains"
+              ],
+              "host": [
+                "{{v3.2-download-dbupdate-daily-subdomains-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3de9f30f-2eb3-4c7c-8f67-9166d9904c50",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "daily",
+                    "subdomains"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-daily-subdomains-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7a623bc-54a3-405a-b82a-f549ffcfae19",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "daily",
+                    "subdomains"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-daily-subdomains-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 8886\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61daeeb5-99d9-47e3-9028-88a79e52545a",
+          "name": "Subdomains Weekly",
+          "request": {
+            "name": "Subdomains Weekly",
+            "description": {
+              "content": "Subdomains Weekly. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.2",
+                "download",
+                "dbupdate",
+                "weekly",
+                "subdomains"
+              ],
+              "host": [
+                "{{v3.2-download-dbupdate-weekly-subdomains-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "536d2e39-e298-43f6-a10f-95451dae7b5d",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "weekly",
+                    "subdomains"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-weekly-subdomains-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8139ddc7-cb4b-48cf-9e10-b4f09a4f0dd5",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "weekly",
+                    "subdomains"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-weekly-subdomains-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 8886\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8847257b-27ea-4c6e-a5b6-169557db1b76",
+          "name": "Subdomains Monthly",
+          "request": {
+            "name": "Subdomains Monthly",
+            "description": {
+              "content": "Subdomains Monthly. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.2",
+                "download",
+                "dbupdate",
+                "monthly",
+                "subdomains"
+              ],
+              "host": [
+                "{{v3.2-download-dbupdate-monthly-subdomains-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53dd9fa3-a5a5-45af-be16-4cb49d383ea8",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "monthly",
+                    "subdomains"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-monthly-subdomains-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9906d7ce-4ebf-4db9-89a0-0a669267f571",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.2",
+                    "download",
+                    "dbupdate",
+                    "monthly",
+                    "subdomains"
+                  ],
+                  "host": [
+                    "{{v3.2-download-dbupdate-monthly-subdomains-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 8886\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.2-download-dbupdate-daily-subdomains-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.2-download-dbupdate-weekly-subdomains-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.2-download-dbupdate-monthly-subdomains-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0518064a-23d2-44bc-b11e-25b00c90ce6c",
+    "name": "WhoisFreaks Databases - Subdomains API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

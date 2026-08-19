@@ -3,17 +3,19 @@ method: searched
 status: published
 source: https://github.com/WhoisFreaks/whoisfreaks-mcp-server
 sources:
-  - https://github.com/WhoisFreaks/whoisfreaks-mcp-server/blob/master/README.md
-  - https://raw.githubusercontent.com/WhoisFreaks/whoisfreaks-mcp-server/master/smithery.yaml
-  - https://raw.githubusercontent.com/WhoisFreaks/whoisfreaks-mcp-server/master/src/main/java/com/whoisfreaks/mcp/tools/
-  - https://hub.docker.com/r/whoisfreaks/mcp-server
+- https://github.com/WhoisFreaks/whoisfreaks-mcp-server/blob/master/README.md
+- https://raw.githubusercontent.com/WhoisFreaks/whoisfreaks-mcp-server/master/smithery.yaml
+- https://raw.githubusercontent.com/WhoisFreaks/whoisfreaks-mcp-server/master/src/main/java/com/whoisfreaks/mcp/tools/
+- https://hub.docker.com/r/whoisfreaks/mcp-server
 server:
   name: whoisfreaks
   display_name: WhoisFreaks
   implementation: java
   license: MIT
   repository: https://github.com/WhoisFreaks/whoisfreaks-mcp-server
-  transport: [stdio, http-sse]
+  transport:
+  - stdio
+  - http-sse
   url: null
   hosted: false
   self_host:
@@ -26,81 +28,187 @@ server:
     variable: WHOISFREAKS_API_KEY
     note: The server forwards the key as the apiKey query parameter on every upstream REST call.
   clients_documented:
-    - Claude Desktop
-    - Cursor
-    - Windsurf
-    - VS Code + GitHub Copilot
-    - Continue.dev
-    - Zed
+  - Claude Desktop
+  - Cursor
+  - Windsurf
+  - VS Code + GitHub Copilot
+  - Continue.dev
+  - Zed
 registry_presence:
-  - {registry: 'Docker Hub', url: 'https://hub.docker.com/v2/repositories/whoisfreaks/mcp-server/', status: 200, listed: true}
-  - {registry: 'official MCP registry', url: 'https://registry.modelcontextprotocol.io/v0/servers?search=whoisfreaks', status: 200, listed: false}
-  - {registry: 'Smithery', url: 'https://smithery.ai/server/whoisfreaks', status: 404, listed: false, note: 'A smithery.yaml manifest is committed in the repo but the server is not published on smithery.ai.'}
+- registry: Docker Hub
+  url: https://hub.docker.com/v2/repositories/whoisfreaks/mcp-server/
+  status: 200
+  listed: true
+- registry: official MCP registry
+  url: https://registry.modelcontextprotocol.io/v0/servers?search=whoisfreaks
+  status: 200
+  listed: false
+- registry: Smithery
+  url: https://smithery.ai/server/whoisfreaks
+  status: 404
+  listed: false
+  note: A smithery.yaml manifest is committed in the repo but the server is not published on smithery.ai.
 tools_count: 14
 tools:
-  - name: liveWhoisLookup
-    description: Real-time WHOIS data for any domain — registrar, registrant, dates, nameservers.
-    input_schema: {properties: [domainName, format], required: [domainName]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#whoisLive
-  - name: whoisHistory
-    description: Complete ownership history timeline for a domain.
-    input_schema: {properties: [domainName, format], required: [domainName]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#whoisHistory
-  - name: reverseWhoisLookup
-    description: Find all domains registered by an email address, keyword, owner name, or company.
-    input_schema: {properties: [email, keyword, owner, company, mode, exact, page, format], required: []}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#whoisReverse
-  - name: ipWhoisLookup
-    description: WHOIS registration data for any IPv4 or IPv6 address.
-    input_schema: {properties: [ip, format], required: [ip]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#ipWhois
-  - name: asnWhoisLookup
-    description: WHOIS data for an Autonomous System Number (e.g. AS15169).
-    input_schema: {properties: [asn, format], required: [asn]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#asnWhois
-  - name: dnsLookup
-    description: Live DNS records — A, AAAA, MX, NS, CNAME, SOA, TXT, SPF, or all.
-    input_schema: {properties: [domainName, type, format], required: [domainName]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#dnsLive
-  - name: dnsHistory
-    description: Historical DNS records with full change timeline.
-    input_schema: {properties: [domainName, type, page, format], required: [domainName]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#dnsHistorical
-  - name: reverseDnsLookup
-    description: Find all domains pointing to a given IP or nameserver.
-    input_schema: {properties: [value, type, exact, page, format], required: [value]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#dnsReverse
-  - name: ipGeolocation
-    description: Country, city, region, ISP, and coordinates for any IP address.
-    input_schema: {properties: [ip], required: [ip]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#geolocation
-  - name: ipSecurity
-    description: VPN, proxy, Tor exit node, bot, and threat intelligence for any IP.
-    input_schema: {properties: [ip], required: [ip]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#ipReputation
-  - name: sslLookup
-    description: SSL/TLS certificate details — issuer, expiry, SANs, chain, and raw output.
-    input_schema: {properties: [domainName, chain, sslRaw, format], required: [domainName]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#sslLookup
-  - name: domainAvailability
-    description: Check if a domain is available to register, with optional suggestions.
-    input_schema: {properties: [domain, suggestions, count, format], required: [domain]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#domainAvailabilityV2
-  - name: subdomainLookup
-    description: Enumerate all known subdomains for a domain, with status and date filters.
-    input_schema: {properties: [domain, status, after, before, page, format], required: [domain]}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#subdomains
-  - name: domainDiscovery
-    description: Find domains by keyword, including typosquatting and similar variants.
-    input_schema: {properties: [keyword, pattern, labelLength, page, format], required: []}
-    source_operation: openapi/whoisfreaks-openapi-original.yml#typosquatting
+- name: liveWhoisLookup
+  description: Real-time WHOIS data for any domain — registrar, registrant, dates, nameservers.
+  input_schema:
+    properties:
+    - domainName
+    - format
+    required:
+    - domainName
+  source_operation: openapi/whoisfreaks-openapi-original.yml#whoisLive
+- name: whoisHistory
+  description: Complete ownership history timeline for a domain.
+  input_schema:
+    properties:
+    - domainName
+    - format
+    required:
+    - domainName
+  source_operation: openapi/whoisfreaks-openapi-original.yml#whoisHistory
+- name: reverseWhoisLookup
+  description: Find all domains registered by an email address, keyword, owner name, or company.
+  input_schema:
+    properties:
+    - email
+    - keyword
+    - owner
+    - company
+    - mode
+    - exact
+    - page
+    - format
+    required: []
+  source_operation: openapi/whoisfreaks-openapi-original.yml#whoisReverse
+- name: ipWhoisLookup
+  description: WHOIS registration data for any IPv4 or IPv6 address.
+  input_schema:
+    properties:
+    - ip
+    - format
+    required:
+    - ip
+  source_operation: openapi/whoisfreaks-openapi-original.yml#ipWhois
+- name: asnWhoisLookup
+  description: WHOIS data for an Autonomous System Number (e.g. AS15169).
+  input_schema:
+    properties:
+    - asn
+    - format
+    required:
+    - asn
+  source_operation: openapi/whoisfreaks-openapi-original.yml#asnWhois
+- name: dnsLookup
+  description: Live DNS records — A, AAAA, MX, NS, CNAME, SOA, TXT, SPF, or all.
+  input_schema:
+    properties:
+    - domainName
+    - type
+    - format
+    required:
+    - domainName
+  source_operation: openapi/whoisfreaks-openapi-original.yml#dnsLive
+- name: dnsHistory
+  description: Historical DNS records with full change timeline.
+  input_schema:
+    properties:
+    - domainName
+    - type
+    - page
+    - format
+    required:
+    - domainName
+  source_operation: openapi/whoisfreaks-openapi-original.yml#dnsHistorical
+- name: reverseDnsLookup
+  description: Find all domains pointing to a given IP or nameserver.
+  input_schema:
+    properties:
+    - value
+    - type
+    - exact
+    - page
+    - format
+    required:
+    - value
+  source_operation: openapi/whoisfreaks-openapi-original.yml#dnsReverse
+- name: ipGeolocation
+  description: Country, city, region, ISP, and coordinates for any IP address.
+  input_schema:
+    properties:
+    - ip
+    required:
+    - ip
+  source_operation: openapi/whoisfreaks-openapi-original.yml#geolocation
+- name: ipSecurity
+  description: VPN, proxy, Tor exit node, bot, and threat intelligence for any IP.
+  input_schema:
+    properties:
+    - ip
+    required:
+    - ip
+  source_operation: openapi/whoisfreaks-openapi-original.yml#ipReputation
+- name: sslLookup
+  description: SSL/TLS certificate details — issuer, expiry, SANs, chain, and raw output.
+  input_schema:
+    properties:
+    - domainName
+    - chain
+    - sslRaw
+    - format
+    required:
+    - domainName
+  source_operation: openapi/whoisfreaks-openapi-original.yml#sslLookup
+- name: domainAvailability
+  description: Check if a domain is available to register, with optional suggestions.
+  input_schema:
+    properties:
+    - domain
+    - suggestions
+    - count
+    - format
+    required:
+    - domain
+  source_operation: openapi/whoisfreaks-openapi-original.yml#domainAvailabilityV2
+- name: subdomainLookup
+  description: Enumerate all known subdomains for a domain, with status and date filters.
+  input_schema:
+    properties:
+    - domain
+    - status
+    - after
+    - before
+    - page
+    - format
+    required:
+    - domain
+  source_operation: openapi/whoisfreaks-openapi-original.yml#subdomains
+- name: domainDiscovery
+  description: Find domains by keyword, including typosquatting and similar variants.
+  input_schema:
+    properties:
+    - keyword
+    - pattern
+    - labelLength
+    - page
+    - format
+    required: []
+  source_operation: openapi/whoisfreaks-openapi-original.yml#typosquatting
 x-evidence:
   fetched: '2026-08-09'
-  tools_list_probe: >-
-    tools/list could not be called: the server publishes no vendor-hosted
-    endpoint. Tool names and input schemas were read verbatim from the JSON
-    schema literals in the repository's tools/*.java sources and cross-checked
-    against smithery.yaml and the README tools table — not guessed.
+  tools_list_probe: 'tools/list could not be called: the server publishes no vendor-hosted endpoint. Tool
+    names and input schemas were read verbatim from the JSON schema literals in the repository''s tools/*.java
+    sources and cross-checked against smithery.yaml and the README tools table — not guessed.'
   docker_hub_status: 200
   mcp_registry_status: 200
   smithery_status: 404
+deployment:
+  mode: none
+  endpoint: https://hub.docker.com/r/whoisfreaks/mcp-server
+  verified: probed
+  probe: dead
+  note: the endpoint this manifest claimed did not answer; recorded as none rather than deleted so the
+    claim stays auditable
+  checked: '2026-08-12'
+  source: catalog MCP census

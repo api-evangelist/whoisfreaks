@@ -1,0 +1,195 @@
+{
+  "item": [
+    {
+      "id": "7e7a7496-4e18-476e-9856-80a0633085bb",
+      "name": "ASN WHOIS",
+      "description": {
+        "content": "Autonomous System Number WHOIS",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b69144fa-694d-4789-955a-5ec524e90835",
+          "name": "ASN WHOIS Lookup",
+          "request": {
+            "name": "ASN WHOIS Lookup",
+            "description": {
+              "content": "WHOIS for an ASN. 1 credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2.0",
+                "asn-whois"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "asn",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3058ce50-9915-4def-a278-9d09e702a2f6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "asn-whois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "asn",
+                      "value": "as15169"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"asn\": {\n    \"as_number\": \"string\",\n    \"organization\": \"string\",\n    \"country\": \"string\",\n    \"type\": \"string\",\n    \"domain\": \"string\",\n    \"date_allocated\": \"string\",\n    \"asn_name\": \"string\",\n    \"allocation_status\": \"string\",\n    \"num_of_ipv4_routes\": \"string\",\n    \"num_of_ipv6_routes\": \"string\",\n    \"rir\": \"string\",\n    \"routes\": [\n      \"string\",\n      \"string\"\n    ],\n    \"downstreams\": [\n      {\n        \"as_number\": \"string\",\n        \"description\": \"string\",\n        \"country\": \"string\",\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      {\n        \"as_number\": \"string\",\n        \"description\": \"string\",\n        \"country\": \"string\"\n      }\n    ],\n    \"upstreams\": [\n      {\n        \"as_number\": \"string\",\n        \"description\": \"string\",\n        \"country\": \"string\"\n      },\n      {\n        \"as_number\": \"string\",\n        \"description\": \"string\",\n        \"country\": \"string\",\n        \"key_0\": 2387,\n        \"key_1\": 32\n      }\n    ],\n    \"peers\": [\n      {\n        \"as_number\": \"string\",\n        \"description\": \"string\",\n        \"country\": \"string\"\n      },\n      {\n        \"as_number\": \"string\",\n        \"description\": \"string\",\n        \"country\": \"string\"\n      }\n    ],\n    \"whois_response\": \"string\"\n  },\n  \"key_0\": 794.1075673519937,\n  \"key_1\": \"string\",\n  \"key_2\": true,\n  \"key_3\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8dddef3-8406-4699-923e-dd6da51d4006",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "asn-whois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "asn",
+                      "value": "as15169"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 8169\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9508451a-b4f1-4c72-9b1a-65b116938c6e",
+    "name": "WhoisFreaks ASN WHOIS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

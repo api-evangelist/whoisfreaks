@@ -1,0 +1,154 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks Databases - Threat Feed API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: Databases - Threat Feed
+paths:
+  /v3.4/download/threat-feed/phishing:
+    get:
+      tags:
+      - Databases - Threat Feed
+      operationId: downloadThreatFeedPhishing
+      summary: Download the daily phishing threat feed (CSV)
+      parameters:
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Feed date (yyyy-MM-dd); defaults to latest available
+      responses:
+        '200':
+          description: Phishing threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots)
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /v3.4/download/threat-feed/phishing/sample:
+    get:
+      tags:
+      - Databases - Threat Feed
+      operationId: downloadThreatFeedPhishingSample
+      summary: Download a sample of the phishing threat feed (CSV)
+      parameters: []
+      responses:
+        '200':
+          description: Sample phishing threat feed as CSV
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /v3.4/download/threat-feed/malware:
+    get:
+      tags:
+      - Databases - Threat Feed
+      operationId: downloadThreatFeedMalware
+      summary: Download the daily malware threat feed (CSV)
+      parameters:
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Feed date (yyyy-MM-dd); defaults to latest available
+      responses:
+        '200':
+          description: Malware threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots)
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /v3.4/download/threat-feed/malware/sample:
+    get:
+      tags:
+      - Databases - Threat Feed
+      operationId: downloadThreatFeedMalwareSample
+      summary: Download a sample of the malware threat feed (CSV)
+      parameters: []
+      responses:
+        '200':
+          description: Sample malware threat feed as CSV
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /v3.4/download/threat-feed/spam:
+    get:
+      tags:
+      - Databases - Threat Feed
+      operationId: downloadThreatFeedSpam
+      summary: Download the daily spam threat feed (CSV)
+      parameters:
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Feed date (yyyy-MM-dd); defaults to latest available
+      responses:
+        '200':
+          description: Spam threat feed as CSV (domain,threat_type,confidence,first_seen,last_seen,No_of_threat_matched_pivots)
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /v3.4/download/threat-feed/spam/sample:
+    get:
+      tags:
+      - Databases - Threat Feed
+      operationId: downloadThreatFeedSpamSample
+      summary: Download a sample of the spam threat feed (CSV)
+      parameters: []
+      responses:
+        '200':
+          description: Sample spam threat feed as CSV
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

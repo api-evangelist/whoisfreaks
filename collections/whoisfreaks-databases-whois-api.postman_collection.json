@@ -1,0 +1,499 @@
+{
+  "item": [
+    {
+      "id": "87346e99-2fe4-4c87-9f13-942388211e02",
+      "name": "Databases - WHOIS",
+      "description": {
+        "content": "WHOIS database snapshots",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1a404b07-25d7-4ac2-baff-3aa9a1f7b13b",
+          "name": "WHOIS Database Daily",
+          "request": {
+            "name": "WHOIS Database Daily",
+            "description": {
+              "content": "WHOIS Database Daily. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.3",
+                "download",
+                "dbupdate",
+                "daily",
+                "domains",
+                "whois"
+              ],
+              "host": [
+                "{{v3.3-download-dbupdate-daily-domains-whois-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "243440f6-b3e8-4272-a226-a2f96f66df20",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "dbupdate",
+                    "daily",
+                    "domains",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-dbupdate-daily-domains-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21b74926-b42c-4ee5-98eb-a52e3f4f8e24",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "dbupdate",
+                    "daily",
+                    "domains",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-dbupdate-daily-domains-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 2516\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f1f2f0e-12ff-450a-8ded-82cd23d6e46a",
+          "name": "WHOIS Database Weekly",
+          "request": {
+            "name": "WHOIS Database Weekly",
+            "description": {
+              "content": "WHOIS Database Weekly. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.3",
+                "download",
+                "dbupdate",
+                "weekly",
+                "domains",
+                "whois"
+              ],
+              "host": [
+                "{{v3.3-download-dbupdate-weekly-domains-whois-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "404f2a48-cf1f-4c96-81f1-9dcf17739d89",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "dbupdate",
+                    "weekly",
+                    "domains",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-dbupdate-weekly-domains-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9ce30631-83a3-4a0c-8a36-d46a364c72c0",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "dbupdate",
+                    "weekly",
+                    "domains",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-dbupdate-weekly-domains-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 2516\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78a0584d-ab1c-4290-91fb-e7754d84c45b",
+          "name": "WHOIS Database Monthly",
+          "request": {
+            "name": "WHOIS Database Monthly",
+            "description": {
+              "content": "WHOIS Database Monthly. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.3",
+                "download",
+                "dbupdate",
+                "monthly",
+                "domains",
+                "whois"
+              ],
+              "host": [
+                "{{v3.3-download-dbupdate-monthly-domains-whois-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5445164-748f-4ccf-bc0a-20b08f19dfdc",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "dbupdate",
+                    "monthly",
+                    "domains",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-dbupdate-monthly-domains-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13c8875a-d0b7-4fb5-ad34-aa0a84d86dce",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.3",
+                    "download",
+                    "dbupdate",
+                    "monthly",
+                    "domains",
+                    "whois"
+                  ],
+                  "host": [
+                    "{{v3.3-download-dbupdate-monthly-domains-whois-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 2516\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.3-download-dbupdate-daily-domains-whois-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.3-download-dbupdate-weekly-domains-whois-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.3-download-dbupdate-monthly-domains-whois-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b736bb18-2dc7-4a1d-8bb7-bd7b38b6de0a",
+    "name": "WhoisFreaks Databases - WHOIS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

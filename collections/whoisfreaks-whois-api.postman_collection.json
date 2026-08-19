@@ -1,0 +1,674 @@
+{
+  "item": [
+    {
+      "id": "a2ef9121-d563-48f1-8aa7-51f424286f45",
+      "name": "WHOIS",
+      "description": {
+        "content": "WHOIS lookup APIs (live, historical, reverse, bulk)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e23c4bbd-2144-4cc1-a2cb-332affd75e20",
+          "name": "Live WHOIS Lookup",
+          "request": {
+            "name": "Live WHOIS Lookup",
+            "description": {
+              "content": "Real-time WHOIS lookup from authoritative servers. Cost 1 credit.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2.0",
+                "whois",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10526feb-aa77-4190-9ab9-40e2da337227",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "whois",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "whoisfreaks.com"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": true,\n  \"domain_name\": \"string\",\n  \"query_time\": \"string\",\n  \"whois_server\": \"string\",\n  \"domain_registered\": \"string\",\n  \"secure_dns\": true,\n  \"domain_handle\": \"string\",\n  \"create_date\": \"string\",\n  \"update_date\": \"string\",\n  \"expiry_date\": \"string\",\n  \"domain_registrar\": {\n    \"id\": \"string\",\n    \"id_type\": \"string\",\n    \"iana_id\": \"string\",\n    \"registry_id\": \"string\",\n    \"handle\": \"string\",\n    \"status\": \"string\",\n    \"registrar_name\": \"string\",\n    \"normalized_name\": \"string\",\n    \"whois_server\": \"string\",\n    \"rdap_server\": \"string\",\n    \"website_url\": \"string\",\n    \"email_address\": \"string\",\n    \"phone_number\": \"string\",\n    \"authoritative_registry_name\": \"string\",\n    \"organization_number\": \"string\",\n    \"is_sponsor\": true\n  },\n  \"reseller_contact\": {\n    \"name\": \"string\",\n    \"email_address\": \"string\",\n    \"phone\": \"string\",\n    \"key_0\": false,\n    \"key_1\": \"string\"\n  },\n  \"registrant_contact\": {\n    \"id\": \"string\",\n    \"id_type\": \"string\",\n    \"handle\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip_code\": \"string\",\n    \"country_name\": \"string\",\n    \"country_code\": \"string\",\n    \"email_address\": \"string\",\n    \"phone\": \"string\",\n    \"fax\": \"string\",\n    \"mailing_address\": \"string\"\n  },\n  \"administrative_contact\": {\n    \"id\": \"string\",\n    \"id_type\": \"string\",\n    \"handle\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip_code\": \"string\",\n    \"country_name\": \"string\",\n    \"country_code\": \"string\",\n    \"email_address\": \"string\",\n    \"phone\": \"string\",\n    \"fax\": \"string\",\n    \"mailing_address\": \"string\"\n  },\n  \"technical_contact\": {\n    \"id\": \"string\",\n    \"id_type\": \"string\",\n    \"handle\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip_code\": \"string\",\n    \"country_name\": \"string\",\n    \"country_code\": \"string\",\n    \"email_address\": \"string\",\n    \"phone\": \"string\",\n    \"fax\": \"string\",\n    \"mailing_address\": \"string\"\n  },\n  \"billing_contact\": {\n    \"id\": \"string\",\n    \"id_type\": \"string\",\n    \"handle\": \"string\",\n    \"name\": \"string\",\n    \"company\": \"string\",\n    \"street\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zip_code\": \"string\",\n    \"country_name\": \"string\",\n    \"country_code\": \"string\",\n    \"email_address\": \"string\",\n    \"phone\": \"string\",\n    \"fax\": \"string\",\n    \"mailing_address\": \"string\"\n  },\n  \"eligibility_info\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\"\n  },\n  \"abuse_contact\": {\n    \"id\": \"string\",\n    \"id_type\": \"string\",\n    \"iana_id\": \"string\",\n    \"registry_id\": \"string\",\n    \"handle\": \"string\",\n    \"status\": \"string\",\n    \"registrar_name\": \"string\",\n    \"normalized_name\": \"string\",\n    \"whois_server\": \"string\",\n    \"rdap_server\": \"string\",\n    \"website_url\": \"string\",\n    \"email_address\": \"string\",\n    \"phone_number\": \"string\",\n    \"authoritative_registry_name\": \"string\",\n    \"organization_number\": \"string\",\n    \"is_sponsor\": true\n  },\n  \"name_servers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"domain_status\": [\n    \"string\",\n    \"string\"\n  ],\n  \"whois_raw_domain\": \"string\",\n  \"registry_data\": {\n    \"domain_name\": \"string\",\n    \"query_time\": \"string\",\n    \"whois_server\": \"string\",\n    \"domain_registered\": \"string\",\n    \"create_date\": \"string\",\n    \"update_date\": \"string\",\n    \"expiry_date\": \"string\",\n    \"domain_registrar\": {\n      \"id\": \"string\",\n      \"id_type\": \"string\",\n      \"iana_id\": \"string\",\n      \"registry_id\": \"string\",\n      \"handle\": \"string\",\n      \"status\": \"string\",\n      \"registrar_name\": \"string\",\n      \"normalized_name\": \"string\",\n      \"whois_server\": \"string\",\n      \"rdap_server\": \"string\",\n      \"website_url\": \"string\",\n      \"email_address\": \"string\",\n      \"phone_number\": \"string\",\n      \"authoritative_registry_name\": \"string\",\n      \"organization_number\": \"string\",\n      \"is_sponsor\": true\n    },\n    \"name_servers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"domain_status\": [\n      \"string\",\n      \"string\"\n    ],\n    \"whois_raw_domain\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8883348f-c3fc-4f82-98c8-a15e91770c2f",
+              "name": "Invalid API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "whois",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "whoisfreaks.com"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 3548,\n  \"key_0\": 3584.534440591822\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "186a98a0-168b-4d13-8fb9-04bea90bb813",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "whois",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "whoisfreaks.com"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 3548,\n  \"key_0\": 3584.534440591822\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f1f8480-7b6d-47ee-8c08-9b5a12d15c70",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "whois",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "whoisfreaks.com"
+                    },
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 3548,\n  \"key_0\": 3584.534440591822\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "948bfc7f-c64b-4fd8-a027-7052ce0fc839",
+          "name": "Bulk WHOIS Lookup",
+          "request": {
+            "name": "Bulk WHOIS Lookup",
+            "description": {
+              "content": "Up to 100 domains in one request. 1 credit per successful domain.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2.0",
+                "bulkwhois",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domainNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f89ee995-fb6f-44a5-bd94-7cf27e3f0c1e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "bulkwhois",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domainNames\": [\n    \"whoisfreaks.com\",\n    \"jfreaks.com\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bulk_whois_response\": [\n    {\n      \"status\": false,\n      \"domain_name\": \"string\",\n      \"error\": \"string\"\n    },\n    {\n      \"status\": true,\n      \"domain_name\": \"string\",\n      \"error\": \"string\",\n      \"key_0\": true,\n      \"key_1\": 5628.630909946203\n    }\n  ],\n  \"key_0\": false,\n  \"key_1\": 6020.882705357412\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1d8e9bd-346d-4167-b6d2-8527cf02b759",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "bulkwhois",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domainNames\": [\n    \"whoisfreaks.com\",\n    \"jfreaks.com\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 3548,\n  \"key_0\": 3584.534440591822\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01ce1e1f-0f16-4c61-a3d3-817864ba695e",
+          "name": "Historical WHOIS records for a domain",
+          "request": {
+            "name": "Historical WHOIS records for a domain",
+            "description": {},
+            "url": {
+              "path": [
+                "v2.0",
+                "whois",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "domainName",
+                  "value": "<string>",
+                  "description": "(Required) Domain to fetch historical WHOIS records for"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95024b59-9476-4d75-bfd0-9b27c50cbb59",
+              "name": "Historical WHOIS records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "whois",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "domainName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": true,\n  \"whois\": \"string\",\n  \"total_records\": \"string\",\n  \"whois_domains_historical\": [\n    {\n      \"num\": 1998,\n      \"status\": true,\n      \"domain_name\": \"string\",\n      \"query_time\": \"string\",\n      \"whois_server\": \"string\",\n      \"domain_registered\": \"string\",\n      \"secure_dns\": true,\n      \"domain_handle\": \"string\",\n      \"create_date\": \"string\",\n      \"update_date\": \"string\",\n      \"expiry_date\": \"string\",\n      \"domain_registrar\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"iana_id\": \"string\",\n        \"registry_id\": \"string\",\n        \"handle\": \"string\",\n        \"status\": \"string\",\n        \"registrar_name\": \"string\",\n        \"normalized_name\": \"string\",\n        \"whois_server\": \"string\",\n        \"rdap_server\": \"string\",\n        \"website_url\": \"string\",\n        \"email_address\": \"string\",\n        \"phone_number\": \"string\",\n        \"authoritative_registry_name\": \"string\",\n        \"organization_number\": \"string\",\n        \"is_sponsor\": false,\n        \"key_0\": false,\n        \"key_1\": 7192,\n        \"key_2\": 564.4635056757952\n      },\n      \"reseller_contact\": {\n        \"name\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"key_0\": false\n      },\n      \"registrant_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"administrative_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"technical_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"billing_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"eligibility_info\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\"\n      },\n      \"abuse_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"iana_id\": \"string\",\n        \"registry_id\": \"string\",\n        \"handle\": \"string\",\n        \"status\": \"string\",\n        \"registrar_name\": \"string\",\n        \"normalized_name\": \"string\",\n        \"whois_server\": \"string\",\n        \"rdap_server\": \"string\",\n        \"website_url\": \"string\",\n        \"email_address\": \"string\",\n        \"phone_number\": \"string\",\n        \"authoritative_registry_name\": \"string\",\n        \"organization_number\": \"string\",\n        \"is_sponsor\": false\n      },\n      \"name_servers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"domain_status\": [\n        \"string\",\n        \"string\"\n      ],\n      \"whois_raw_domain\": \"string\",\n      \"registry_data\": {\n        \"domain_name\": \"string\",\n        \"query_time\": \"string\",\n        \"whois_server\": \"string\",\n        \"domain_registered\": \"string\",\n        \"create_date\": \"string\",\n        \"update_date\": \"string\",\n        \"expiry_date\": \"string\",\n        \"domain_registrar\": {\n          \"id\": \"string\",\n          \"id_type\": \"string\",\n          \"iana_id\": \"string\",\n          \"registry_id\": \"string\",\n          \"handle\": \"string\",\n          \"status\": \"string\",\n          \"registrar_name\": \"string\",\n          \"normalized_name\": \"string\",\n          \"whois_server\": \"string\",\n          \"rdap_server\": \"string\",\n          \"website_url\": \"string\",\n          \"email_address\": \"string\",\n          \"phone_number\": \"string\",\n          \"authoritative_registry_name\": \"string\",\n          \"organization_number\": \"string\",\n          \"is_sponsor\": true\n        },\n        \"name_servers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"domain_status\": [\n          \"string\",\n          \"string\"\n        ],\n        \"whois_raw_domain\": \"string\"\n      }\n    },\n    {\n      \"num\": 4270,\n      \"status\": false,\n      \"domain_name\": \"string\",\n      \"query_time\": \"string\",\n      \"whois_server\": \"string\",\n      \"domain_registered\": \"string\",\n      \"secure_dns\": true,\n      \"domain_handle\": \"string\",\n      \"create_date\": \"string\",\n      \"update_date\": \"string\",\n      \"expiry_date\": \"string\",\n      \"domain_registrar\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"iana_id\": \"string\",\n        \"registry_id\": \"string\",\n        \"handle\": \"string\",\n        \"status\": \"string\",\n        \"registrar_name\": \"string\",\n        \"normalized_name\": \"string\",\n        \"whois_server\": \"string\",\n        \"rdap_server\": \"string\",\n        \"website_url\": \"string\",\n        \"email_address\": \"string\",\n        \"phone_number\": \"string\",\n        \"authoritative_registry_name\": \"string\",\n        \"organization_number\": \"string\",\n        \"is_sponsor\": true\n      },\n      \"reseller_contact\": {\n        \"name\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"registrant_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"administrative_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\",\n        \"key_0\": false,\n        \"key_1\": true,\n        \"key_2\": \"string\",\n        \"key_3\": 5094.632957700497\n      },\n      \"technical_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"billing_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"eligibility_info\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\"\n      },\n      \"abuse_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"iana_id\": \"string\",\n        \"registry_id\": \"string\",\n        \"handle\": \"string\",\n        \"status\": \"string\",\n        \"registrar_name\": \"string\",\n        \"normalized_name\": \"string\",\n        \"whois_server\": \"string\",\n        \"rdap_server\": \"string\",\n        \"website_url\": \"string\",\n        \"email_address\": \"string\",\n        \"phone_number\": \"string\",\n        \"authoritative_registry_name\": \"string\",\n        \"organization_number\": \"string\",\n        \"is_sponsor\": false\n      },\n      \"name_servers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"domain_status\": [\n        \"string\",\n        \"string\"\n      ],\n      \"whois_raw_domain\": \"string\",\n      \"registry_data\": {\n        \"domain_name\": \"string\",\n        \"query_time\": \"string\",\n        \"whois_server\": \"string\",\n        \"domain_registered\": \"string\",\n        \"create_date\": \"string\",\n        \"update_date\": \"string\",\n        \"expiry_date\": \"string\",\n        \"domain_registrar\": {\n          \"id\": \"string\",\n          \"id_type\": \"string\",\n          \"iana_id\": \"string\",\n          \"registry_id\": \"string\",\n          \"handle\": \"string\",\n          \"status\": \"string\",\n          \"registrar_name\": \"string\",\n          \"normalized_name\": \"string\",\n          \"whois_server\": \"string\",\n          \"rdap_server\": \"string\",\n          \"website_url\": \"string\",\n          \"email_address\": \"string\",\n          \"phone_number\": \"string\",\n          \"authoritative_registry_name\": \"string\",\n          \"organization_number\": \"string\",\n          \"is_sponsor\": true\n        },\n        \"name_servers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"domain_status\": [\n          \"string\",\n          \"string\"\n        ],\n        \"whois_raw_domain\": \"string\",\n        \"key_0\": 6541.1646735747245,\n        \"key_1\": 8428.003705332201,\n        \"key_2\": false,\n        \"key_3\": 3236\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "607a31b0-f5dc-4d12-bdff-f7f4ee774dc0",
+          "name": "Reverse WHOIS lookup by keyword",
+          "request": {
+            "name": "Reverse WHOIS lookup by keyword",
+            "description": {},
+            "url": {
+              "path": [
+                "v2.0",
+                "whois",
+                "reverse"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>",
+                  "description": "(Required) Keyword to search across WHOIS records"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04f7ed1f-24ad-4dc9-9c1a-ac5d2c3999a7",
+              "name": "Reverse WHOIS results (paginated)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2.0",
+                    "whois",
+                    "reverse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Total_Result\": 1673,\n  \"Total_Pages\": 9715,\n  \"Current_Page\": 6096,\n  \"whois_domains_historical\": [\n    {\n      \"num\": 5233,\n      \"status\": false,\n      \"domain_name\": \"string\",\n      \"query_time\": \"string\",\n      \"whois_server\": \"string\",\n      \"domain_registered\": \"string\",\n      \"secure_dns\": false,\n      \"domain_handle\": \"string\",\n      \"create_date\": \"string\",\n      \"update_date\": \"string\",\n      \"expiry_date\": \"string\",\n      \"domain_registrar\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"iana_id\": \"string\",\n        \"registry_id\": \"string\",\n        \"handle\": \"string\",\n        \"status\": \"string\",\n        \"registrar_name\": \"string\",\n        \"normalized_name\": \"string\",\n        \"whois_server\": \"string\",\n        \"rdap_server\": \"string\",\n        \"website_url\": \"string\",\n        \"email_address\": \"string\",\n        \"phone_number\": \"string\",\n        \"authoritative_registry_name\": \"string\",\n        \"organization_number\": \"string\",\n        \"is_sponsor\": true\n      },\n      \"reseller_contact\": {\n        \"name\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"key_0\": \"string\",\n        \"key_1\": 2069,\n        \"key_2\": 7477.507845071117\n      },\n      \"registrant_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"administrative_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"technical_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\",\n        \"key_0\": 5509.375735796041,\n        \"key_1\": 6800,\n        \"key_2\": \"string\",\n        \"key_3\": 3403\n      },\n      \"billing_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"eligibility_info\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\"\n      },\n      \"abuse_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"iana_id\": \"string\",\n        \"registry_id\": \"string\",\n        \"handle\": \"string\",\n        \"status\": \"string\",\n        \"registrar_name\": \"string\",\n        \"normalized_name\": \"string\",\n        \"whois_server\": \"string\",\n        \"rdap_server\": \"string\",\n        \"website_url\": \"string\",\n        \"email_address\": \"string\",\n        \"phone_number\": \"string\",\n        \"authoritative_registry_name\": \"string\",\n        \"organization_number\": \"string\",\n        \"is_sponsor\": false\n      },\n      \"name_servers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"domain_status\": [\n        \"string\",\n        \"string\"\n      ],\n      \"whois_raw_domain\": \"string\",\n      \"registry_data\": {\n        \"domain_name\": \"string\",\n        \"query_time\": \"string\",\n        \"whois_server\": \"string\",\n        \"domain_registered\": \"string\",\n        \"create_date\": \"string\",\n        \"update_date\": \"string\",\n        \"expiry_date\": \"string\",\n        \"domain_registrar\": {\n          \"id\": \"string\",\n          \"id_type\": \"string\",\n          \"iana_id\": \"string\",\n          \"registry_id\": \"string\",\n          \"handle\": \"string\",\n          \"status\": \"string\",\n          \"registrar_name\": \"string\",\n          \"normalized_name\": \"string\",\n          \"whois_server\": \"string\",\n          \"rdap_server\": \"string\",\n          \"website_url\": \"string\",\n          \"email_address\": \"string\",\n          \"phone_number\": \"string\",\n          \"authoritative_registry_name\": \"string\",\n          \"organization_number\": \"string\",\n          \"is_sponsor\": false\n        },\n        \"name_servers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"domain_status\": [\n          \"string\",\n          \"string\"\n        ],\n        \"whois_raw_domain\": \"string\"\n      }\n    },\n    {\n      \"num\": 5264,\n      \"status\": true,\n      \"domain_name\": \"string\",\n      \"query_time\": \"string\",\n      \"whois_server\": \"string\",\n      \"domain_registered\": \"string\",\n      \"secure_dns\": false,\n      \"domain_handle\": \"string\",\n      \"create_date\": \"string\",\n      \"update_date\": \"string\",\n      \"expiry_date\": \"string\",\n      \"domain_registrar\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"iana_id\": \"string\",\n        \"registry_id\": \"string\",\n        \"handle\": \"string\",\n        \"status\": \"string\",\n        \"registrar_name\": \"string\",\n        \"normalized_name\": \"string\",\n        \"whois_server\": \"string\",\n        \"rdap_server\": \"string\",\n        \"website_url\": \"string\",\n        \"email_address\": \"string\",\n        \"phone_number\": \"string\",\n        \"authoritative_registry_name\": \"string\",\n        \"organization_number\": \"string\",\n        \"is_sponsor\": false\n      },\n      \"reseller_contact\": {\n        \"name\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"key_0\": false\n      },\n      \"registrant_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"administrative_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"technical_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"billing_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"handle\": \"string\",\n        \"name\": \"string\",\n        \"company\": \"string\",\n        \"street\": \"string\",\n        \"city\": \"string\",\n        \"state\": \"string\",\n        \"zip_code\": \"string\",\n        \"country_name\": \"string\",\n        \"country_code\": \"string\",\n        \"email_address\": \"string\",\n        \"phone\": \"string\",\n        \"fax\": \"string\",\n        \"mailing_address\": \"string\"\n      },\n      \"eligibility_info\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"key_0\": false,\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"abuse_contact\": {\n        \"id\": \"string\",\n        \"id_type\": \"string\",\n        \"iana_id\": \"string\",\n        \"registry_id\": \"string\",\n        \"handle\": \"string\",\n        \"status\": \"string\",\n        \"registrar_name\": \"string\",\n        \"normalized_name\": \"string\",\n        \"whois_server\": \"string\",\n        \"rdap_server\": \"string\",\n        \"website_url\": \"string\",\n        \"email_address\": \"string\",\n        \"phone_number\": \"string\",\n        \"authoritative_registry_name\": \"string\",\n        \"organization_number\": \"string\",\n        \"is_sponsor\": false\n      },\n      \"name_servers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"domain_status\": [\n        \"string\",\n        \"string\"\n      ],\n      \"whois_raw_domain\": \"string\",\n      \"registry_data\": {\n        \"domain_name\": \"string\",\n        \"query_time\": \"string\",\n        \"whois_server\": \"string\",\n        \"domain_registered\": \"string\",\n        \"create_date\": \"string\",\n        \"update_date\": \"string\",\n        \"expiry_date\": \"string\",\n        \"domain_registrar\": {\n          \"id\": \"string\",\n          \"id_type\": \"string\",\n          \"iana_id\": \"string\",\n          \"registry_id\": \"string\",\n          \"handle\": \"string\",\n          \"status\": \"string\",\n          \"registrar_name\": \"string\",\n          \"normalized_name\": \"string\",\n          \"whois_server\": \"string\",\n          \"rdap_server\": \"string\",\n          \"website_url\": \"string\",\n          \"email_address\": \"string\",\n          \"phone_number\": \"string\",\n          \"authoritative_registry_name\": \"string\",\n          \"organization_number\": \"string\",\n          \"is_sponsor\": true\n        },\n        \"name_servers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"domain_status\": [\n          \"string\",\n          \"string\"\n        ],\n        \"whois_raw_domain\": \"string\"\n      }\n    }\n  ],\n  \"key_0\": 9906,\n  \"key_1\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3e77c12d-5392-4f2c-abde-f79499bf1892",
+    "name": "WhoisFreaks WHOIS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

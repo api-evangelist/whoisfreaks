@@ -1,0 +1,257 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks IP Reputation API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: IP Reputation
+  description: IP threat intelligence
+paths:
+  /v1.0/security:
+    get:
+      tags:
+      - IP Reputation
+      summary: IP Reputation Lookup
+      description: Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+      operationId: ipReputation
+      parameters:
+      - name: ip
+        in: query
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IpReputationResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+    post:
+      tags:
+      - IP Reputation
+      summary: Bulk IP Reputation
+      description: Up to 100 IPs.
+      operationId: bulkIpReputation
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - ips
+              properties:
+                ips:
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 100
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IpReputationResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  schemas:
+    IpSecurityNetwork:
+      type: object
+      properties:
+        connection_type:
+          type: string
+        route:
+          type: string
+        is_anycast:
+          type: boolean
+      additionalProperties: true
+    IpLocation:
+      type: object
+      properties:
+        continent_code:
+          type: string
+        continent_name:
+          type: string
+        country_code2:
+          type: string
+        country_code3:
+          type: string
+        country_name:
+          type: string
+        country_name_official:
+          type: string
+        country_capital:
+          type: string
+        state_prov:
+          type: string
+        state_code:
+          type: string
+        district:
+          type: string
+        city:
+          type: string
+        locality:
+          type: string
+        accuracy_radius:
+          type: string
+        confidence:
+          type: string
+        zipcode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        is_eu:
+          type: boolean
+        geoname_id:
+          type: string
+        country_emoji:
+          type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    IpSecurityAsn:
+      type: object
+      properties:
+        as_number:
+          type: string
+        organization:
+          type: string
+        country:
+          type: string
+        type:
+          type: string
+        domain:
+          type: string
+        date_allocated:
+          type: string
+        rir:
+          type: string
+      additionalProperties: true
+    IpSecurity:
+      type: object
+      properties:
+        threat_score:
+          type: integer
+        is_tor:
+          type: boolean
+        is_proxy:
+          type: boolean
+        proxy_provider_names:
+          type: array
+          items:
+            type: string
+        proxy_confidence_score:
+          type: integer
+        proxy_last_seen:
+          type: string
+        is_residential_proxy:
+          type: boolean
+        is_vpn:
+          type: boolean
+        vpn_provider_names:
+          type: array
+          items:
+            type: string
+        vpn_confidence_score:
+          type: integer
+        vpn_last_seen:
+          type: string
+        is_relay:
+          type: boolean
+        relay_provider_name:
+          type: string
+        is_anonymous:
+          type: boolean
+        is_known_attacker:
+          type: boolean
+        is_bot:
+          type: boolean
+        is_spam:
+          type: boolean
+        is_cloud_provider:
+          type: boolean
+        cloud_provider_name:
+          type: string
+      additionalProperties: true
+    IpReputationResponse:
+      type: object
+      properties:
+        ip:
+          type: string
+        location:
+          $ref: '#/components/schemas/IpLocation'
+        network:
+          $ref: '#/components/schemas/IpSecurityNetwork'
+        asn:
+          $ref: '#/components/schemas/IpSecurityAsn'
+        security:
+          $ref: '#/components/schemas/IpSecurity'
+      additionalProperties: true
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

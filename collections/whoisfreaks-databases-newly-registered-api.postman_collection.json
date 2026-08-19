@@ -1,0 +1,1146 @@
+{
+  "item": [
+    {
+      "id": "13ef985e-5c43-4f76-ba10-e92978133963",
+      "name": "Databases - Newly Registered",
+      "description": {
+        "content": "Newly registered domain downloads",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a261a2d5-15ef-4d08-9e18-fdeba7b255fb",
+          "name": "Newly Registered gTLD (CSV)",
+          "request": {
+            "name": "Newly Registered gTLD (CSV)",
+            "description": {
+              "content": "Newly Registered gTLD (CSV). Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.1",
+                "download",
+                "domainer",
+                "gtld"
+              ],
+              "host": [
+                "{{v3.1-download-domainer-gtld-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "whois",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "tlds",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77110d29-af00-498b-92b4-b607755ea522",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "gtld"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-gtld-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "whois",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tlds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ca42e7c-331d-4e34-acdd-0dcd129d597c",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "gtld"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-gtld-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "whois",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tlds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 9602\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e857761f-f9ea-4939-b629-9b1c5cc14c97",
+          "name": "Newly Registered ccTLD (CSV)",
+          "request": {
+            "name": "Newly Registered ccTLD (CSV)",
+            "description": {
+              "content": "Newly Registered ccTLD (CSV). Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.1",
+                "download",
+                "domainer",
+                "cctld"
+              ],
+              "host": [
+                "{{v3.1-download-domainer-cctld-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "whois",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "tlds",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3cd5c27-9f48-4278-8c4a-c3a9386e295c",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "cctld"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-cctld-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "whois",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tlds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c0ab7ce-ad2a-4748-af37-d083f4a8ab71",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "cctld"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-cctld-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "whois",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tlds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 9602\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f0dfde5-c281-48f6-b398-77a0f17820e3",
+          "name": "Newly Registered gTLD Cleaned WHOIS (CSV)",
+          "request": {
+            "name": "Newly Registered gTLD Cleaned WHOIS (CSV)",
+            "description": {
+              "content": "Newly Registered gTLD Cleaned WHOIS (CSV). Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.1",
+                "download",
+                "domainer",
+                "gtld",
+                "cleaned"
+              ],
+              "host": [
+                "{{v3.1-download-domainer-gtld-cleaned-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e3cb19b-b380-4056-82e6-46ced3dbd276",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "gtld",
+                    "cleaned"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-gtld-cleaned-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f4843b9-6adf-404c-928a-6c8165ef53b4",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "gtld",
+                    "cleaned"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-gtld-cleaned-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 9602\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "acf3294b-c233-4068-9bd8-5701be57fd61",
+          "name": "Newly Registered ccTLD Cleaned WHOIS (CSV)",
+          "request": {
+            "name": "Newly Registered ccTLD Cleaned WHOIS (CSV)",
+            "description": {
+              "content": "Newly Registered ccTLD Cleaned WHOIS (CSV). Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.1",
+                "download",
+                "domainer",
+                "cctld",
+                "cleaned"
+              ],
+              "host": [
+                "{{v3.1-download-domainer-cctld-cleaned-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2146030f-4a9f-488f-b793-d428178258fa",
+              "name": "CSV",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "cctld",
+                    "cleaned"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-cctld-cleaned-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99bd0f4c-b7d1-449b-bce5-f6ffaaf560c5",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "cctld",
+                    "cleaned"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-cctld-cleaned-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 9602\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65753cef-3349-40ea-9ea6-e6b3818a8a60",
+          "name": "Newly Registered gTLD (JSON)",
+          "request": {
+            "name": "Newly Registered gTLD (JSON)",
+            "description": {
+              "content": "Newly Registered gTLD (JSON). Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.1",
+                "domains",
+                "newly",
+                "gtld"
+              ],
+              "host": [
+                "{{v3.1-domains-newly-gtld-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "tlds",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "efc33f61-94f3-41a2-b558-4963f01f9713",
+              "name": "JSON array of domains",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "domains",
+                    "newly",
+                    "gtld"
+                  ],
+                  "host": [
+                    "{{v3.1-domains-newly-gtld-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tlds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c71c33ed-789e-4c8a-b5d4-6c5f9a4c7fd9",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "domains",
+                    "newly",
+                    "gtld"
+                  ],
+                  "host": [
+                    "{{v3.1-domains-newly-gtld-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tlds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 9602\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23615de1-81df-4265-9397-4efcbf314c01",
+          "name": "Newly Registered ccTLD (JSON)",
+          "request": {
+            "name": "Newly Registered ccTLD (JSON)",
+            "description": {
+              "content": "Newly Registered ccTLD (JSON). Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.1",
+                "domains",
+                "newly",
+                "cctld"
+              ],
+              "host": [
+                "{{v3.1-domains-newly-cctld-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "tlds",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1a852fb-4813-4a7f-84df-0ebf1a81ccfa",
+              "name": "JSON array of domains",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "domains",
+                    "newly",
+                    "cctld"
+                  ],
+                  "host": [
+                    "{{v3.1-domains-newly-cctld-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tlds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a55a39d-98f2-4975-b573-e4e4fb08c526",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "domains",
+                    "newly",
+                    "cctld"
+                  ],
+                  "host": [
+                    "{{v3.1-domains-newly-cctld-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "tlds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 9602\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19ceeba7-c789-4f8b-81f9-eca9c2dcdcbe",
+          "name": "Newly Registered With DNS",
+          "request": {
+            "name": "Newly Registered With DNS",
+            "description": {
+              "content": "Newly Registered With DNS. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.1",
+                "download",
+                "domainer",
+                "newly",
+                "dns"
+              ],
+              "host": [
+                "{{v3.1-download-domainer-newly-dns-Url}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "yyyy-MM-dd; omit for latest"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac00b4a8-4ca5-4ab7-b291-0a52e9642a42",
+              "name": "JSON array of domains with DNS",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "newly",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-newly-dns-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f719bb2-2184-4737-a0f2-bae482040e43",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.1",
+                    "download",
+                    "domainer",
+                    "newly",
+                    "dns"
+                  ],
+                  "host": [
+                    "{{v3.1-download-domainer-newly-dns-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 9602\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.1-download-domainer-gtld-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.1-download-domainer-cctld-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.1-download-domainer-gtld-cleaned-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.1-download-domainer-cctld-cleaned-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.1-domains-newly-gtld-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.1-domains-newly-cctld-Url"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.1-download-domainer-newly-dns-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "73f81fb2-c35d-4fc8-9045-c74b046cfcce",
+    "name": "WhoisFreaks Databases - Newly Registered API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

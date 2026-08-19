@@ -1,0 +1,166 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks ASN WHOIS API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: ASN WHOIS
+  description: Autonomous System Number WHOIS
+paths:
+  /v2.0/asn-whois:
+    get:
+      tags:
+      - ASN WHOIS
+      summary: ASN WHOIS Lookup
+      description: WHOIS for an ASN. 1 credit.
+      operationId: asnWhois
+      parameters:
+      - name: asn
+        in: query
+        schema:
+          type: string
+        required: true
+        example: as15169
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsnWhoisResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    AsnPeer:
+      type: object
+      properties:
+        as_number:
+          type: string
+        description:
+          type: string
+        country:
+          type: string
+      additionalProperties: true
+    AsnWhoisResponse:
+      type: object
+      properties:
+        asn:
+          $ref: '#/components/schemas/AsnInfo'
+      additionalProperties: true
+      description: ASN WHOIS v2 (/v2.0/asn-whois) — pass-through of ipgeolocation ASN data.
+    AsnInfo:
+      type: object
+      properties:
+        as_number:
+          type: string
+        organization:
+          type: string
+        country:
+          type: string
+        type:
+          type: string
+        domain:
+          type: string
+        date_allocated:
+          type: string
+        asn_name:
+          type: string
+        allocation_status:
+          type: string
+        num_of_ipv4_routes:
+          type: string
+        num_of_ipv6_routes:
+          type: string
+        rir:
+          type: string
+        routes:
+          type: array
+          items:
+            type: string
+        downstreams:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsnPeer'
+        upstreams:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsnPeer'
+        peers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsnPeer'
+        whois_response:
+          type: string
+      additionalProperties: true
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

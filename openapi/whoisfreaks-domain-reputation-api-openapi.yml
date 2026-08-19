@@ -1,0 +1,358 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks Domain Reputation API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: Domain Reputation
+  description: Real-time domain threat assessment and trust scoring
+paths:
+  /v1/domain/security:
+    get:
+      tags:
+      - Domain Reputation
+      summary: Domain Reputation Lookup
+      description: Real-time domain threat assessment. Returns risk verdict, trust score, DGA analysis, threat intelligence matches, and security signals. 1 credit.
+      operationId: domainReputation
+      parameters:
+      - name: domainName
+        in: query
+        schema:
+          type: string
+        required: true
+        description: The domain name to assess
+        example: amazon.com
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainReputationResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  schemas:
+    DgaScore:
+      type: object
+      properties:
+        score:
+          type: number
+        is_dga:
+          type: boolean
+        model:
+          type: string
+        features:
+          $ref: '#/components/schemas/DgaFeatures'
+        interpretation:
+          type: string
+      additionalProperties: true
+    ReputationIndicators:
+      type: object
+      properties:
+        is_newly_registered:
+          type: boolean
+        uses_free_extension:
+          type: boolean
+        uses_free_ssl:
+          type: boolean
+        has_privacy_whois:
+          type: boolean
+        ssl_age_days:
+          type: integer
+        has_dmarc:
+          type: boolean
+        has_spf:
+          type: boolean
+        redirects_externally:
+          type: boolean
+        javascript_obfuscated:
+          type: boolean
+        domain_age_days:
+          type: integer
+        registrar:
+          type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    RelatedIoc:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+        confidence:
+          type: number
+      additionalProperties: true
+    ReputationIntelligence:
+      type: object
+      properties:
+        ioc_type:
+          type: string
+        ioc_value:
+          type: string
+        related_iocs:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedIoc'
+        feed_tags:
+          type: array
+          items:
+            type: string
+        stix_pattern:
+          type: string
+        recommended_action:
+          type: string
+        first_seen:
+          type: string
+        last_seen:
+          type: string
+      additionalProperties: true
+    DomainReputationInput:
+      type: object
+      properties:
+        domain:
+          type: string
+      additionalProperties: true
+    TrustSignals:
+      type: object
+      properties:
+        trust_score:
+          type: integer
+        trust_band:
+          type: string
+        signals:
+          $ref: '#/components/schemas/ReputationSignals'
+        indicators:
+          $ref: '#/components/schemas/ReputationIndicators'
+      additionalProperties: true
+    ReputationSignal:
+      type: object
+      properties:
+        code:
+          type: string
+        weight:
+          type: integer
+        polarity:
+          type: string
+        category:
+          type: string
+        evidence:
+          type: string
+        confidence:
+          type: number
+      additionalProperties: true
+    PivotMatch:
+      type: object
+      properties:
+        pivot:
+          type: string
+        pivot_type:
+          type: string
+        total_related_threats:
+          type: integer
+        confidence:
+          type: number
+      additionalProperties: true
+    ReputationSignals:
+      type: object
+      properties:
+        positive:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReputationSignal'
+        negative:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReputationSignal'
+        neutral:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReputationSignal'
+      additionalProperties: true
+    RiskCategory:
+      type: object
+      properties:
+        verdict:
+          type: string
+        confidence:
+          type: number
+        primary_threat:
+          type: string
+        severity:
+          type: string
+        threat_types:
+          type: array
+          items:
+            type: string
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThreatSource'
+        pivot_matches:
+          type: array
+          items:
+            $ref: '#/components/schemas/PivotMatch'
+      additionalProperties: true
+    EvidenceSummary:
+      type: object
+      properties:
+        why_flagged:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    DomainReputationResponse:
+      type: object
+      properties:
+        input:
+          $ref: '#/components/schemas/DomainReputationInput'
+        assessed_at:
+          type: string
+        version:
+          type: string
+        processing_time_ms:
+          type: integer
+        risk_category:
+          $ref: '#/components/schemas/RiskCategory'
+        dga_score:
+          $ref: '#/components/schemas/DgaScore'
+        trust_signals:
+          $ref: '#/components/schemas/TrustSignals'
+        intelligence:
+          $ref: '#/components/schemas/ReputationIntelligence'
+        evidence_summary:
+          $ref: '#/components/schemas/EvidenceSummary'
+        errors:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    DgaFeatures:
+      type: object
+      properties:
+        domain_length:
+          type: integer
+        vowel_consonant_ratio:
+          type: number
+        ngram_perplexity:
+          type: number
+        shannon_entropy:
+          type: number
+        digit_letter_ratio:
+          type: number
+        consonant_streak_max:
+          type: integer
+        tld_in_known_dga_set:
+          type: boolean
+      additionalProperties: true
+    ThreatSource:
+      type: object
+      properties:
+        source:
+          type: string
+        indicator:
+          type: string
+        threat_type:
+          type: string
+        confidence:
+          type: number
+        first_seen:
+          type: string
+        last_seen:
+          type: string
+      additionalProperties: true
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    RateLimited:
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

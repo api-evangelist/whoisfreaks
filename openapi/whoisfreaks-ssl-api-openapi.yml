@@ -1,0 +1,260 @@
+openapi: 3.2.0
+info:
+  title: WhoisFreaks SSL API
+  description: 'Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,
+
+    IP Intelligence, Domain Reputation, and bulk database downloads.
+
+
+    ## Authentication
+
+    All requests require an `apiKey` query parameter.
+
+
+    ## Resources
+
+    - Docs: https://whoisfreaks.com/documentation
+
+    - Billing: https://billing.whoisfreaks.com
+
+    - Support: support@whoisfreaks.com
+
+    '
+  version: 1.0.0
+  contact:
+    name: WhoisFreaks Support
+    email: support@whoisfreaks.com
+    url: https://whoisfreaks.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+- url: https://api.whoisfreaks.com
+  description: API Solutions (live lookups)
+- url: https://files.whoisfreaks.com
+  description: Database file downloads
+security:
+- ApiKeyAuth: []
+tags:
+- name: SSL
+  description: SSL certificate lookup
+paths:
+  /v1.0/ssl/live:
+    get:
+      tags:
+      - SSL
+      summary: SSL Certificate Lookup
+      description: Real-time SSL cert with optional chain.
+      operationId: sslLookup
+      parameters:
+      - name: domainName
+        in: query
+        schema:
+          type: string
+        required: true
+      - name: chain
+        in: query
+        schema:
+          type: boolean
+          default: false
+      - name: sslRaw
+        in: query
+        schema:
+          type: boolean
+          default: false
+      - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SslResponse'
+        4XX:
+          $ref: '#/components/responses/ErrorResponse'
+components:
+  schemas:
+    SslUnitInfo:
+      type: object
+      properties:
+        commonName:
+          type: string
+        organization:
+          type: string
+        organizationalUnit:
+          type: string
+        locality:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        incCountry:
+          type: string
+        incState:
+          type: string
+        businessCategory:
+          type: string
+        street:
+          type: string
+        postalCode:
+          type: string
+        serialNumber:
+          type: string
+      additionalProperties: true
+    SslAuthorityInfo:
+      type: object
+      properties:
+        issuers:
+          type: array
+          items:
+            type: string
+        ocsp:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    SslExtensionsInfo:
+      type: object
+      properties:
+        authorityKeyIdentifier:
+          type: string
+        subjectKeyIdentifier:
+          type: string
+        keyUsages:
+          type: array
+          items:
+            type: string
+        extendedKeyUsages:
+          type: array
+          items:
+            type: string
+        crlDistributionPoints:
+          type: array
+          items:
+            type: string
+        authorityInfoAccess:
+          $ref: '#/components/schemas/SslAuthorityInfo'
+        subjectAlternativeNames:
+          $ref: '#/components/schemas/SslAlternateNames'
+        certificatePolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/SslCertificatePolicy'
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    SslCertificatePolicy:
+      type: object
+      properties:
+        policyId:
+          type: string
+        policyQualifier:
+          type: object
+      additionalProperties: true
+    SslPublicKeyInfo:
+      type: object
+      properties:
+        keySize:
+          type: string
+        keyAlgorithm:
+          type: string
+        pemRaw:
+          type: string
+      additionalProperties: true
+    SslResponse:
+      type: object
+      properties:
+        domainName:
+          type: string
+        queryTime:
+          type: string
+        sslCertificates:
+          type: array
+          items:
+            $ref: '#/components/schemas/SslCertificate'
+        sslRaw:
+          type: string
+      additionalProperties: true
+    SslAlternateNames:
+      type: object
+      properties:
+        dnsNames:
+          type: array
+          items:
+            type: string
+        emailAddresses:
+          type: array
+          items:
+            type: string
+        ipAddresses:
+          type: array
+          items:
+            type: string
+        uris:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    SslCertificate:
+      type: object
+      properties:
+        chainOrder:
+          type: string
+        authenticationType:
+          type: string
+        validityStartDate:
+          type: string
+        validityEndDate:
+          type: string
+        serialNumber:
+          type: string
+        signatureAlgorithm:
+          type: string
+        subject:
+          $ref: '#/components/schemas/SslUnitInfo'
+        issuer:
+          $ref: '#/components/schemas/SslUnitInfo'
+        publicKey:
+          $ref: '#/components/schemas/SslPublicKeyInfo'
+        extensions:
+          $ref: '#/components/schemas/SslExtensionsInfo'
+        pemRaw:
+          type: string
+      additionalProperties: true
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: apiKey

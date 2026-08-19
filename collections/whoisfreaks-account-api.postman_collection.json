@@ -1,0 +1,414 @@
+{
+  "item": [
+    {
+      "id": "56940daa-4b33-41ad-8fcd-9aa4102a4bb3",
+      "name": "Account",
+      "description": {
+        "content": "Account, API key, and usage utilities",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd2bad26-8617-489f-bfa6-da52a523bd72",
+          "name": "Rotate API Key",
+          "request": {
+            "name": "Rotate API Key",
+            "description": {
+              "content": "Rotate API Key. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "api-key",
+                "rotate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b13f747e-07aa-4881-a464-ed382052867c",
+              "name": "Key rotated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "api-key",
+                    "rotate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d39fcc16-f4c5-430c-a064-b9f26d96a231",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "api-key",
+                    "rotate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c977af3-c4a2-470c-928a-2b27b7d16d4b",
+          "name": "Account Usage",
+          "request": {
+            "name": "Account Usage",
+            "description": {
+              "content": "Account Usage. Returns the file/snapshot described by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1.0",
+                "whoisapi",
+                "usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0b49726-2f75-4af9-9c61-b6c48fe99560",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "whoisapi",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiKey\": \"string\",\n  \"apiCredits\": {\n    \"totalCredits\": 6630,\n    \"servedRequest\": 7782,\n    \"key_0\": 4815.047145788667,\n    \"key_1\": \"string\",\n    \"key_2\": 5799.344051554352\n  },\n  \"apiSubscription\": {\n    \"requestLimit\": 5743,\n    \"servedRequests\": 5684,\n    \"subscriptionStatus\": \"string\",\n    \"surchargeRequestLimit\": 7360,\n    \"servedSurchargeRequests\": 9627,\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"key_0\": 5850\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b99cfe4-6aec-4c65-b54d-728836bc84c8",
+              "name": "Error response (4XX)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1.0",
+                    "whoisapi",
+                    "usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 2122,\n  \"key_0\": false,\n  \"key_1\": false,\n  \"key_2\": true,\n  \"key_3\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01e5e6f5-5f9a-41d6-8da1-61ab6bc4d44a",
+          "name": "Database File Status (Public)",
+          "request": {
+            "name": "Database File Status (Public)",
+            "description": {
+              "content": "No API key required. Returns freshness of all downloadable files.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3.4",
+                "status"
+              ],
+              "host": [
+                "{{v3.4-status-Url}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69216349-8aee-464d-bdee-f54c890abd53",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.4",
+                    "status"
+                  ],
+                  "host": [
+                    "{{v3.4-status-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"newly\": {\n    \"gtld\": {\n      \"available_from\": \"string\",\n      \"last_update\": \"string\"\n    },\n    \"cctld\": {\n      \"available_from\": \"string\",\n      \"last_update\": \"string\"\n    },\n    \"dns\": {\n      \"available_from\": \"string\",\n      \"last_update\": \"string\"\n    },\n    \"cleaned_gtld\": {\n      \"available_from\": \"string\",\n      \"last_update\": \"string\"\n    },\n    \"cleaned_cctld\": {\n      \"available_from\": \"string\",\n      \"last_update\": \"string\"\n    }\n  },\n  \"expired\": {\n    \"available_from\": \"string\",\n    \"last_update\": \"string\",\n    \"key_0\": \"string\",\n    \"key_1\": true\n  },\n  \"cleaned_expired\": {\n    \"available_from\": \"string\",\n    \"last_update\": \"string\"\n  },\n  \"dropped\": {\n    \"available_from\": \"string\",\n    \"last_update\": \"string\",\n    \"key_0\": 375.11676724756416\n  },\n  \"dropped_with_backlinks\": {\n    \"available_from\": \"string\",\n    \"last_update\": \"string\"\n  },\n  \"threat_feed\": {\n    \"phishing\": {\n      \"available_from\": \"string\",\n      \"last_update\": \"string\"\n    },\n    \"malware\": {\n      \"available_from\": \"string\",\n      \"last_update\": \"string\"\n    },\n    \"spam\": {\n      \"available_from\": \"string\",\n      \"last_update\": \"string\",\n      \"key_0\": 4261,\n      \"key_1\": \"string\"\n    }\n  },\n  \"database_updates\": {\n    \"domain_whois\": {\n      \"daily\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\",\n        \"key_0\": 2328,\n        \"key_1\": 8063\n      },\n      \"weekly\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\",\n        \"key_0\": false,\n        \"key_1\": false\n      },\n      \"monthly\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\"\n      }\n    },\n    \"dns\": {\n      \"daily\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\"\n      },\n      \"weekly\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\"\n      },\n      \"monthly\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\",\n        \"key_0\": true\n      }\n    },\n    \"subdomains\": {\n      \"daily\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\",\n        \"key_0\": 8983.435849431147,\n        \"key_1\": 1940.3556832265579\n      },\n      \"weekly\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\",\n        \"key_0\": 6669,\n        \"key_1\": 7145.3579645095,\n        \"key_2\": 8499\n      },\n      \"monthly\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\"\n      },\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"ip_whois\": {\n      \"daily\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\",\n        \"key_0\": \"string\"\n      },\n      \"weekly\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\"\n      },\n      \"monthly\": {\n        \"available_from\": \"string\",\n        \"last_update\": \"string\",\n        \"key_0\": 3612.825573153916,\n        \"key_1\": \"string\",\n        \"key_2\": 4075,\n        \"key_3\": 9432.808797083408\n      }\n    },\n    \"key_0\": 7540.496798950643\n  },\n  \"key_0\": 6795,\n  \"key_1\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1977dcc2-2e32-4264-ad45-8f28092d1752",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3.4",
+                    "status"
+                  ],
+                  "host": [
+                    "{{v3.4-status-Url}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"string\",\n  \"path\": \"string\",\n  \"status\": \"\",\n  \"error\": \"string\",\n  \"message\": \"string\",\n  \"code\": 2122,\n  \"key_0\": false,\n  \"key_1\": false,\n  \"key_2\": true,\n  \"key_3\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.whoisfreaks.com",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "https://files.whoisfreaks.com",
+      "key": "v3.4-status-Url"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a1dbfa57-f5cd-49f9-8049-c60d0d9a1b85",
+    "name": "WhoisFreaks Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting,\nIP Intelligence, Domain Reputation, and bulk database downloads.\n\n## Authentication\nAll requests require an `apiKey` query parameter.\n\n## Resources\n- Docs: https://whoisfreaks.com/documentation\n- Billing: https://billing.whoisfreaks.com\n- Support: support@whoisfreaks.com\n\n\nContact Support:\n Name: WhoisFreaks Support\n Email: support@whoisfreaks.com",
+      "type": "text/plain"
+    }
+  }
+}

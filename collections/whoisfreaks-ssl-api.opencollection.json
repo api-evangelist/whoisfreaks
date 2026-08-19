@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WhoisFreaks SSL API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SSL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SSL Certificate Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.whoisfreaks.com/v1.0/ssl/live",
+            "params": [
+              {
+                "name": "domainName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sslRaw",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Real-time SSL cert with optional chain."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
