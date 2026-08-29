@@ -9,6 +9,19 @@ description: >-
   webhook alerts, ten officially maintained OpenAPI-generated SDKs, a Go CLI, an n8n community node, and an
   open-source MCP server exposing fourteen domain-intelligence tools to AI assistants. Authentication is a single
   apiKey query parameter across every endpoint.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 image: https://whoisfreaks.com/images/logo.png
 url: https://raw.githubusercontent.com/api-evangelist/whoisfreaks/refs/heads/main/apis.yml
 created: '2026-07-29'
@@ -447,6 +460,10 @@ apis:
   - type: LLMSTxt
     url: https://whoisfreaks.com/llms.txt
 common:
+  - type: IssueTracker
+    url: https://github.com/WhoisFreaks/whoisfreaks-mcp-server/issues
+  - type: Releases
+    url: https://github.com/WhoisFreaks/whoisfreaks-mcp-server/releases
   - type: Overlay
     url: overlays/whoisfreaks-openapi-overlay.yaml
   - type: DeveloperPortal
