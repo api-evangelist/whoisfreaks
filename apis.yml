@@ -460,6 +460,9 @@ apis:
   - type: LLMSTxt
     url: https://whoisfreaks.com/llms.txt
 common:
+  - type: CapabilityMap
+    url: capabilities/whoisfreaks-capability-edges.yml
+    name: WhoisFreaks Business Capability Map
   - type: IssueTracker
     url: https://github.com/WhoisFreaks/whoisfreaks-mcp-server/issues
   - type: Releases

@@ -1,0 +1,48 @@
+slug: whoisfreaks
+provider: WhoisFreaks
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Databases - Threat Feed
+  spec_file: whoisfreaks-databases-threat-feed-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.75
+  evidence: GET /v3.4/download/threat-feed/phishing 'Download the daily phishing threat feed (CSV)'; also
+    malware and spam feeds
+  reason: The operations deliver phishing, malware and spam threat intelligence feeds, which are consumed
+    by security monitoring/detection functions. Threat Detection & Response is the closest honest fit;
+    confidence held below 0.8 because the surface is a data download rather than detection or response
+    execution itself.
+- tag: Domain Reputation
+  spec_file: whoisfreaks-domain-reputation-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.72
+  evidence: GET /v1/domain/security 'Domain Reputation Lookup'; schemas 'ThreatSource', 'RiskCategory',
+    'RelatedIoc', 'ReputationIntelligence'
+  reason: Schemas name threat sources, risk categories and IoCs, which is threat-intelligence enrichment
+    feeding security detection and response. Mapped to BC-620.30 with moderate confidence since it is
+    an intelligence lookup rather than SOC/incident workflow itself.
+- tag: IP Reputation
+  spec_file: whoisfreaks-ip-reputation-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.7
+  evidence: GET /v1.0/security 'IP Reputation Lookup'; schemas 'IpSecurity', 'IpReputationResponse'
+  reason: 'IP reputation/security scoring is threat-intelligence enrichment used in security monitoring
+    and response. Confidence moderate: it is a lookup service, and an argument exists for treating it
+    as pure reference data.'
