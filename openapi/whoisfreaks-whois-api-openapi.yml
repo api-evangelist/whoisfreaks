@@ -17,9 +17,7 @@ info:
 
     - Billing: https://billing.whoisfreaks.com
 
-    - Support: support@whoisfreaks.com
-
-    '
+    - Support: support@whoisfreaks.com'
   version: 1.0.0
   contact:
     name: WhoisFreaks Support
@@ -172,42 +170,42 @@ paths:
               schema:
                 $ref: '#/components/schemas/ReverseWhoisResponse'
 components:
-  responses:
-    RateLimited:
-      description: Too many requests
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    ErrorResponse:
-      description: Error response (4XX)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    NotFound:
-      description: Not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - xml
-        default: json
   schemas:
+    ResellerContact:
+      type: object
+      properties:
+        name:
+          type: string
+        email_address:
+          type: string
+        phone:
+          type: string
+      additionalProperties: true
+    EligibilityInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+      additionalProperties: true
+    ReverseWhoisResponse:
+      type: object
+      properties:
+        Total_Result:
+          type: integer
+        Total_Pages:
+          type: integer
+        Current_Page:
+          type: integer
+        whois_domains_historical:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisHistoricalItem'
+      additionalProperties: true
+      description: Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page) as returned by the API.
     BulkWhoisItem:
       type: object
       properties:
@@ -219,6 +217,43 @@ components:
           type: string
       additionalProperties: true
       description: One bulk WHOIS result; success items also carry all WhoisResponse fields.
+    RegistrarInformation:
+      type: object
+      properties:
+        id:
+          type: string
+        id_type:
+          type: string
+        iana_id:
+          type: string
+        registry_id:
+          type: string
+        handle:
+          type: string
+        status:
+          type: string
+        registrar_name:
+          type: string
+        normalized_name:
+          type: string
+        whois_server:
+          type: string
+        rdap_server:
+          type: string
+        website_url:
+          type: string
+        email_address:
+          type: string
+        phone_number:
+          type: string
+        authoritative_registry_name:
+          type: string
+        organization_number:
+          type: string
+        is_sponsor:
+          type: boolean
+      additionalProperties: true
+      description: Registrar details (used by domain_registrar, abuse_contact).
     RegistryData:
       type: object
       properties:
@@ -249,6 +284,71 @@ components:
         whois_raw_domain:
           type: string
       additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    WhoisHistoricalResponse:
+      type: object
+      properties:
+        status:
+          type: boolean
+        whois:
+          type: string
+        total_records:
+          type: string
+        whois_domains_historical:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisHistoricalItem'
+      additionalProperties: true
+    PersonalInformation:
+      type: object
+      properties:
+        id:
+          type: string
+        id_type:
+          type: string
+        handle:
+          type: string
+        name:
+          type: string
+        company:
+          type: string
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country_name:
+          type: string
+        country_code:
+          type: string
+        email_address:
+          type: string
+        phone:
+          type: string
+        fax:
+          type: string
+        mailing_address:
+          type: string
+      additionalProperties: true
+      description: Contact block (registrant/administrative/technical/billing).
     WhoisResponse:
       type: object
       properties:
@@ -302,117 +402,6 @@ components:
           $ref: '#/components/schemas/RegistryData'
       additionalProperties: true
       description: Live WHOIS lookup response (DomainInfo).
-    PersonalInformation:
-      type: object
-      properties:
-        id:
-          type: string
-        id_type:
-          type: string
-        handle:
-          type: string
-        name:
-          type: string
-        company:
-          type: string
-        street:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip_code:
-          type: string
-        country_name:
-          type: string
-        country_code:
-          type: string
-        email_address:
-          type: string
-        phone:
-          type: string
-        fax:
-          type: string
-        mailing_address:
-          type: string
-      additionalProperties: true
-      description: Contact block (registrant/administrative/technical/billing).
-    RegistrarInformation:
-      type: object
-      properties:
-        id:
-          type: string
-        id_type:
-          type: string
-        iana_id:
-          type: string
-        registry_id:
-          type: string
-        handle:
-          type: string
-        status:
-          type: string
-        registrar_name:
-          type: string
-        normalized_name:
-          type: string
-        whois_server:
-          type: string
-        rdap_server:
-          type: string
-        website_url:
-          type: string
-        email_address:
-          type: string
-        phone_number:
-          type: string
-        authoritative_registry_name:
-          type: string
-        organization_number:
-          type: string
-        is_sponsor:
-          type: boolean
-      additionalProperties: true
-      description: Registrar details (used by domain_registrar, abuse_contact).
-    ReverseWhoisResponse:
-      type: object
-      properties:
-        Total_Result:
-          type: integer
-        Total_Pages:
-          type: integer
-        Current_Page:
-          type: integer
-        whois_domains_historical:
-          type: array
-          items:
-            $ref: '#/components/schemas/WhoisHistoricalItem'
-      additionalProperties: true
-      description: Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page) as returned by the API.
-    EligibilityInfo:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-      additionalProperties: true
-    WhoisHistoricalResponse:
-      type: object
-      properties:
-        status:
-          type: boolean
-        whois:
-          type: string
-        total_records:
-          type: string
-        whois_domains_historical:
-          type: array
-          items:
-            $ref: '#/components/schemas/WhoisHistoricalItem'
-      additionalProperties: true
     WhoisHistoricalItem:
       type: object
       properties:
@@ -467,22 +456,6 @@ components:
         registry_data:
           $ref: '#/components/schemas/RegistryData'
       additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     BulkWhoisResponse:
       type: object
       properties:
@@ -491,16 +464,41 @@ components:
           items:
             $ref: '#/components/schemas/BulkWhoisItem'
       additionalProperties: true
-    ResellerContact:
-      type: object
-      properties:
-        name:
-          type: string
-        email_address:
-          type: string
-        phone:
-          type: string
-      additionalProperties: true
+  responses:
+    RateLimited:
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -17,9 +17,7 @@ info:
 
     - Billing: https://billing.whoisfreaks.com
 
-    - Support: support@whoisfreaks.com
-
-    '
+    - Support: support@whoisfreaks.com'
   version: 1.0.0
   contact:
     name: WhoisFreaks Support
@@ -203,44 +201,19 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    ErrorResponse:
-      description: Error response (4XX)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Invalid API key
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - xml
-        default: json
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    HistoricalDnsResponse:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        currenPage:
-          type: integer
-        totalRecords:
-          type: integer
-        historicalDns:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsResponse'
-      additionalProperties: true
-      description: 'Note: ''currenPage'' spelling matches the API.'
     ReverseDnsResponse:
       type: object
       properties:
@@ -255,27 +228,30 @@ components:
           items:
             $ref: '#/components/schemas/DnsResponse'
       additionalProperties: true
-    DnsResponse:
+    BulkDnsResponse:
       type: object
       properties:
-        domainName:
-          type: string
-        ipAddress:
-          type: string
-        queryTime:
-          type: string
-        status:
-          type: boolean
-        domainRegistered:
-          type: boolean
-        dnsTypes:
-          type: object
-        dnsRecords:
+        bulk_dns_info:
           type: array
           items:
-            $ref: '#/components/schemas/DnsRecord'
+            $ref: '#/components/schemas/DnsResponse'
       additionalProperties: true
-      description: Live DNS response (DnsInfo).
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     DnsRecord:
       type: object
       properties:
@@ -313,30 +289,52 @@ components:
           type: integer
       additionalProperties: true
       description: Union of all DNS record variants (A/AAAA/MX/NS/CNAME/PTR/TXT/SPF/SOA).
-    BulkDnsResponse:
+    DnsResponse:
       type: object
       properties:
-        bulk_dns_info:
+        domainName:
+          type: string
+        ipAddress:
+          type: string
+        queryTime:
+          type: string
+        status:
+          type: boolean
+        domainRegistered:
+          type: boolean
+        dnsTypes:
+          type: object
+        dnsRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
+      additionalProperties: true
+      description: Live DNS response (DnsInfo).
+    HistoricalDnsResponse:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        currenPage:
+          type: integer
+        totalRecords:
+          type: integer
+        historicalDns:
           type: array
           items:
             $ref: '#/components/schemas/DnsResponse'
       additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+      description: 'Note: ''currenPage'' spelling matches the API.'
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

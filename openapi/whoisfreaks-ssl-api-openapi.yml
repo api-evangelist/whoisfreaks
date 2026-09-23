@@ -17,9 +17,7 @@ info:
 
     - Billing: https://billing.whoisfreaks.com
 
-    - Support: support@whoisfreaks.com
-
-    '
+    - Support: support@whoisfreaks.com'
   version: 1.0.0
   contact:
     name: WhoisFreaks Support
@@ -74,34 +72,6 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
-    SslUnitInfo:
-      type: object
-      properties:
-        commonName:
-          type: string
-        organization:
-          type: string
-        organizationalUnit:
-          type: string
-        locality:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
-        incCountry:
-          type: string
-        incState:
-          type: string
-        businessCategory:
-          type: string
-        street:
-          type: string
-        postalCode:
-          type: string
-        serialNumber:
-          type: string
-      additionalProperties: true
     SslAuthorityInfo:
       type: object
       properties:
@@ -113,6 +83,86 @@ components:
           type: array
           items:
             type: string
+      additionalProperties: true
+    SslCertificatePolicy:
+      type: object
+      properties:
+        policyId:
+          type: string
+        policyQualifier:
+          type: object
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    SslCertificate:
+      type: object
+      properties:
+        chainOrder:
+          type: string
+        authenticationType:
+          type: string
+        validityStartDate:
+          type: string
+        validityEndDate:
+          type: string
+        serialNumber:
+          type: string
+        signatureAlgorithm:
+          type: string
+        subject:
+          $ref: '#/components/schemas/SslUnitInfo'
+        issuer:
+          $ref: '#/components/schemas/SslUnitInfo'
+        publicKey:
+          $ref: '#/components/schemas/SslPublicKeyInfo'
+        extensions:
+          $ref: '#/components/schemas/SslExtensionsInfo'
+        pemRaw:
+          type: string
+      additionalProperties: true
+    SslAlternateNames:
+      type: object
+      properties:
+        dnsNames:
+          type: array
+          items:
+            type: string
+        emailAddresses:
+          type: array
+          items:
+            type: string
+        ipAddresses:
+          type: array
+          items:
+            type: string
+        uris:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    SslPublicKeyInfo:
+      type: object
+      properties:
+        keySize:
+          type: string
+        keyAlgorithm:
+          type: string
+        pemRaw:
+          type: string
       additionalProperties: true
     SslExtensionsInfo:
       type: object
@@ -142,38 +192,32 @@ components:
           items:
             $ref: '#/components/schemas/SslCertificatePolicy'
       additionalProperties: true
-    ErrorResponse:
+    SslUnitInfo:
       type: object
       properties:
-        timestamp:
+        commonName:
           type: string
-        path:
+        organization:
           type: string
-        status: {}
-        error:
+        organizationalUnit:
           type: string
-        message:
+        locality:
           type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    SslCertificatePolicy:
-      type: object
-      properties:
-        policyId:
+        state:
           type: string
-        policyQualifier:
-          type: object
-      additionalProperties: true
-    SslPublicKeyInfo:
-      type: object
-      properties:
-        keySize:
+        country:
           type: string
-        keyAlgorithm:
+        incCountry:
           type: string
-        pemRaw:
+        incState:
+          type: string
+        businessCategory:
+          type: string
+        street:
+          type: string
+        postalCode:
+          type: string
+        serialNumber:
           type: string
       additionalProperties: true
     SslResponse:
@@ -190,52 +234,13 @@ components:
         sslRaw:
           type: string
       additionalProperties: true
-    SslAlternateNames:
-      type: object
-      properties:
-        dnsNames:
-          type: array
-          items:
-            type: string
-        emailAddresses:
-          type: array
-          items:
-            type: string
-        ipAddresses:
-          type: array
-          items:
-            type: string
-        uris:
-          type: array
-          items:
-            type: string
-      additionalProperties: true
-    SslCertificate:
-      type: object
-      properties:
-        chainOrder:
-          type: string
-        authenticationType:
-          type: string
-        validityStartDate:
-          type: string
-        validityEndDate:
-          type: string
-        serialNumber:
-          type: string
-        signatureAlgorithm:
-          type: string
-        subject:
-          $ref: '#/components/schemas/SslUnitInfo'
-        issuer:
-          $ref: '#/components/schemas/SslUnitInfo'
-        publicKey:
-          $ref: '#/components/schemas/SslPublicKeyInfo'
-        extensions:
-          $ref: '#/components/schemas/SslExtensionsInfo'
-        pemRaw:
-          type: string
-      additionalProperties: true
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
     Format:
       name: format
@@ -246,13 +251,6 @@ components:
         - json
         - xml
         default: json
-  responses:
-    ErrorResponse:
-      description: Error response (4XX)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

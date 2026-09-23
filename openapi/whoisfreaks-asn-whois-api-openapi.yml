@@ -17,9 +17,7 @@ info:
 
     - Billing: https://billing.whoisfreaks.com
 
-    - Support: support@whoisfreaks.com
-
-    '
+    - Support: support@whoisfreaks.com'
   version: 1.0.0
   contact:
     name: WhoisFreaks Support
@@ -64,16 +62,6 @@ paths:
         4XX:
           $ref: '#/components/responses/ErrorResponse'
 components:
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - xml
-        default: json
   schemas:
     ErrorResponse:
       type: object
@@ -91,16 +79,6 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    AsnPeer:
-      type: object
-      properties:
-        as_number:
-          type: string
-        description:
-          type: string
-        country:
-          type: string
-      additionalProperties: true
     AsnWhoisResponse:
       type: object
       properties:
@@ -152,6 +130,16 @@ components:
         whois_response:
           type: string
       additionalProperties: true
+    AsnPeer:
+      type: object
+      properties:
+        as_number:
+          type: string
+        description:
+          type: string
+        country:
+          type: string
+      additionalProperties: true
   responses:
     ErrorResponse:
       description: Error response (4XX)
@@ -159,6 +147,16 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

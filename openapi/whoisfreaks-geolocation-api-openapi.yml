@@ -17,9 +17,7 @@ info:
 
     - Billing: https://billing.whoisfreaks.com
 
-    - Support: support@whoisfreaks.com
-
-    '
+    - Support: support@whoisfreaks.com'
   version: 1.0.0
   contact:
     name: WhoisFreaks Support
@@ -95,6 +93,50 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
+    GeolocationResponse:
+      type: object
+      properties:
+        ip:
+          type: string
+        location:
+          $ref: '#/components/schemas/IpLocation'
+        country_metadata:
+          $ref: '#/components/schemas/CountryMetadata'
+        network:
+          $ref: '#/components/schemas/GeoNetwork'
+        currency:
+          $ref: '#/components/schemas/Currency'
+      additionalProperties: true
+    Currency:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+      additionalProperties: true
+    GeoNetwork:
+      type: object
+      properties:
+        asn:
+          $ref: '#/components/schemas/GeoAsn'
+        connection_type:
+          type: string
+        company:
+          $ref: '#/components/schemas/GeoCompany'
+      additionalProperties: true
+    GeoCompany:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        domain:
+          type: string
+      additionalProperties: true
     IpLocation:
       type: object
       properties:
@@ -155,16 +197,6 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    GeoNetwork:
-      type: object
-      properties:
-        asn:
-          $ref: '#/components/schemas/GeoAsn'
-        connection_type:
-          type: string
-        company:
-          $ref: '#/components/schemas/GeoCompany'
-      additionalProperties: true
     GeoAsn:
       type: object
       properties:
@@ -189,40 +221,6 @@ components:
         num_of_ipv6_routes:
           type: string
         rir:
-          type: string
-      additionalProperties: true
-    GeoCompany:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        domain:
-          type: string
-      additionalProperties: true
-    GeolocationResponse:
-      type: object
-      properties:
-        ip:
-          type: string
-        location:
-          $ref: '#/components/schemas/IpLocation'
-        country_metadata:
-          $ref: '#/components/schemas/CountryMetadata'
-        network:
-          $ref: '#/components/schemas/GeoNetwork'
-        currency:
-          $ref: '#/components/schemas/Currency'
-      additionalProperties: true
-    Currency:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
-        symbol:
           type: string
       additionalProperties: true
     CountryMetadata:

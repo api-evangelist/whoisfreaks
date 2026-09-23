@@ -17,9 +17,7 @@ info:
 
     - Billing: https://billing.whoisfreaks.com
 
-    - Support: support@whoisfreaks.com
-
-    '
+    - Support: support@whoisfreaks.com'
   version: 1.0.0
   contact:
     name: WhoisFreaks Support
@@ -98,41 +96,17 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    ApiSubscription:
+    DatabaseUpdates:
       type: object
       properties:
-        requestLimit:
-          type: integer
-        servedRequests:
-          type: integer
-        subscriptionStatus:
-          type: string
-        surchargeRequestLimit:
-          type: integer
-        servedSurchargeRequests:
-          type: integer
-      additionalProperties: true
-    DateRangeStatus:
-      type: object
-      properties:
-        available_from:
-          type: string
-        last_update:
-          type: string
-      additionalProperties: true
-    NewlyStatus:
-      type: object
-      properties:
-        gtld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cctld:
-          $ref: '#/components/schemas/DateRangeStatus'
+        domain_whois:
+          $ref: '#/components/schemas/UpdateFrequencies'
         dns:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cleaned_gtld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cleaned_cctld:
-          $ref: '#/components/schemas/DateRangeStatus'
+          $ref: '#/components/schemas/UpdateFrequencies'
+        subdomains:
+          $ref: '#/components/schemas/UpdateFrequencies'
+        ip_whois:
+          $ref: '#/components/schemas/UpdateFrequencies'
       additionalProperties: true
     DatabaseFileStatus:
       type: object
@@ -162,16 +136,6 @@ components:
         spam:
           $ref: '#/components/schemas/DateRangeStatus'
       additionalProperties: true
-    AccountUsageResponse:
-      type: object
-      properties:
-        apiKey:
-          type: string
-        apiCredits:
-          $ref: '#/components/schemas/ApiCredits'
-        apiSubscription:
-          $ref: '#/components/schemas/ApiSubscription'
-      additionalProperties: true
     ErrorResponse:
       type: object
       properties:
@@ -188,12 +152,50 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    ApiCredits:
+    NewlyStatus:
       type: object
       properties:
-        totalCredits:
+        gtld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cctld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        dns:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cleaned_gtld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cleaned_cctld:
+          $ref: '#/components/schemas/DateRangeStatus'
+      additionalProperties: true
+    AccountUsageResponse:
+      type: object
+      properties:
+        apiKey:
+          type: string
+        apiCredits:
+          $ref: '#/components/schemas/ApiCredits'
+        apiSubscription:
+          $ref: '#/components/schemas/ApiSubscription'
+      additionalProperties: true
+    DateRangeStatus:
+      type: object
+      properties:
+        available_from:
+          type: string
+        last_update:
+          type: string
+      additionalProperties: true
+    ApiSubscription:
+      type: object
+      properties:
+        requestLimit:
           type: integer
-        servedRequest:
+        servedRequests:
+          type: integer
+        subscriptionStatus:
+          type: string
+        surchargeRequestLimit:
+          type: integer
+        servedSurchargeRequests:
           type: integer
       additionalProperties: true
     UpdateFrequencies:
@@ -206,17 +208,13 @@ components:
         monthly:
           $ref: '#/components/schemas/DateRangeStatus'
       additionalProperties: true
-    DatabaseUpdates:
+    ApiCredits:
       type: object
       properties:
-        domain_whois:
-          $ref: '#/components/schemas/UpdateFrequencies'
-        dns:
-          $ref: '#/components/schemas/UpdateFrequencies'
-        subdomains:
-          $ref: '#/components/schemas/UpdateFrequencies'
-        ip_whois:
-          $ref: '#/components/schemas/UpdateFrequencies'
+        totalCredits:
+          type: integer
+        servedRequest:
+          type: integer
       additionalProperties: true
   responses:
     RateLimited:

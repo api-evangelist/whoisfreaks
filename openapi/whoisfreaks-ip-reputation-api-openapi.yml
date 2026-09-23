@@ -17,9 +17,7 @@ info:
 
     - Billing: https://billing.whoisfreaks.com
 
-    - Support: support@whoisfreaks.com
-
-    '
+    - Support: support@whoisfreaks.com'
   version: 1.0.0
   contact:
     name: WhoisFreaks Support
@@ -95,15 +93,19 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
-    IpSecurityNetwork:
+    IpReputationResponse:
       type: object
       properties:
-        connection_type:
+        ip:
           type: string
-        route:
-          type: string
-        is_anycast:
-          type: boolean
+        location:
+          $ref: '#/components/schemas/IpLocation'
+        network:
+          $ref: '#/components/schemas/IpSecurityNetwork'
+        asn:
+          $ref: '#/components/schemas/IpSecurityAsn'
+        security:
+          $ref: '#/components/schemas/IpSecurity'
       additionalProperties: true
     IpLocation:
       type: object
@@ -149,22 +151,6 @@ components:
         country_emoji:
           type: string
       additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     IpSecurityAsn:
       type: object
       properties:
@@ -182,6 +168,32 @@ components:
           type: string
         rir:
           type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    IpSecurityNetwork:
+      type: object
+      properties:
+        connection_type:
+          type: string
+        route:
+          type: string
+        is_anycast:
+          type: boolean
       additionalProperties: true
     IpSecurity:
       type: object
@@ -228,20 +240,6 @@ components:
           type: boolean
         cloud_provider_name:
           type: string
-      additionalProperties: true
-    IpReputationResponse:
-      type: object
-      properties:
-        ip:
-          type: string
-        location:
-          $ref: '#/components/schemas/IpLocation'
-        network:
-          $ref: '#/components/schemas/IpSecurityNetwork'
-        asn:
-          $ref: '#/components/schemas/IpSecurityAsn'
-        security:
-          $ref: '#/components/schemas/IpSecurity'
       additionalProperties: true
   responses:
     ErrorResponse:

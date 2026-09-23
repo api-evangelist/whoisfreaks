@@ -17,9 +17,7 @@ info:
 
     - Billing: https://billing.whoisfreaks.com
 
-    - Support: support@whoisfreaks.com
-
-    '
+    - Support: support@whoisfreaks.com'
   version: 1.0.0
   contact:
     name: WhoisFreaks Support
@@ -72,68 +70,18 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    DgaScore:
+    ReputationSignal:
       type: object
       properties:
-        score:
-          type: number
-        is_dga:
-          type: boolean
-        model:
-          type: string
-        features:
-          $ref: '#/components/schemas/DgaFeatures'
-        interpretation:
-          type: string
-      additionalProperties: true
-    ReputationIndicators:
-      type: object
-      properties:
-        is_newly_registered:
-          type: boolean
-        uses_free_extension:
-          type: boolean
-        uses_free_ssl:
-          type: boolean
-        has_privacy_whois:
-          type: boolean
-        ssl_age_days:
-          type: integer
-        has_dmarc:
-          type: boolean
-        has_spf:
-          type: boolean
-        redirects_externally:
-          type: boolean
-        javascript_obfuscated:
-          type: boolean
-        domain_age_days:
-          type: integer
-        registrar:
-          type: string
-      additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
         code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    RelatedIoc:
-      type: object
-      properties:
-        type:
           type: string
-        value:
+        weight:
+          type: integer
+        polarity:
+          type: string
+        category:
+          type: string
+        evidence:
           type: string
         confidence:
           type: number
@@ -162,67 +110,41 @@ components:
         last_seen:
           type: string
       additionalProperties: true
-    DomainReputationInput:
+    ReputationIndicators:
       type: object
       properties:
-        domain:
+        is_newly_registered:
+          type: boolean
+        uses_free_extension:
+          type: boolean
+        uses_free_ssl:
+          type: boolean
+        has_privacy_whois:
+          type: boolean
+        ssl_age_days:
+          type: integer
+        has_dmarc:
+          type: boolean
+        has_spf:
+          type: boolean
+        redirects_externally:
+          type: boolean
+        javascript_obfuscated:
+          type: boolean
+        domain_age_days:
+          type: integer
+        registrar:
           type: string
       additionalProperties: true
-    TrustSignals:
+    RelatedIoc:
       type: object
       properties:
-        trust_score:
-          type: integer
-        trust_band:
+        type:
           type: string
-        signals:
-          $ref: '#/components/schemas/ReputationSignals'
-        indicators:
-          $ref: '#/components/schemas/ReputationIndicators'
-      additionalProperties: true
-    ReputationSignal:
-      type: object
-      properties:
-        code:
-          type: string
-        weight:
-          type: integer
-        polarity:
-          type: string
-        category:
-          type: string
-        evidence:
+        value:
           type: string
         confidence:
           type: number
-      additionalProperties: true
-    PivotMatch:
-      type: object
-      properties:
-        pivot:
-          type: string
-        pivot_type:
-          type: string
-        total_related_threats:
-          type: integer
-        confidence:
-          type: number
-      additionalProperties: true
-    ReputationSignals:
-      type: object
-      properties:
-        positive:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReputationSignal'
-        negative:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReputationSignal'
-        neutral:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReputationSignal'
       additionalProperties: true
     RiskCategory:
       type: object
@@ -248,13 +170,93 @@ components:
           items:
             $ref: '#/components/schemas/PivotMatch'
       additionalProperties: true
-    EvidenceSummary:
+    ErrorResponse:
       type: object
       properties:
-        why_flagged:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    DgaScore:
+      type: object
+      properties:
+        score:
+          type: number
+        is_dga:
+          type: boolean
+        model:
+          type: string
+        features:
+          $ref: '#/components/schemas/DgaFeatures'
+        interpretation:
+          type: string
+      additionalProperties: true
+    ReputationSignals:
+      type: object
+      properties:
+        positive:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/ReputationSignal'
+        negative:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReputationSignal'
+        neutral:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReputationSignal'
+      additionalProperties: true
+    PivotMatch:
+      type: object
+      properties:
+        pivot:
+          type: string
+        pivot_type:
+          type: string
+        total_related_threats:
+          type: integer
+        confidence:
+          type: number
+      additionalProperties: true
+    TrustSignals:
+      type: object
+      properties:
+        trust_score:
+          type: integer
+        trust_band:
+          type: string
+        signals:
+          $ref: '#/components/schemas/ReputationSignals'
+        indicators:
+          $ref: '#/components/schemas/ReputationIndicators'
+      additionalProperties: true
+    DgaFeatures:
+      type: object
+      properties:
+        domain_length:
+          type: integer
+        vowel_consonant_ratio:
+          type: number
+        ngram_perplexity:
+          type: number
+        shannon_entropy:
+          type: number
+        digit_letter_ratio:
+          type: number
+        consonant_streak_max:
+          type: integer
+        tld_in_known_dga_set:
+          type: boolean
       additionalProperties: true
     DomainReputationResponse:
       type: object
@@ -282,24 +284,6 @@ components:
           items:
             type: string
       additionalProperties: true
-    DgaFeatures:
-      type: object
-      properties:
-        domain_length:
-          type: integer
-        vowel_consonant_ratio:
-          type: number
-        ngram_perplexity:
-          type: number
-        shannon_entropy:
-          type: number
-        digit_letter_ratio:
-          type: number
-        consonant_streak_max:
-          type: integer
-        tld_in_known_dga_set:
-          type: boolean
-      additionalProperties: true
     ThreatSource:
       type: object
       properties:
@@ -316,19 +300,23 @@ components:
         last_seen:
           type: string
       additionalProperties: true
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - xml
-        default: json
+    DomainReputationInput:
+      type: object
+      properties:
+        domain:
+          type: string
+      additionalProperties: true
+    EvidenceSummary:
+      type: object
+      properties:
+        why_flagged:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
   responses:
-    BadRequest:
-      description: Bad request
+    RateLimited:
+      description: Too many requests
       content:
         application/json:
           schema:
@@ -339,8 +327,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    RateLimited:
-      description: Too many requests
+    BadRequest:
+      description: Bad request
       content:
         application/json:
           schema:
@@ -351,6 +339,16 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
