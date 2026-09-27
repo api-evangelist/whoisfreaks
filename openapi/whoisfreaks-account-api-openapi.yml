@@ -96,6 +96,38 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
+    DateRangeStatus:
+      type: object
+      properties:
+        available_from:
+          type: string
+        last_update:
+          type: string
+      additionalProperties: true
+    AccountUsageResponse:
+      type: object
+      properties:
+        apiKey:
+          type: string
+        apiCredits:
+          $ref: '#/components/schemas/ApiCredits'
+        apiSubscription:
+          $ref: '#/components/schemas/ApiSubscription'
+      additionalProperties: true
+    NewlyStatus:
+      type: object
+      properties:
+        gtld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cctld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        dns:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cleaned_gtld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cleaned_cctld:
+          $ref: '#/components/schemas/DateRangeStatus'
+      additionalProperties: true
     DatabaseUpdates:
       type: object
       properties:
@@ -136,6 +168,38 @@ components:
         spam:
           $ref: '#/components/schemas/DateRangeStatus'
       additionalProperties: true
+    UpdateFrequencies:
+      type: object
+      properties:
+        daily:
+          $ref: '#/components/schemas/DateRangeStatus'
+        weekly:
+          $ref: '#/components/schemas/DateRangeStatus'
+        monthly:
+          $ref: '#/components/schemas/DateRangeStatus'
+      additionalProperties: true
+    ApiSubscription:
+      type: object
+      properties:
+        requestLimit:
+          type: integer
+        servedRequests:
+          type: integer
+        subscriptionStatus:
+          type: string
+        surchargeRequestLimit:
+          type: integer
+        servedSurchargeRequests:
+          type: integer
+      additionalProperties: true
+    ApiCredits:
+      type: object
+      properties:
+        totalCredits:
+          type: integer
+        servedRequest:
+          type: integer
+      additionalProperties: true
     ErrorResponse:
       type: object
       properties:
@@ -152,70 +216,6 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    NewlyStatus:
-      type: object
-      properties:
-        gtld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cctld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        dns:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cleaned_gtld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cleaned_cctld:
-          $ref: '#/components/schemas/DateRangeStatus'
-      additionalProperties: true
-    AccountUsageResponse:
-      type: object
-      properties:
-        apiKey:
-          type: string
-        apiCredits:
-          $ref: '#/components/schemas/ApiCredits'
-        apiSubscription:
-          $ref: '#/components/schemas/ApiSubscription'
-      additionalProperties: true
-    DateRangeStatus:
-      type: object
-      properties:
-        available_from:
-          type: string
-        last_update:
-          type: string
-      additionalProperties: true
-    ApiSubscription:
-      type: object
-      properties:
-        requestLimit:
-          type: integer
-        servedRequests:
-          type: integer
-        subscriptionStatus:
-          type: string
-        surchargeRequestLimit:
-          type: integer
-        servedSurchargeRequests:
-          type: integer
-      additionalProperties: true
-    UpdateFrequencies:
-      type: object
-      properties:
-        daily:
-          $ref: '#/components/schemas/DateRangeStatus'
-        weekly:
-          $ref: '#/components/schemas/DateRangeStatus'
-        monthly:
-          $ref: '#/components/schemas/DateRangeStatus'
-      additionalProperties: true
-    ApiCredits:
-      type: object
-      properties:
-        totalCredits:
-          type: integer
-        servedRequest:
-          type: integer
-      additionalProperties: true
   responses:
     RateLimited:
       description: Too many requests

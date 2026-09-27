@@ -93,6 +93,16 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
+    IpSecurityNetwork:
+      type: object
+      properties:
+        connection_type:
+          type: string
+        route:
+          type: string
+        is_anycast:
+          type: boolean
+      additionalProperties: true
     IpReputationResponse:
       type: object
       properties:
@@ -185,16 +195,6 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    IpSecurityNetwork:
-      type: object
-      properties:
-        connection_type:
-          type: string
-        route:
-          type: string
-        is_anycast:
-          type: boolean
-      additionalProperties: true
     IpSecurity:
       type: object
       properties:

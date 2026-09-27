@@ -194,40 +194,7 @@ paths:
         4XX:
           $ref: '#/components/responses/ErrorResponse'
 components:
-  responses:
-    RateLimited:
-      description: Too many requests
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    ErrorResponse:
-      description: Error response (4XX)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    ReverseDnsResponse:
-      type: object
-      properties:
-        totalRecords:
-          type: integer
-        totalPages:
-          type: integer
-        currentPage:
-          type: integer
-        reverseDnsRecords:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsResponse'
-      additionalProperties: true
     BulkDnsResponse:
       type: object
       properties:
@@ -236,22 +203,6 @@ components:
           items:
             $ref: '#/components/schemas/DnsResponse'
       additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     DnsRecord:
       type: object
       properties:
@@ -289,6 +240,20 @@ components:
           type: integer
       additionalProperties: true
       description: Union of all DNS record variants (A/AAAA/MX/NS/CNAME/PTR/TXT/SPF/SOA).
+    ReverseDnsResponse:
+      type: object
+      properties:
+        totalRecords:
+          type: integer
+        totalPages:
+          type: integer
+        currentPage:
+          type: integer
+        reverseDnsRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsResponse'
+      additionalProperties: true
     DnsResponse:
       type: object
       properties:
@@ -310,6 +275,22 @@ components:
             $ref: '#/components/schemas/DnsRecord'
       additionalProperties: true
       description: Live DNS response (DnsInfo).
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     HistoricalDnsResponse:
       type: object
       properties:
@@ -325,6 +306,25 @@ components:
             $ref: '#/components/schemas/DnsResponse'
       additionalProperties: true
       description: 'Note: ''currenPage'' spelling matches the API.'
+  responses:
+    RateLimited:
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   parameters:
     Format:
       name: format

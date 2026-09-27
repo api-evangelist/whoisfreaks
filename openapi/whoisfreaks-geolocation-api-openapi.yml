@@ -92,51 +92,14 @@ paths:
         4XX:
           $ref: '#/components/responses/ErrorResponse'
 components:
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    GeolocationResponse:
-      type: object
-      properties:
-        ip:
-          type: string
-        location:
-          $ref: '#/components/schemas/IpLocation'
-        country_metadata:
-          $ref: '#/components/schemas/CountryMetadata'
-        network:
-          $ref: '#/components/schemas/GeoNetwork'
-        currency:
-          $ref: '#/components/schemas/Currency'
-      additionalProperties: true
-    Currency:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
-        symbol:
-          type: string
-      additionalProperties: true
-    GeoNetwork:
-      type: object
-      properties:
-        asn:
-          $ref: '#/components/schemas/GeoAsn'
-        connection_type:
-          type: string
-        company:
-          $ref: '#/components/schemas/GeoCompany'
-      additionalProperties: true
-    GeoCompany:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        domain:
-          type: string
-      additionalProperties: true
     IpLocation:
       type: object
       properties:
@@ -181,6 +144,40 @@ components:
         country_emoji:
           type: string
       additionalProperties: true
+    Currency:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+      additionalProperties: true
+    GeoNetwork:
+      type: object
+      properties:
+        asn:
+          $ref: '#/components/schemas/GeoAsn'
+        connection_type:
+          type: string
+        company:
+          $ref: '#/components/schemas/GeoCompany'
+      additionalProperties: true
+    GeolocationResponse:
+      type: object
+      properties:
+        ip:
+          type: string
+        location:
+          $ref: '#/components/schemas/IpLocation'
+        country_metadata:
+          $ref: '#/components/schemas/CountryMetadata'
+        network:
+          $ref: '#/components/schemas/GeoNetwork'
+        currency:
+          $ref: '#/components/schemas/Currency'
+      additionalProperties: true
     ErrorResponse:
       type: object
       properties:
@@ -197,6 +194,18 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    CountryMetadata:
+      type: object
+      properties:
+        calling_code:
+          type: string
+        tld:
+          type: string
+        languages:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
     GeoAsn:
       type: object
       properties:
@@ -223,25 +232,16 @@ components:
         rir:
           type: string
       additionalProperties: true
-    CountryMetadata:
+    GeoCompany:
       type: object
       properties:
-        calling_code:
+        name:
           type: string
-        tld:
+        type:
           type: string
-        languages:
-          type: array
-          items:
-            type: string
+        domain:
+          type: string
       additionalProperties: true
-  responses:
-    ErrorResponse:
-      description: Error response (4XX)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -72,66 +72,32 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
-    SslAuthorityInfo:
+    SslUnitInfo:
       type: object
       properties:
-        issuers:
-          type: array
-          items:
-            type: string
-        ocsp:
-          type: array
-          items:
-            type: string
-      additionalProperties: true
-    SslCertificatePolicy:
-      type: object
-      properties:
-        policyId:
+        commonName:
           type: string
-        policyQualifier:
-          type: object
-      additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
+        organization:
           type: string
-        path:
+        organizationalUnit:
           type: string
-        status: {}
-        error:
+        locality:
           type: string
-        message:
+        state:
           type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    SslCertificate:
-      type: object
-      properties:
-        chainOrder:
+        country:
           type: string
-        authenticationType:
+        incCountry:
           type: string
-        validityStartDate:
+        incState:
           type: string
-        validityEndDate:
+        businessCategory:
+          type: string
+        street:
+          type: string
+        postalCode:
           type: string
         serialNumber:
-          type: string
-        signatureAlgorithm:
-          type: string
-        subject:
-          $ref: '#/components/schemas/SslUnitInfo'
-        issuer:
-          $ref: '#/components/schemas/SslUnitInfo'
-        publicKey:
-          $ref: '#/components/schemas/SslPublicKeyInfo'
-        extensions:
-          $ref: '#/components/schemas/SslExtensionsInfo'
-        pemRaw:
           type: string
       additionalProperties: true
     SslAlternateNames:
@@ -192,32 +158,38 @@ components:
           items:
             $ref: '#/components/schemas/SslCertificatePolicy'
       additionalProperties: true
-    SslUnitInfo:
+    SslCertificatePolicy:
       type: object
       properties:
-        commonName:
+        policyId:
           type: string
-        organization:
+        policyQualifier:
+          type: object
+      additionalProperties: true
+    SslCertificate:
+      type: object
+      properties:
+        chainOrder:
           type: string
-        organizationalUnit:
+        authenticationType:
           type: string
-        locality:
+        validityStartDate:
           type: string
-        state:
-          type: string
-        country:
-          type: string
-        incCountry:
-          type: string
-        incState:
-          type: string
-        businessCategory:
-          type: string
-        street:
-          type: string
-        postalCode:
+        validityEndDate:
           type: string
         serialNumber:
+          type: string
+        signatureAlgorithm:
+          type: string
+        subject:
+          $ref: '#/components/schemas/SslUnitInfo'
+        issuer:
+          $ref: '#/components/schemas/SslUnitInfo'
+        publicKey:
+          $ref: '#/components/schemas/SslPublicKeyInfo'
+        extensions:
+          $ref: '#/components/schemas/SslExtensionsInfo'
+        pemRaw:
           type: string
       additionalProperties: true
     SslResponse:
@@ -234,6 +206,34 @@ components:
         sslRaw:
           type: string
       additionalProperties: true
+    SslAuthorityInfo:
+      type: object
+      properties:
+        issuers:
+          type: array
+          items:
+            type: string
+        ocsp:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
   responses:
     ErrorResponse:
       description: Error response (4XX)

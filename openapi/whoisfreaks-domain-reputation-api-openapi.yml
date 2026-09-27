@@ -69,6 +69,41 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    RateLimited:
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
   schemas:
     ReputationSignal:
       type: object
@@ -82,66 +117,6 @@ components:
         category:
           type: string
         evidence:
-          type: string
-        confidence:
-          type: number
-      additionalProperties: true
-    ReputationIntelligence:
-      type: object
-      properties:
-        ioc_type:
-          type: string
-        ioc_value:
-          type: string
-        related_iocs:
-          type: array
-          items:
-            $ref: '#/components/schemas/RelatedIoc'
-        feed_tags:
-          type: array
-          items:
-            type: string
-        stix_pattern:
-          type: string
-        recommended_action:
-          type: string
-        first_seen:
-          type: string
-        last_seen:
-          type: string
-      additionalProperties: true
-    ReputationIndicators:
-      type: object
-      properties:
-        is_newly_registered:
-          type: boolean
-        uses_free_extension:
-          type: boolean
-        uses_free_ssl:
-          type: boolean
-        has_privacy_whois:
-          type: boolean
-        ssl_age_days:
-          type: integer
-        has_dmarc:
-          type: boolean
-        has_spf:
-          type: boolean
-        redirects_externally:
-          type: boolean
-        javascript_obfuscated:
-          type: boolean
-        domain_age_days:
-          type: integer
-        registrar:
-          type: string
-      additionalProperties: true
-    RelatedIoc:
-      type: object
-      properties:
-        type:
-          type: string
-        value:
           type: string
         confidence:
           type: number
@@ -170,22 +145,32 @@ components:
           items:
             $ref: '#/components/schemas/PivotMatch'
       additionalProperties: true
-    ErrorResponse:
+    ReputationIndicators:
       type: object
       properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
+        is_newly_registered:
+          type: boolean
+        uses_free_extension:
+          type: boolean
+        uses_free_ssl:
+          type: boolean
+        has_privacy_whois:
+          type: boolean
+        ssl_age_days:
           type: integer
+        has_dmarc:
+          type: boolean
+        has_spf:
+          type: boolean
+        redirects_externally:
+          type: boolean
+        javascript_obfuscated:
+          type: boolean
+        domain_age_days:
+          type: integer
+        registrar:
+          type: string
       additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     DgaScore:
       type: object
       properties:
@@ -199,46 +184,6 @@ components:
           $ref: '#/components/schemas/DgaFeatures'
         interpretation:
           type: string
-      additionalProperties: true
-    ReputationSignals:
-      type: object
-      properties:
-        positive:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReputationSignal'
-        negative:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReputationSignal'
-        neutral:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReputationSignal'
-      additionalProperties: true
-    PivotMatch:
-      type: object
-      properties:
-        pivot:
-          type: string
-        pivot_type:
-          type: string
-        total_related_threats:
-          type: integer
-        confidence:
-          type: number
-      additionalProperties: true
-    TrustSignals:
-      type: object
-      properties:
-        trust_score:
-          type: integer
-        trust_band:
-          type: string
-        signals:
-          $ref: '#/components/schemas/ReputationSignals'
-        indicators:
-          $ref: '#/components/schemas/ReputationIndicators'
       additionalProperties: true
     DgaFeatures:
       type: object
@@ -257,6 +202,16 @@ components:
           type: integer
         tld_in_known_dga_set:
           type: boolean
+      additionalProperties: true
+    RelatedIoc:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+        confidence:
+          type: number
       additionalProperties: true
     DomainReputationResponse:
       type: object
@@ -284,6 +239,88 @@ components:
           items:
             type: string
       additionalProperties: true
+    ReputationSignals:
+      type: object
+      properties:
+        positive:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReputationSignal'
+        negative:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReputationSignal'
+        neutral:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReputationSignal'
+      additionalProperties: true
+    DomainReputationInput:
+      type: object
+      properties:
+        domain:
+          type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    EvidenceSummary:
+      type: object
+      properties:
+        why_flagged:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    TrustSignals:
+      type: object
+      properties:
+        trust_score:
+          type: integer
+        trust_band:
+          type: string
+        signals:
+          $ref: '#/components/schemas/ReputationSignals'
+        indicators:
+          $ref: '#/components/schemas/ReputationIndicators'
+      additionalProperties: true
+    ReputationIntelligence:
+      type: object
+      properties:
+        ioc_type:
+          type: string
+        ioc_value:
+          type: string
+        related_iocs:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelatedIoc'
+        feed_tags:
+          type: array
+          items:
+            type: string
+        stix_pattern:
+          type: string
+        recommended_action:
+          type: string
+        first_seen:
+          type: string
+        last_seen:
+          type: string
+      additionalProperties: true
     ThreatSource:
       type: object
       properties:
@@ -300,55 +337,18 @@ components:
         last_seen:
           type: string
       additionalProperties: true
-    DomainReputationInput:
+    PivotMatch:
       type: object
       properties:
-        domain:
+        pivot:
           type: string
+        pivot_type:
+          type: string
+        total_related_threats:
+          type: integer
+        confidence:
+          type: number
       additionalProperties: true
-    EvidenceSummary:
-      type: object
-      properties:
-        why_flagged:
-          type: array
-          items:
-            type: string
-      additionalProperties: true
-  responses:
-    RateLimited:
-      description: Too many requests
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    NotFound:
-      description: Not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - xml
-        default: json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

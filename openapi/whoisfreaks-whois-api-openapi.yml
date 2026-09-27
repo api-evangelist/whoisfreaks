@@ -171,41 +171,6 @@ paths:
                 $ref: '#/components/schemas/ReverseWhoisResponse'
 components:
   schemas:
-    ResellerContact:
-      type: object
-      properties:
-        name:
-          type: string
-        email_address:
-          type: string
-        phone:
-          type: string
-      additionalProperties: true
-    EligibilityInfo:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-      additionalProperties: true
-    ReverseWhoisResponse:
-      type: object
-      properties:
-        Total_Result:
-          type: integer
-        Total_Pages:
-          type: integer
-        Current_Page:
-          type: integer
-        whois_domains_historical:
-          type: array
-          items:
-            $ref: '#/components/schemas/WhoisHistoricalItem'
-      additionalProperties: true
-      description: Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page) as returned by the API.
     BulkWhoisItem:
       type: object
       properties:
@@ -217,43 +182,20 @@ components:
           type: string
       additionalProperties: true
       description: One bulk WHOIS result; success items also carry all WhoisResponse fields.
-    RegistrarInformation:
+    WhoisHistoricalResponse:
       type: object
       properties:
-        id:
-          type: string
-        id_type:
-          type: string
-        iana_id:
-          type: string
-        registry_id:
-          type: string
-        handle:
-          type: string
         status:
-          type: string
-        registrar_name:
-          type: string
-        normalized_name:
-          type: string
-        whois_server:
-          type: string
-        rdap_server:
-          type: string
-        website_url:
-          type: string
-        email_address:
-          type: string
-        phone_number:
-          type: string
-        authoritative_registry_name:
-          type: string
-        organization_number:
-          type: string
-        is_sponsor:
           type: boolean
+        whois:
+          type: string
+        total_records:
+          type: string
+        whois_domains_historical:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisHistoricalItem'
       additionalProperties: true
-      description: Registrar details (used by domain_registrar, abuse_contact).
     RegistryData:
       type: object
       properties:
@@ -284,124 +226,14 @@ components:
         whois_raw_domain:
           type: string
       additionalProperties: true
-    ErrorResponse:
+    BulkWhoisResponse:
       type: object
       properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    WhoisHistoricalResponse:
-      type: object
-      properties:
-        status:
-          type: boolean
-        whois:
-          type: string
-        total_records:
-          type: string
-        whois_domains_historical:
+        bulk_whois_response:
           type: array
           items:
-            $ref: '#/components/schemas/WhoisHistoricalItem'
+            $ref: '#/components/schemas/BulkWhoisItem'
       additionalProperties: true
-    PersonalInformation:
-      type: object
-      properties:
-        id:
-          type: string
-        id_type:
-          type: string
-        handle:
-          type: string
-        name:
-          type: string
-        company:
-          type: string
-        street:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip_code:
-          type: string
-        country_name:
-          type: string
-        country_code:
-          type: string
-        email_address:
-          type: string
-        phone:
-          type: string
-        fax:
-          type: string
-        mailing_address:
-          type: string
-      additionalProperties: true
-      description: Contact block (registrant/administrative/technical/billing).
-    WhoisResponse:
-      type: object
-      properties:
-        status:
-          type: boolean
-        domain_name:
-          type: string
-        query_time:
-          type: string
-        whois_server:
-          type: string
-        domain_registered:
-          type: string
-        secure_dns:
-          type: boolean
-        domain_handle:
-          type: string
-        create_date:
-          type: string
-        update_date:
-          type: string
-        expiry_date:
-          type: string
-        domain_registrar:
-          $ref: '#/components/schemas/RegistrarInformation'
-        reseller_contact:
-          $ref: '#/components/schemas/ResellerContact'
-        registrant_contact:
-          $ref: '#/components/schemas/PersonalInformation'
-        administrative_contact:
-          $ref: '#/components/schemas/PersonalInformation'
-        technical_contact:
-          $ref: '#/components/schemas/PersonalInformation'
-        billing_contact:
-          $ref: '#/components/schemas/PersonalInformation'
-        eligibility_info:
-          $ref: '#/components/schemas/EligibilityInfo'
-        abuse_contact:
-          $ref: '#/components/schemas/RegistrarInformation'
-        name_servers:
-          type: array
-          items:
-            type: string
-        domain_status:
-          type: array
-          items:
-            type: string
-        whois_raw_domain:
-          type: string
-        registry_data:
-          $ref: '#/components/schemas/RegistryData'
-      additionalProperties: true
-      description: Live WHOIS lookup response (DomainInfo).
     WhoisHistoricalItem:
       type: object
       properties:
@@ -456,23 +288,185 @@ components:
         registry_data:
           $ref: '#/components/schemas/RegistryData'
       additionalProperties: true
-    BulkWhoisResponse:
+    RegistrarInformation:
       type: object
       properties:
-        bulk_whois_response:
+        id:
+          type: string
+        id_type:
+          type: string
+        iana_id:
+          type: string
+        registry_id:
+          type: string
+        handle:
+          type: string
+        status:
+          type: string
+        registrar_name:
+          type: string
+        normalized_name:
+          type: string
+        whois_server:
+          type: string
+        rdap_server:
+          type: string
+        website_url:
+          type: string
+        email_address:
+          type: string
+        phone_number:
+          type: string
+        authoritative_registry_name:
+          type: string
+        organization_number:
+          type: string
+        is_sponsor:
+          type: boolean
+      additionalProperties: true
+      description: Registrar details (used by domain_registrar, abuse_contact).
+    ResellerContact:
+      type: object
+      properties:
+        name:
+          type: string
+        email_address:
+          type: string
+        phone:
+          type: string
+      additionalProperties: true
+    WhoisResponse:
+      type: object
+      properties:
+        status:
+          type: boolean
+        domain_name:
+          type: string
+        query_time:
+          type: string
+        whois_server:
+          type: string
+        domain_registered:
+          type: string
+        secure_dns:
+          type: boolean
+        domain_handle:
+          type: string
+        create_date:
+          type: string
+        update_date:
+          type: string
+        expiry_date:
+          type: string
+        domain_registrar:
+          $ref: '#/components/schemas/RegistrarInformation'
+        reseller_contact:
+          $ref: '#/components/schemas/ResellerContact'
+        registrant_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        administrative_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        technical_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        billing_contact:
+          $ref: '#/components/schemas/PersonalInformation'
+        eligibility_info:
+          $ref: '#/components/schemas/EligibilityInfo'
+        abuse_contact:
+          $ref: '#/components/schemas/RegistrarInformation'
+        name_servers:
           type: array
           items:
-            $ref: '#/components/schemas/BulkWhoisItem'
+            type: string
+        domain_status:
+          type: array
+          items:
+            type: string
+        whois_raw_domain:
+          type: string
+        registry_data:
+          $ref: '#/components/schemas/RegistryData'
       additionalProperties: true
+      description: Live WHOIS lookup response (DomainInfo).
+    EligibilityInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+      additionalProperties: true
+    ReverseWhoisResponse:
+      type: object
+      properties:
+        Total_Result:
+          type: integer
+        Total_Pages:
+          type: integer
+        Current_Page:
+          type: integer
+        whois_domains_historical:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisHistoricalItem'
+      additionalProperties: true
+      description: Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page) as returned by the API.
+    PersonalInformation:
+      type: object
+      properties:
+        id:
+          type: string
+        id_type:
+          type: string
+        handle:
+          type: string
+        name:
+          type: string
+        company:
+          type: string
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country_name:
+          type: string
+        country_code:
+          type: string
+        email_address:
+          type: string
+        phone:
+          type: string
+        fax:
+          type: string
+        mailing_address:
+          type: string
+      additionalProperties: true
+      description: Contact block (registrant/administrative/technical/billing).
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
   responses:
     RateLimited:
       description: Too many requests
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Invalid API key
       content:
         application/json:
           schema:
@@ -485,6 +479,12 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     NotFound:
       description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
       content:
         application/json:
           schema:

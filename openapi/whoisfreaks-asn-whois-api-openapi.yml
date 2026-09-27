@@ -63,29 +63,6 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    AsnWhoisResponse:
-      type: object
-      properties:
-        asn:
-          $ref: '#/components/schemas/AsnInfo'
-      additionalProperties: true
-      description: ASN WHOIS v2 (/v2.0/asn-whois) — pass-through of ipgeolocation ASN data.
     AsnInfo:
       type: object
       properties:
@@ -130,6 +107,13 @@ components:
         whois_response:
           type: string
       additionalProperties: true
+    AsnWhoisResponse:
+      type: object
+      properties:
+        asn:
+          $ref: '#/components/schemas/AsnInfo'
+      additionalProperties: true
+      description: ASN WHOIS v2 (/v2.0/asn-whois) — pass-through of ipgeolocation ASN data.
     AsnPeer:
       type: object
       properties:
@@ -140,6 +124,22 @@ components:
         country:
           type: string
       additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
   responses:
     ErrorResponse:
       description: Error response (4XX)

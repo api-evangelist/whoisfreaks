@@ -70,19 +70,33 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   responses:
-    Unauthorized:
-      description: Invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
     BadRequest:
       description: Bad request
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   schemas:
+    TyposquattingDomain:
+      type: object
+      properties:
+        domainName:
+          type: string
+        createDate:
+          type: string
+        expiryDate:
+          type: string
+        lastSeen:
+          type: string
+        isDropped:
+          type: boolean
+      additionalProperties: true
     ErrorResponse:
       type: object
       properties:
@@ -99,20 +113,6 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    TyposquattingDomain:
-      type: object
-      properties:
-        domainName:
-          type: string
-        createDate:
-          type: string
-        expiryDate:
-          type: string
-        lastSeen:
-          type: string
-        isDropped:
-          type: boolean
-      additionalProperties: true
     TyposquattingResponse:
       type: object
       properties:
