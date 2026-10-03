@@ -132,20 +132,6 @@ components:
           description: Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames.
       description: Request body for POST /v2.0/domain/availability. Use domainNames OR tld.
       additionalProperties: true
-    DomainAvailabilityResponse:
-      type: object
-      properties:
-        domain:
-          type: string
-        availability:
-          type: string
-        message:
-          type: string
-        domain_available_response:
-          type: array
-          items:
-            $ref: '#/components/schemas/DomainAvailabilityItem'
-      additionalProperties: true
     DomainAvailabilityItem:
       type: object
       properties:
@@ -155,14 +141,6 @@ components:
           type: string
         status:
           type: boolean
-      additionalProperties: true
-    BulkDomainAvailabilityResponse:
-      type: object
-      properties:
-        bulk_domain_availability_response:
-          type: array
-          items:
-            $ref: '#/components/schemas/DomainAvailabilityItem'
       additionalProperties: true
     ErrorResponse:
       type: object
@@ -180,6 +158,28 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    DomainAvailabilityResponse:
+      type: object
+      properties:
+        domain:
+          type: string
+        availability:
+          type: string
+        message:
+          type: string
+        domain_available_response:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainAvailabilityItem'
+      additionalProperties: true
+    BulkDomainAvailabilityResponse:
+      type: object
+      properties:
+        bulk_domain_availability_response:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainAvailabilityItem'
+      additionalProperties: true
   responses:
     RateLimited:
       description: Too many requests
@@ -187,14 +187,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad request
+    Unauthorized:
+      description: Invalid API key
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Invalid API key
+    BadRequest:
+      description: Bad request
       content:
         application/json:
           schema:

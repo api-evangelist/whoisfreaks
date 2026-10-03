@@ -194,6 +194,25 @@ paths:
         4XX:
           $ref: '#/components/responses/ErrorResponse'
 components:
+  responses:
+    RateLimited:
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   schemas:
     BulkDnsResponse:
       type: object
@@ -203,6 +222,58 @@ components:
           items:
             $ref: '#/components/schemas/DnsResponse'
       additionalProperties: true
+    HistoricalDnsResponse:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        currenPage:
+          type: integer
+        totalRecords:
+          type: integer
+        historicalDns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsResponse'
+      additionalProperties: true
+      description: 'Note: ''currenPage'' spelling matches the API.'
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    DnsResponse:
+      type: object
+      properties:
+        domainName:
+          type: string
+        ipAddress:
+          type: string
+        queryTime:
+          type: string
+        status:
+          type: boolean
+        domainRegistered:
+          type: boolean
+        dnsTypes:
+          type: object
+        dnsRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
+      additionalProperties: true
+      description: Live DNS response (DnsInfo).
     DnsRecord:
       type: object
       properties:
@@ -254,77 +325,6 @@ components:
           items:
             $ref: '#/components/schemas/DnsResponse'
       additionalProperties: true
-    DnsResponse:
-      type: object
-      properties:
-        domainName:
-          type: string
-        ipAddress:
-          type: string
-        queryTime:
-          type: string
-        status:
-          type: boolean
-        domainRegistered:
-          type: boolean
-        dnsTypes:
-          type: object
-        dnsRecords:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsRecord'
-      additionalProperties: true
-      description: Live DNS response (DnsInfo).
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    HistoricalDnsResponse:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        currenPage:
-          type: integer
-        totalRecords:
-          type: integer
-        historicalDns:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsResponse'
-      additionalProperties: true
-      description: 'Note: ''currenPage'' spelling matches the API.'
-  responses:
-    RateLimited:
-      description: Too many requests
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    ErrorResponse:
-      description: Error response (4XX)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   parameters:
     Format:
       name: format

@@ -83,21 +83,33 @@ paths:
         4XX:
           $ref: '#/components/responses/ErrorResponse'
 components:
+  parameters:
+    Format:
+      name: format
+      in: query
+      schema:
+        type: string
+        enum:
+        - json
+        - xml
+        default: json
   schemas:
-    Subdomain:
+    ErrorResponse:
       type: object
       properties:
-        subdomain:
+        timestamp:
           type: string
-        first_seen:
+        path:
           type: string
-        last_seen:
+        status: {}
+        error:
           type: string
-        inactive_from:
+        message:
           type: string
-        dns_records:
-          $ref: '#/components/schemas/DnsResponse'
+        code:
+          type: integer
       additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     DnsRecord:
       type: object
       properties:
@@ -135,6 +147,26 @@ components:
           type: integer
       additionalProperties: true
       description: Union of all DNS record variants (A/AAAA/MX/NS/CNAME/PTR/TXT/SPF/SOA).
+    SubdomainsResponse:
+      type: object
+      properties:
+        domain:
+          type: string
+        status:
+          type: boolean
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+        query_time:
+          type: string
+        total_records:
+          type: integer
+        subdomains:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subdomain'
+      additionalProperties: true
     DnsResponse:
       type: object
       properties:
@@ -156,42 +188,20 @@ components:
             $ref: '#/components/schemas/DnsRecord'
       additionalProperties: true
       description: Live DNS response (DnsInfo).
-    SubdomainsResponse:
+    Subdomain:
       type: object
       properties:
-        domain:
+        subdomain:
           type: string
-        status:
-          type: boolean
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-        query_time:
+        first_seen:
           type: string
-        total_records:
-          type: integer
-        subdomains:
-          type: array
-          items:
-            $ref: '#/components/schemas/Subdomain'
+        last_seen:
+          type: string
+        inactive_from:
+          type: string
+        dns_records:
+          $ref: '#/components/schemas/DnsResponse'
       additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
   responses:
     ErrorResponse:
       description: Error response (4XX)
@@ -199,16 +209,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-  parameters:
-    Format:
-      name: format
-      in: query
-      schema:
-        type: string
-        enum:
-        - json
-        - xml
-        default: json
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

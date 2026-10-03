@@ -62,6 +62,120 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
+    WhoisOrganization:
+      type: object
+      properties:
+        handle:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: array
+          items:
+            type: string
+        address:
+          type: array
+          items:
+            type: string
+        street:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: array
+          items:
+            type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        email:
+          type: array
+          items:
+            type: string
+        abuse_mailbox:
+          type: array
+          items:
+            type: string
+        phone:
+          type: array
+          items:
+            type: string
+        fax_no:
+          type: array
+          items:
+            type: string
+        organizations:
+          type: array
+          items:
+            type: string
+        admin_contacts:
+          type: array
+          items:
+            type: string
+        tech_contacts:
+          type: array
+          items:
+            type: string
+        abuse_contacts:
+          type: array
+          items:
+            type: string
+        languages:
+          type: array
+          items:
+            type: string
+        remarks:
+          type: array
+          items:
+            type: string
+        notify:
+          type: array
+          items:
+            type: string
+        ref_nfy:
+          type: array
+          items:
+            type: string
+        mnt_ref:
+          type: array
+          items:
+            type: string
+        mnt_by:
+          type: array
+          items:
+            type: string
+        date_created:
+          type: string
+        date_updated:
+          type: string
+        source:
+          type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     WhoisPerson:
       type: object
       properties:
@@ -135,6 +249,48 @@ components:
           type: string
         source:
           type: string
+      additionalProperties: true
+    IpWhoisResponse:
+      type: object
+      properties:
+        status:
+          type: boolean
+        ip_address:
+          type: string
+        as_number:
+          type: string
+        query_time:
+          type: string
+        whois_server:
+          type: string
+        whois_raw_response:
+          type: string
+        r_whois_raw_response:
+          type: string
+        inet_nums:
+          type: array
+          items:
+            $ref: '#/components/schemas/InetNum'
+        organization:
+          $ref: '#/components/schemas/WhoisOrganization'
+        irt:
+          $ref: '#/components/schemas/Irt'
+        administrative_contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisPerson'
+        technical_contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisPerson'
+        abuse_contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WhoisPerson'
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
       additionalProperties: true
     InetNum:
       type: object
@@ -217,48 +373,6 @@ components:
           type: array
           items:
             type: string
-      additionalProperties: true
-    IpWhoisResponse:
-      type: object
-      properties:
-        status:
-          type: boolean
-        ip_address:
-          type: string
-        as_number:
-          type: string
-        query_time:
-          type: string
-        whois_server:
-          type: string
-        whois_raw_response:
-          type: string
-        r_whois_raw_response:
-          type: string
-        inet_nums:
-          type: array
-          items:
-            $ref: '#/components/schemas/InetNum'
-        organization:
-          $ref: '#/components/schemas/WhoisOrganization'
-        irt:
-          $ref: '#/components/schemas/Irt'
-        administrative_contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/WhoisPerson'
-        technical_contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/WhoisPerson'
-        abuse_contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/WhoisPerson'
-        routes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Route'
       additionalProperties: true
     Irt:
       type: object
@@ -414,127 +528,6 @@ components:
         source:
           type: string
       additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    WhoisOrganization:
-      type: object
-      properties:
-        handle:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-        description:
-          type: array
-          items:
-            type: string
-        address:
-          type: array
-          items:
-            type: string
-        street:
-          type: string
-        city:
-          type: string
-        district:
-          type: string
-        state:
-          type: string
-        zip_code:
-          type: string
-        country:
-          type: array
-          items:
-            type: string
-        latitude:
-          type: number
-        longitude:
-          type: number
-        email:
-          type: array
-          items:
-            type: string
-        abuse_mailbox:
-          type: array
-          items:
-            type: string
-        phone:
-          type: array
-          items:
-            type: string
-        fax_no:
-          type: array
-          items:
-            type: string
-        organizations:
-          type: array
-          items:
-            type: string
-        admin_contacts:
-          type: array
-          items:
-            type: string
-        tech_contacts:
-          type: array
-          items:
-            type: string
-        abuse_contacts:
-          type: array
-          items:
-            type: string
-        languages:
-          type: array
-          items:
-            type: string
-        remarks:
-          type: array
-          items:
-            type: string
-        notify:
-          type: array
-          items:
-            type: string
-        ref_nfy:
-          type: array
-          items:
-            type: string
-        mnt_ref:
-          type: array
-          items:
-            type: string
-        mnt_by:
-          type: array
-          items:
-            type: string
-        date_created:
-          type: string
-        date_updated:
-          type: string
-        source:
-          type: string
-      additionalProperties: true
-  responses:
-    ErrorResponse:
-      description: Error response (4XX)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   parameters:
     Format:
       name: format
@@ -545,6 +538,13 @@ components:
         - json
         - xml
         default: json
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

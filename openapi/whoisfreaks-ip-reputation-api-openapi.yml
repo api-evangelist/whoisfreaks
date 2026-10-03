@@ -117,50 +117,6 @@ components:
         security:
           $ref: '#/components/schemas/IpSecurity'
       additionalProperties: true
-    IpLocation:
-      type: object
-      properties:
-        continent_code:
-          type: string
-        continent_name:
-          type: string
-        country_code2:
-          type: string
-        country_code3:
-          type: string
-        country_name:
-          type: string
-        country_name_official:
-          type: string
-        country_capital:
-          type: string
-        state_prov:
-          type: string
-        state_code:
-          type: string
-        district:
-          type: string
-        city:
-          type: string
-        locality:
-          type: string
-        accuracy_radius:
-          type: string
-        confidence:
-          type: string
-        zipcode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        is_eu:
-          type: boolean
-        geoname_id:
-          type: string
-        country_emoji:
-          type: string
-      additionalProperties: true
     IpSecurityAsn:
       type: object
       properties:
@@ -239,6 +195,50 @@ components:
         is_cloud_provider:
           type: boolean
         cloud_provider_name:
+          type: string
+      additionalProperties: true
+    IpLocation:
+      type: object
+      properties:
+        continent_code:
+          type: string
+        continent_name:
+          type: string
+        country_code2:
+          type: string
+        country_code3:
+          type: string
+        country_name:
+          type: string
+        country_name_official:
+          type: string
+        country_capital:
+          type: string
+        state_prov:
+          type: string
+        state_code:
+          type: string
+        district:
+          type: string
+        city:
+          type: string
+        locality:
+          type: string
+        accuracy_radius:
+          type: string
+        confidence:
+          type: string
+        zipcode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        is_eu:
+          type: boolean
+        geoname_id:
+          type: string
+        country_emoji:
           type: string
       additionalProperties: true
   responses:

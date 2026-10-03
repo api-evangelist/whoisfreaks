@@ -104,30 +104,6 @@ components:
         last_update:
           type: string
       additionalProperties: true
-    AccountUsageResponse:
-      type: object
-      properties:
-        apiKey:
-          type: string
-        apiCredits:
-          $ref: '#/components/schemas/ApiCredits'
-        apiSubscription:
-          $ref: '#/components/schemas/ApiSubscription'
-      additionalProperties: true
-    NewlyStatus:
-      type: object
-      properties:
-        gtld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cctld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        dns:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cleaned_gtld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cleaned_cctld:
-          $ref: '#/components/schemas/DateRangeStatus'
-      additionalProperties: true
     DatabaseUpdates:
       type: object
       properties:
@@ -139,6 +115,40 @@ components:
           $ref: '#/components/schemas/UpdateFrequencies'
         ip_whois:
           $ref: '#/components/schemas/UpdateFrequencies'
+      additionalProperties: true
+    AccountUsageResponse:
+      type: object
+      properties:
+        apiKey:
+          type: string
+        apiCredits:
+          $ref: '#/components/schemas/ApiCredits'
+        apiSubscription:
+          $ref: '#/components/schemas/ApiSubscription'
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    ApiCredits:
+      type: object
+      properties:
+        totalCredits:
+          type: integer
+        servedRequest:
+          type: integer
       additionalProperties: true
     DatabaseFileStatus:
       type: object
@@ -158,16 +168,6 @@ components:
         database_updates:
           $ref: '#/components/schemas/DatabaseUpdates'
       additionalProperties: true
-    ThreatFeedStatus:
-      type: object
-      properties:
-        phishing:
-          $ref: '#/components/schemas/DateRangeStatus'
-        malware:
-          $ref: '#/components/schemas/DateRangeStatus'
-        spam:
-          $ref: '#/components/schemas/DateRangeStatus'
-      additionalProperties: true
     UpdateFrequencies:
       type: object
       properties:
@@ -176,6 +176,16 @@ components:
         weekly:
           $ref: '#/components/schemas/DateRangeStatus'
         monthly:
+          $ref: '#/components/schemas/DateRangeStatus'
+      additionalProperties: true
+    ThreatFeedStatus:
+      type: object
+      properties:
+        phishing:
+          $ref: '#/components/schemas/DateRangeStatus'
+        malware:
+          $ref: '#/components/schemas/DateRangeStatus'
+        spam:
           $ref: '#/components/schemas/DateRangeStatus'
       additionalProperties: true
     ApiSubscription:
@@ -192,30 +202,20 @@ components:
         servedSurchargeRequests:
           type: integer
       additionalProperties: true
-    ApiCredits:
+    NewlyStatus:
       type: object
       properties:
-        totalCredits:
-          type: integer
-        servedRequest:
-          type: integer
+        gtld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cctld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        dns:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cleaned_gtld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cleaned_cctld:
+          $ref: '#/components/schemas/DateRangeStatus'
       additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
   responses:
     RateLimited:
       description: Too many requests

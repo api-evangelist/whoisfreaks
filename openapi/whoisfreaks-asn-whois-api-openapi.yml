@@ -107,23 +107,6 @@ components:
         whois_response:
           type: string
       additionalProperties: true
-    AsnWhoisResponse:
-      type: object
-      properties:
-        asn:
-          $ref: '#/components/schemas/AsnInfo'
-      additionalProperties: true
-      description: ASN WHOIS v2 (/v2.0/asn-whois) — pass-through of ipgeolocation ASN data.
-    AsnPeer:
-      type: object
-      properties:
-        as_number:
-          type: string
-        description:
-          type: string
-        country:
-          type: string
-      additionalProperties: true
     ErrorResponse:
       type: object
       properties:
@@ -140,13 +123,23 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-  responses:
-    ErrorResponse:
-      description: Error response (4XX)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
+    AsnPeer:
+      type: object
+      properties:
+        as_number:
+          type: string
+        description:
+          type: string
+        country:
+          type: string
+      additionalProperties: true
+    AsnWhoisResponse:
+      type: object
+      properties:
+        asn:
+          $ref: '#/components/schemas/AsnInfo'
+      additionalProperties: true
+      description: ASN WHOIS v2 (/v2.0/asn-whois) — pass-through of ipgeolocation ASN data.
   parameters:
     Format:
       name: format
@@ -157,6 +150,13 @@ components:
         - json
         - xml
         default: json
+  responses:
+    ErrorResponse:
+      description: Error response (4XX)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
