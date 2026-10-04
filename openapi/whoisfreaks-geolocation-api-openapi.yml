@@ -105,30 +105,6 @@ components:
           items:
             type: string
       additionalProperties: true
-    GeoNetwork:
-      type: object
-      properties:
-        asn:
-          $ref: '#/components/schemas/GeoAsn'
-        connection_type:
-          type: string
-        company:
-          $ref: '#/components/schemas/GeoCompany'
-      additionalProperties: true
-    GeolocationResponse:
-      type: object
-      properties:
-        ip:
-          type: string
-        location:
-          $ref: '#/components/schemas/IpLocation'
-        country_metadata:
-          $ref: '#/components/schemas/CountryMetadata'
-        network:
-          $ref: '#/components/schemas/GeoNetwork'
-        currency:
-          $ref: '#/components/schemas/Currency'
-      additionalProperties: true
     ErrorResponse:
       type: object
       properties:
@@ -145,31 +121,49 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    GeoAsn:
+    Currency:
       type: object
       properties:
-        as_number:
+        code:
           type: string
-        organization:
+        name:
           type: string
-        country:
+        symbol:
           type: string
-        asn_name:
+      additionalProperties: true
+    GeoCompany:
+      type: object
+      properties:
+        name:
           type: string
         type:
           type: string
         domain:
           type: string
-        date_allocated:
+      additionalProperties: true
+    GeolocationResponse:
+      type: object
+      properties:
+        ip:
           type: string
-        allocation_status:
+        location:
+          $ref: '#/components/schemas/IpLocation'
+        country_metadata:
+          $ref: '#/components/schemas/CountryMetadata'
+        network:
+          $ref: '#/components/schemas/GeoNetwork'
+        currency:
+          $ref: '#/components/schemas/Currency'
+      additionalProperties: true
+    GeoNetwork:
+      type: object
+      properties:
+        asn:
+          $ref: '#/components/schemas/GeoAsn'
+        connection_type:
           type: string
-        num_of_ipv4_routes:
-          type: string
-        num_of_ipv6_routes:
-          type: string
-        rir:
-          type: string
+        company:
+          $ref: '#/components/schemas/GeoCompany'
       additionalProperties: true
     IpLocation:
       type: object
@@ -215,24 +209,30 @@ components:
         country_emoji:
           type: string
       additionalProperties: true
-    Currency:
+    GeoAsn:
       type: object
       properties:
-        code:
+        as_number:
           type: string
-        name:
+        organization:
           type: string
-        symbol:
+        country:
           type: string
-      additionalProperties: true
-    GeoCompany:
-      type: object
-      properties:
-        name:
+        asn_name:
           type: string
         type:
           type: string
         domain:
+          type: string
+        date_allocated:
+          type: string
+        allocation_status:
+          type: string
+        num_of_ipv4_routes:
+          type: string
+        num_of_ipv6_routes:
+          type: string
+        rir:
           type: string
       additionalProperties: true
   responses:

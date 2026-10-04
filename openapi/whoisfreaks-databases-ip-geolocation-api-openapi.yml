@@ -136,20 +136,6 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    SnapshotStatus:
-      type: object
-      properties:
-        status:
-          type: string
-        snapshot_creation_date:
-          type: string
-        snapshot_name:
-          type: string
-        snapshot_deletion_time:
-          type: string
-        message:
-          type: string
-      additionalProperties: true
     ErrorResponse:
       type: object
       properties:
@@ -166,6 +152,20 @@ components:
           type: integer
       additionalProperties: true
       description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    SnapshotStatus:
+      type: object
+      properties:
+        status:
+          type: string
+        snapshot_creation_date:
+          type: string
+        snapshot_name:
+          type: string
+        snapshot_deletion_time:
+          type: string
+        message:
+          type: string
+      additionalProperties: true
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

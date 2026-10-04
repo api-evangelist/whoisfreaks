@@ -103,6 +103,22 @@ components:
         is_anycast:
           type: boolean
       additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     IpReputationResponse:
       type: object
       properties:
@@ -135,22 +151,6 @@ components:
         rir:
           type: string
       additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
     IpSecurity:
       type: object
       properties:

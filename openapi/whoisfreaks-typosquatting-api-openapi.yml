@@ -121,14 +121,14 @@ components:
           type: boolean
       additionalProperties: true
   responses:
-    Unauthorized:
-      description: Invalid API key
+    BadRequest:
+      description: Bad request
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad request
+    Unauthorized:
+      description: Invalid API key
       content:
         application/json:
           schema:
