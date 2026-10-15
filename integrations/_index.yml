@@ -39,7 +39,7 @@
     app_slug: whoisfreaks
     beta: true
     builder: unknown (not in the directory record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: whoisfreaks-n8n
   label: n8n
@@ -66,7 +66,7 @@
     published: '2026-08-11T06:42:30.273Z'
     matched_on: publisher-email
     builder: provider (package published from the provider's own domain)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: whoisfreaks-pipedream
   label: Pipedream
@@ -92,5 +92,5 @@
     actions: true
     sources: false
     builder: Pipedream repo (component)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
