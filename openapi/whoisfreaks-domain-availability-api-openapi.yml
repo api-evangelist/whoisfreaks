@@ -114,17 +114,47 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  responses:
+    RateLimited:
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    DomainAvailabilityResponse:
+    BulkDomainAvailabilityRequest:
       type: object
       properties:
-        domain:
-          type: string
-        availability:
-          type: string
-        message:
-          type: string
-        domain_available_response:
+        domainNames:
+          type: array
+          items:
+            type: string
+          maxItems: 100
+          description: Mode 1 — list of full domain names. Cannot be used with tld.
+        tld:
+          type: array
+          items:
+            type: string
+          maxItems: 100
+          description: Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames.
+      description: Request body for POST /v2.0/domain/availability. Use domainNames OR tld.
+      additionalProperties: true
+    BulkDomainAvailabilityResponse:
+      type: object
+      properties:
+        bulk_domain_availability_response:
           type: array
           items:
             $ref: '#/components/schemas/DomainAvailabilityItem'
@@ -155,50 +185,20 @@ components:
         status:
           type: boolean
       additionalProperties: true
-    BulkDomainAvailabilityResponse:
+    DomainAvailabilityResponse:
       type: object
       properties:
-        bulk_domain_availability_response:
+        domain:
+          type: string
+        availability:
+          type: string
+        message:
+          type: string
+        domain_available_response:
           type: array
           items:
             $ref: '#/components/schemas/DomainAvailabilityItem'
       additionalProperties: true
-    BulkDomainAvailabilityRequest:
-      type: object
-      properties:
-        domainNames:
-          type: array
-          items:
-            type: string
-          maxItems: 100
-          description: Mode 1 — list of full domain names. Cannot be used with tld.
-        tld:
-          type: array
-          items:
-            type: string
-          maxItems: 100
-          description: Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames.
-      description: Request body for POST /v2.0/domain/availability. Use domainNames OR tld.
-      additionalProperties: true
-  responses:
-    BadRequest:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    RateLimited:
-      description: Too many requests
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    Unauthorized:
-      description: Invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   parameters:
     Format:
       name: format

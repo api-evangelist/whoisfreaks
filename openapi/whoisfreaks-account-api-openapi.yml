@@ -96,56 +96,46 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    ApiSubscription:
+    ApiCredits:
       type: object
       properties:
-        requestLimit:
+        totalCredits:
           type: integer
-        servedRequests:
-          type: integer
-        subscriptionStatus:
-          type: string
-        surchargeRequestLimit:
-          type: integer
-        servedSurchargeRequests:
+        servedRequest:
           type: integer
       additionalProperties: true
-    ErrorResponse:
+    AccountUsageResponse:
       type: object
       properties:
-        timestamp:
+        apiKey:
           type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
+        apiCredits:
+          $ref: '#/components/schemas/ApiCredits'
+        apiSubscription:
+          $ref: '#/components/schemas/ApiSubscription'
       additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    DatabaseUpdates:
+    NewlyStatus:
       type: object
       properties:
-        domain_whois:
-          $ref: '#/components/schemas/UpdateFrequencies'
+        gtld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cctld:
+          $ref: '#/components/schemas/DateRangeStatus'
         dns:
-          $ref: '#/components/schemas/UpdateFrequencies'
-        subdomains:
-          $ref: '#/components/schemas/UpdateFrequencies'
-        ip_whois:
-          $ref: '#/components/schemas/UpdateFrequencies'
+          $ref: '#/components/schemas/DateRangeStatus'
+        cleaned_gtld:
+          $ref: '#/components/schemas/DateRangeStatus'
+        cleaned_cctld:
+          $ref: '#/components/schemas/DateRangeStatus'
       additionalProperties: true
-    ThreatFeedStatus:
+    UpdateFrequencies:
       type: object
       properties:
-        phishing:
+        daily:
           $ref: '#/components/schemas/DateRangeStatus'
-        malware:
+        weekly:
           $ref: '#/components/schemas/DateRangeStatus'
-        spam:
+        monthly:
           $ref: '#/components/schemas/DateRangeStatus'
       additionalProperties: true
     DatabaseFileStatus:
@@ -166,25 +156,57 @@ components:
         database_updates:
           $ref: '#/components/schemas/DatabaseUpdates'
       additionalProperties: true
-    UpdateFrequencies:
+    DatabaseUpdates:
       type: object
       properties:
-        daily:
+        domain_whois:
+          $ref: '#/components/schemas/UpdateFrequencies'
+        dns:
+          $ref: '#/components/schemas/UpdateFrequencies'
+        subdomains:
+          $ref: '#/components/schemas/UpdateFrequencies'
+        ip_whois:
+          $ref: '#/components/schemas/UpdateFrequencies'
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    ThreatFeedStatus:
+      type: object
+      properties:
+        phishing:
           $ref: '#/components/schemas/DateRangeStatus'
-        weekly:
+        malware:
           $ref: '#/components/schemas/DateRangeStatus'
-        monthly:
+        spam:
           $ref: '#/components/schemas/DateRangeStatus'
       additionalProperties: true
-    AccountUsageResponse:
+    ApiSubscription:
       type: object
       properties:
-        apiKey:
+        requestLimit:
+          type: integer
+        servedRequests:
+          type: integer
+        subscriptionStatus:
           type: string
-        apiCredits:
-          $ref: '#/components/schemas/ApiCredits'
-        apiSubscription:
-          $ref: '#/components/schemas/ApiSubscription'
+        surchargeRequestLimit:
+          type: integer
+        servedSurchargeRequests:
+          type: integer
       additionalProperties: true
     DateRangeStatus:
       type: object
@@ -194,37 +216,15 @@ components:
         last_update:
           type: string
       additionalProperties: true
-    NewlyStatus:
-      type: object
-      properties:
-        gtld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cctld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        dns:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cleaned_gtld:
-          $ref: '#/components/schemas/DateRangeStatus'
-        cleaned_cctld:
-          $ref: '#/components/schemas/DateRangeStatus'
-      additionalProperties: true
-    ApiCredits:
-      type: object
-      properties:
-        totalCredits:
-          type: integer
-        servedRequest:
-          type: integer
-      additionalProperties: true
   responses:
-    ErrorResponse:
-      description: Error response (4XX)
+    RateLimited:
+      description: Too many requests
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    RateLimited:
-      description: Too many requests
+    ErrorResponse:
+      description: Error response (4XX)
       content:
         application/json:
           schema:

@@ -195,51 +195,6 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    DnsResponse:
-      type: object
-      properties:
-        domainName:
-          type: string
-        ipAddress:
-          type: string
-        queryTime:
-          type: string
-        status:
-          type: boolean
-        domainRegistered:
-          type: boolean
-        dnsTypes:
-          type: object
-        dnsRecords:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsRecord'
-      additionalProperties: true
-      description: Live DNS response (DnsInfo).
-    BulkDnsResponse:
-      type: object
-      properties:
-        bulk_dns_info:
-          type: array
-          items:
-            $ref: '#/components/schemas/DnsResponse'
-      additionalProperties: true
     ReverseDnsResponse:
       type: object
       properties:
@@ -269,6 +224,14 @@ components:
             $ref: '#/components/schemas/DnsResponse'
       additionalProperties: true
       description: 'Note: ''currenPage'' spelling matches the API.'
+    BulkDnsResponse:
+      type: object
+      properties:
+        bulk_dns_info:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsResponse'
+      additionalProperties: true
     DnsRecord:
       type: object
       properties:
@@ -306,13 +269,44 @@ components:
           type: integer
       additionalProperties: true
       description: Union of all DNS record variants (A/AAAA/MX/NS/CNAME/PTR/TXT/SPF/SOA).
-  responses:
     ErrorResponse:
-      description: Error response (4XX)
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    DnsResponse:
+      type: object
+      properties:
+        domainName:
+          type: string
+        ipAddress:
+          type: string
+        queryTime:
+          type: string
+        status:
+          type: boolean
+        domainRegistered:
+          type: boolean
+        dnsTypes:
+          type: object
+        dnsRecords:
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecord'
+      additionalProperties: true
+      description: Live DNS response (DnsInfo).
+  responses:
     RateLimited:
       description: Too many requests
       content:
@@ -321,6 +315,12 @@ components:
             $ref: '#/components/schemas/ErrorResponse'
     Unauthorized:
       description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ErrorResponse:
+      description: Error response (4XX)
       content:
         application/json:
           schema:

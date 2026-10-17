@@ -134,260 +134,6 @@ components:
         source:
           type: string
       additionalProperties: true
-    Irt:
-      type: object
-      properties:
-        handle:
-          type: string
-        address:
-          type: array
-          items:
-            type: string
-        street:
-          type: string
-        city:
-          type: string
-        district:
-          type: string
-        state:
-          type: string
-        zip_code:
-          type: string
-        country:
-          type: string
-        email:
-          type: array
-          items:
-            type: string
-        abuse_mailbox:
-          type: array
-          items:
-            type: string
-        phone:
-          type: array
-          items:
-            type: string
-        fax_no:
-          type: array
-          items:
-            type: string
-        organizations:
-          type: array
-          items:
-            type: string
-        admin_contacts:
-          type: array
-          items:
-            type: string
-        tech_contacts:
-          type: array
-          items:
-            type: string
-        remarks:
-          type: array
-          items:
-            type: string
-        signature:
-          type: array
-          items:
-            type: string
-        encryption:
-          type: array
-          items:
-            type: string
-        auth:
-          type: array
-          items:
-            type: string
-        notify:
-          type: array
-          items:
-            type: string
-        irt_nfy:
-          type: array
-          items:
-            type: string
-        mnt_by:
-          type: array
-          items:
-            type: string
-        mnt_ref:
-          type: array
-          items:
-            type: string
-      additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    InetNum:
-      type: object
-      properties:
-        start_ip:
-          type: string
-        end_ip:
-          type: string
-        cidr:
-          type: array
-          items:
-            type: string
-        net_name:
-          type: string
-        net_handle:
-          type: string
-        description:
-          type: array
-          items:
-            type: string
-        countries:
-          type: array
-          items:
-            type: string
-        geofeed:
-          type: string
-        latitude:
-          type: number
-        longitude:
-          type: number
-        city:
-          type: string
-        languages:
-          type: array
-          items:
-            type: string
-        status:
-          type: string
-        organization:
-          type: string
-        sponsoring_organization:
-          type: string
-        remarks:
-          type: array
-          items:
-            type: string
-        assignment_size:
-          type: string
-        notify:
-          type: array
-          items:
-            type: string
-        mnt_by:
-          type: array
-          items:
-            type: string
-        mnt_lower:
-          type: array
-          items:
-            type: string
-        mnt_domains:
-          type: array
-          items:
-            type: string
-        mnt_routes:
-          type: array
-          items:
-            type: string
-        mnt_irt:
-          type: array
-          items:
-            type: string
-        date_created:
-          type: string
-        date_updated:
-          type: string
-        source:
-          type: string
-        parents:
-          type: array
-          items:
-            type: string
-      additionalProperties: true
-    WhoisPerson:
-      type: object
-      properties:
-        handle:
-          type: string
-        name:
-          type: string
-        address:
-          type: array
-          items:
-            type: string
-        street:
-          type: string
-        city:
-          type: string
-        district:
-          type: string
-        state:
-          type: string
-        zip_code:
-          type: string
-        country:
-          type: string
-        email:
-          type: array
-          items:
-            type: string
-        abuse_mailbox:
-          type: array
-          items:
-            type: string
-        phone:
-          type: array
-          items:
-            type: string
-        fax_no:
-          type: array
-          items:
-            type: string
-        organizations:
-          type: array
-          items:
-            type: string
-        admin_contacts:
-          type: array
-          items:
-            type: string
-        tech_contacts:
-          type: array
-          items:
-            type: string
-        remarks:
-          type: array
-          items:
-            type: string
-        notify:
-          type: array
-          items:
-            type: string
-        mnt_by:
-          type: array
-          items:
-            type: string
-        mnt_ref:
-          type: array
-          items:
-            type: string
-        date_created:
-          type: string
-        date_updated:
-          type: string
-        source:
-          type: string
-      additionalProperties: true
     IpWhoisResponse:
       type: object
       properties:
@@ -527,6 +273,260 @@ components:
           type: string
         source:
           type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    WhoisPerson:
+      type: object
+      properties:
+        handle:
+          type: string
+        name:
+          type: string
+        address:
+          type: array
+          items:
+            type: string
+        street:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+        email:
+          type: array
+          items:
+            type: string
+        abuse_mailbox:
+          type: array
+          items:
+            type: string
+        phone:
+          type: array
+          items:
+            type: string
+        fax_no:
+          type: array
+          items:
+            type: string
+        organizations:
+          type: array
+          items:
+            type: string
+        admin_contacts:
+          type: array
+          items:
+            type: string
+        tech_contacts:
+          type: array
+          items:
+            type: string
+        remarks:
+          type: array
+          items:
+            type: string
+        notify:
+          type: array
+          items:
+            type: string
+        mnt_by:
+          type: array
+          items:
+            type: string
+        mnt_ref:
+          type: array
+          items:
+            type: string
+        date_created:
+          type: string
+        date_updated:
+          type: string
+        source:
+          type: string
+      additionalProperties: true
+    InetNum:
+      type: object
+      properties:
+        start_ip:
+          type: string
+        end_ip:
+          type: string
+        cidr:
+          type: array
+          items:
+            type: string
+        net_name:
+          type: string
+        net_handle:
+          type: string
+        description:
+          type: array
+          items:
+            type: string
+        countries:
+          type: array
+          items:
+            type: string
+        geofeed:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        city:
+          type: string
+        languages:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        organization:
+          type: string
+        sponsoring_organization:
+          type: string
+        remarks:
+          type: array
+          items:
+            type: string
+        assignment_size:
+          type: string
+        notify:
+          type: array
+          items:
+            type: string
+        mnt_by:
+          type: array
+          items:
+            type: string
+        mnt_lower:
+          type: array
+          items:
+            type: string
+        mnt_domains:
+          type: array
+          items:
+            type: string
+        mnt_routes:
+          type: array
+          items:
+            type: string
+        mnt_irt:
+          type: array
+          items:
+            type: string
+        date_created:
+          type: string
+        date_updated:
+          type: string
+        source:
+          type: string
+        parents:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    Irt:
+      type: object
+      properties:
+        handle:
+          type: string
+        address:
+          type: array
+          items:
+            type: string
+        street:
+          type: string
+        city:
+          type: string
+        district:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+        email:
+          type: array
+          items:
+            type: string
+        abuse_mailbox:
+          type: array
+          items:
+            type: string
+        phone:
+          type: array
+          items:
+            type: string
+        fax_no:
+          type: array
+          items:
+            type: string
+        organizations:
+          type: array
+          items:
+            type: string
+        admin_contacts:
+          type: array
+          items:
+            type: string
+        tech_contacts:
+          type: array
+          items:
+            type: string
+        remarks:
+          type: array
+          items:
+            type: string
+        signature:
+          type: array
+          items:
+            type: string
+        encryption:
+          type: array
+          items:
+            type: string
+        auth:
+          type: array
+          items:
+            type: string
+        notify:
+          type: array
+          items:
+            type: string
+        irt_nfy:
+          type: array
+          items:
+            type: string
+        mnt_by:
+          type: array
+          items:
+            type: string
+        mnt_ref:
+          type: array
+          items:
+            type: string
       additionalProperties: true
   responses:
     ErrorResponse:

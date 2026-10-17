@@ -72,74 +72,42 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
-    SslCertificate:
+    SslUnitInfo:
       type: object
       properties:
-        chainOrder:
+        commonName:
           type: string
-        authenticationType:
+        organization:
           type: string
-        validityStartDate:
+        organizationalUnit:
           type: string
-        validityEndDate:
+        locality:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        incCountry:
+          type: string
+        incState:
+          type: string
+        businessCategory:
+          type: string
+        street:
+          type: string
+        postalCode:
           type: string
         serialNumber:
           type: string
-        signatureAlgorithm:
-          type: string
-        subject:
-          $ref: '#/components/schemas/SslUnitInfo'
-        issuer:
-          $ref: '#/components/schemas/SslUnitInfo'
-        publicKey:
-          $ref: '#/components/schemas/SslPublicKeyInfo'
-        extensions:
-          $ref: '#/components/schemas/SslExtensionsInfo'
-        pemRaw:
-          type: string
       additionalProperties: true
-    ErrorResponse:
+    SslAuthorityInfo:
       type: object
       properties:
-        timestamp:
-          type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    SslPublicKeyInfo:
-      type: object
-      properties:
-        keySize:
-          type: string
-        keyAlgorithm:
-          type: string
-        pemRaw:
-          type: string
-      additionalProperties: true
-    SslAlternateNames:
-      type: object
-      properties:
-        dnsNames:
+        issuers:
           type: array
           items:
             type: string
-        emailAddresses:
-          type: array
-          items:
-            type: string
-        ipAddresses:
-          type: array
-          items:
-            type: string
-        uris:
+        ocsp:
           type: array
           items:
             type: string
@@ -172,54 +140,6 @@ components:
           items:
             $ref: '#/components/schemas/SslCertificatePolicy'
       additionalProperties: true
-    SslAuthorityInfo:
-      type: object
-      properties:
-        issuers:
-          type: array
-          items:
-            type: string
-        ocsp:
-          type: array
-          items:
-            type: string
-      additionalProperties: true
-    SslCertificatePolicy:
-      type: object
-      properties:
-        policyId:
-          type: string
-        policyQualifier:
-          type: object
-      additionalProperties: true
-    SslUnitInfo:
-      type: object
-      properties:
-        commonName:
-          type: string
-        organization:
-          type: string
-        organizationalUnit:
-          type: string
-        locality:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
-        incCountry:
-          type: string
-        incState:
-          type: string
-        businessCategory:
-          type: string
-        street:
-          type: string
-        postalCode:
-          type: string
-        serialNumber:
-          type: string
-      additionalProperties: true
     SslResponse:
       type: object
       properties:
@@ -232,6 +152,86 @@ components:
           items:
             $ref: '#/components/schemas/SslCertificate'
         sslRaw:
+          type: string
+      additionalProperties: true
+    SslAlternateNames:
+      type: object
+      properties:
+        dnsNames:
+          type: array
+          items:
+            type: string
+        emailAddresses:
+          type: array
+          items:
+            type: string
+        ipAddresses:
+          type: array
+          items:
+            type: string
+        uris:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
+    SslPublicKeyInfo:
+      type: object
+      properties:
+        keySize:
+          type: string
+        keyAlgorithm:
+          type: string
+        pemRaw:
+          type: string
+      additionalProperties: true
+    SslCertificatePolicy:
+      type: object
+      properties:
+        policyId:
+          type: string
+        policyQualifier:
+          type: object
+      additionalProperties: true
+    SslCertificate:
+      type: object
+      properties:
+        chainOrder:
+          type: string
+        authenticationType:
+          type: string
+        validityStartDate:
+          type: string
+        validityEndDate:
+          type: string
+        serialNumber:
+          type: string
+        signatureAlgorithm:
+          type: string
+        subject:
+          $ref: '#/components/schemas/SslUnitInfo'
+        issuer:
+          $ref: '#/components/schemas/SslUnitInfo'
+        publicKey:
+          $ref: '#/components/schemas/SslPublicKeyInfo'
+        extensions:
+          $ref: '#/components/schemas/SslExtensionsInfo'
+        pemRaw:
           type: string
       additionalProperties: true
   responses:

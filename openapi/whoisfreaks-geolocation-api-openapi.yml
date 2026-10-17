@@ -93,67 +93,31 @@ paths:
           $ref: '#/components/responses/ErrorResponse'
 components:
   schemas:
-    CountryMetadata:
+    GeoAsn:
       type: object
       properties:
-        calling_code:
+        as_number:
           type: string
-        tld:
+        organization:
           type: string
-        languages:
-          type: array
-          items:
-            type: string
-      additionalProperties: true
-    ErrorResponse:
-      type: object
-      properties:
-        timestamp:
+        country:
           type: string
-        path:
-          type: string
-        status: {}
-        error:
-          type: string
-        message:
-          type: string
-        code:
-          type: integer
-      additionalProperties: true
-      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
-    Currency:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
-        symbol:
-          type: string
-      additionalProperties: true
-    GeoCompany:
-      type: object
-      properties:
-        name:
+        asn_name:
           type: string
         type:
           type: string
         domain:
           type: string
-      additionalProperties: true
-    GeolocationResponse:
-      type: object
-      properties:
-        ip:
+        date_allocated:
           type: string
-        location:
-          $ref: '#/components/schemas/IpLocation'
-        country_metadata:
-          $ref: '#/components/schemas/CountryMetadata'
-        network:
-          $ref: '#/components/schemas/GeoNetwork'
-        currency:
-          $ref: '#/components/schemas/Currency'
+        allocation_status:
+          type: string
+        num_of_ipv4_routes:
+          type: string
+        num_of_ipv6_routes:
+          type: string
+        rir:
+          type: string
       additionalProperties: true
     GeoNetwork:
       type: object
@@ -209,32 +173,68 @@ components:
         country_emoji:
           type: string
       additionalProperties: true
-    GeoAsn:
+    GeolocationResponse:
       type: object
       properties:
-        as_number:
+        ip:
           type: string
-        organization:
+        location:
+          $ref: '#/components/schemas/IpLocation'
+        country_metadata:
+          $ref: '#/components/schemas/CountryMetadata'
+        network:
+          $ref: '#/components/schemas/GeoNetwork'
+        currency:
+          $ref: '#/components/schemas/Currency'
+      additionalProperties: true
+    Currency:
+      type: object
+      properties:
+        code:
           type: string
-        country:
+        name:
           type: string
-        asn_name:
+        symbol:
+          type: string
+      additionalProperties: true
+    CountryMetadata:
+      type: object
+      properties:
+        calling_code:
+          type: string
+        tld:
+          type: string
+        languages:
+          type: array
+          items:
+            type: string
+      additionalProperties: true
+    GeoCompany:
+      type: object
+      properties:
+        name:
           type: string
         type:
           type: string
         domain:
           type: string
-        date_allocated:
-          type: string
-        allocation_status:
-          type: string
-        num_of_ipv4_routes:
-          type: string
-        num_of_ipv6_routes:
-          type: string
-        rir:
-          type: string
       additionalProperties: true
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        path:
+          type: string
+        status: {}
+        error:
+          type: string
+        message:
+          type: string
+        code:
+          type: integer
+      additionalProperties: true
+      description: Error response. `status` may be an integer (e.g. 401), boolean, or string depending on the endpoint, so it is intentionally untyped to avoid deserialization failures.
   responses:
     ErrorResponse:
       description: Error response (4XX)
