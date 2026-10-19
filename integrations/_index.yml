@@ -94,3 +94,197 @@
     builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null
+- slug: whoisfreaks-go-module-proxy
+  label: Go module proxy
+  partner_name: Go module proxy
+  category: official SDK (Go)
+  type: register
+  channel: package-registry
+  evidence: https://pkg.go.dev/github.com/WhoisFreaks/whoisfreaks-go
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Go module proxy (public registry JSON)
+    spec_file: null
+    language: Go
+    packages:
+    - name: github.com/WhoisFreaks/whoisfreaks-go
+      version: v0.24.0
+      released: '2026-10-17'
+      released_field: Time
+      lapsed: false
+      page: https://pkg.go.dev/github.com/WhoisFreaks/whoisfreaks-go
+      repo_leg: github-org:whoisfreaks
+      publisher_leg: org:whoisfreaks
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: whoisfreaks-maven-central
+  label: Maven Central
+  partner: maven-central
+  partner_name: Maven Central
+  category: official SDK (Java/JVM)
+  type: register
+  channel: package-registry
+  evidence: https://central.sonatype.com/artifact/com.whoisfreaks/whoisfreaks
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.whoisfreaks:whoisfreaks
+      version: 0.24.0
+      released: '2026-10-17'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.whoisfreaks/whoisfreaks
+      repo_leg: github-org:whoisfreaks
+      publisher_leg: groupId:whoisfreaks.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: whoisfreaks-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/whoisfreaks
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: whoisfreaks
+      version: 0.22.0
+      released: '2026-10-05'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/whoisfreaks
+      repo_leg: github-org:whoisfreaks
+      publisher_leg: email:whoisfreaks.com
+      matched_by: domain
+    - name: whoisfreaks-js
+      version: 0.22.0
+      released: '2026-10-05'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/whoisfreaks-js
+      repo_leg: github-org:whoisfreaks
+      publisher_leg: email:whoisfreaks.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: whoisfreaks-nuget-gallery
+  label: NuGet Gallery
+  partner: nuget
+  partner_name: NuGet Gallery
+  category: official SDK (.NET)
+  type: register
+  channel: package-registry
+  evidence: https://www.nuget.org/packages/WhoisFreaks
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: NuGet Gallery (public registry JSON)
+    spec_file: null
+    language: .NET
+    packages:
+    - name: WhoisFreaks
+      version: 0.24.0
+      released: '2026-10-17'
+      released_field: published
+      lapsed: false
+      page: https://www.nuget.org/packages/WhoisFreaks
+      repo_leg: domain:whoisfreaks.com
+      publisher_leg: org:whoisfreaks
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: whoisfreaks-pypi
+  label: PyPI
+  partner: pypi
+  partner_name: PyPI
+  category: official SDK (Python)
+  type: register
+  channel: package-registry
+  evidence: https://pypi.org/project/whoisfreaks/
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: whoisfreaks
+      version: 0.24.0
+      released: '2026-10-17'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/whoisfreaks/
+      repo_leg: github-org:whoisfreaks
+      publisher_leg: email:whoisfreaks.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: whoisfreaks-rubygems
+  label: RubyGems
+  partner: rubygems
+  partner_name: RubyGems
+  category: official SDK (Ruby)
+  type: register
+  channel: package-registry
+  evidence: https://rubygems.org/gems/whoisfreaks
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: RubyGems (public registry JSON)
+    spec_file: null
+    language: Ruby
+    packages:
+    - name: whoisfreaks
+      version: 0.24.0
+      released: '2026-10-17'
+      released_field: version_created_at
+      lapsed: false
+      page: https://rubygems.org/gems/whoisfreaks
+      repo_leg: domain:whoisfreaks.com
+      publisher_leg: email:whoisfreaks.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
