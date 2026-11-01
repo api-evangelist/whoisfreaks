@@ -1,4 +1,4 @@
-# WhoisFreaks (whoisfreaks)
+# WhoisFreaks
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,597 +66,197 @@
 
 WhoisFreaks is a domain and IP intelligence provider whose REST API suite covers live WHOIS, historical WHOIS, bulk and reverse WHOIS, IP and ASN WHOIS, live/historical/reverse DNS, domain availability with suggestions, typosquatting discovery, SSL certificate lookup, subdomain enumeration, IP geolocation, IP reputation and domain reputation. Alongside the live lookup APIs it ships bulk downloadable databases (WHOIS, DNS, subdomains, IP geolocation, IP security, ASN, newly registered domains, expiring and dropped domains, and daily phishing/malware/spam threat feeds), brand/domain/registrant monitoring services with email, Telegram and webhook alerts, ten officially maintained OpenAPI-generated SDKs, a Go CLI, an n8n community node, and an open-source MCP server exposing fourteen domain-intelligence tools to AI assistants. Authentication is a single apiKey query parameter across every endpoint.
 
-**APIs.json:** [https://whoisfreaks.apievangelist.com/apis.yml](https://whoisfreaks.apievangelist.com/apis.yml)
+**Areas:** WHOIS · DNS · Domain Intelligence · IP Intelligence / Geolocation · Cybersecurity / Threat Intelligence · OSINT · Reverse Lookup · SSL/Certificate · Domain Monitoring · Brand Protection · Threat Feeds · Domain Availability
+
+## WhoisFreaks on APIs.io
+
+Everything profiled for WhoisFreaks is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/whoisfreaks/](https://apis.io/providers/whoisfreaks/)** — or go straight to one of the APIs or properties below.
+
+### APIs (23)
+
+- [WhoisFreaks MCP Server](https://apis.io/apis/whoisfreaks/whoisfreaks-mcp-server/) — Official open-source Model Context Protocol server (Java) exposing 14 WhoisFreaks domain-intelligence tools to MCP-compatible AI clients. Distributed as…
+- [WhoisFreaks Account API](https://apis.io/apis/whoisfreaks/whoisfreaks-account-api/) — Account, API key, and usage utilities
+- [WhoisFreaks ASN WHOIS API](https://apis.io/apis/whoisfreaks/whoisfreaks-asn-whois-api/) — Autonomous System Number WHOIS
+- [WhoisFreaks Databases - ASN WHOIS API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-asn-whois-api/) — ASN WHOIS database snapshots
+- [WhoisFreaks Databases - DNS API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-dns-api/) — DNS database snapshots
+- [WhoisFreaks Databases - Expiring & Dropped API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-expiring-dropped-api/) — Expiring and dropped domain downloads
+- [WhoisFreaks Databases - IP Geolocation API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-ip-geolocation-api/) — IP geolocation database snapshots
+- [WhoisFreaks Databases - IP Security API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-ip-security-api/) — IP security database snapshots
+- [WhoisFreaks Databases - IP WHOIS API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-ip-whois-api/) — IP WHOIS database snapshots
+- [WhoisFreaks Databases - Newly Registered API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-newly-registered-api/) — Newly registered domain downloads
+- [WhoisFreaks Databases - Subdomains API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-subdomains-api/) — Subdomain database snapshots
+- [WhoisFreaks Databases - Threat Feed API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-threat-feed-api/) — The Databases - Threat Feed API from WhoisFreaks — 6 operation(s) for databases - threat feed.
+- [WhoisFreaks Databases - WHOIS API](https://apis.io/apis/whoisfreaks/whoisfreaks-databases-whois-api/) — WHOIS database snapshots
+- [WhoisFreaks DNS API](https://apis.io/apis/whoisfreaks/whoisfreaks-dns-api/) — DNS lookup APIs (live, historical, reverse, bulk)
+- [WhoisFreaks Domain Availability API](https://apis.io/apis/whoisfreaks/whoisfreaks-domain-availability-api/) — Check domain availability
+- [WhoisFreaks Domain Reputation API](https://apis.io/apis/whoisfreaks/whoisfreaks-domain-reputation-api/) — Real-time domain threat assessment and trust scoring
+- [WhoisFreaks Geolocation API](https://apis.io/apis/whoisfreaks/whoisfreaks-geolocation-api/) — IP geolocation lookup
+- [WhoisFreaks IP Reputation API](https://apis.io/apis/whoisfreaks/whoisfreaks-ip-reputation-api/) — IP threat intelligence
+- [WhoisFreaks IP WHOIS API](https://apis.io/apis/whoisfreaks/whoisfreaks-ip-whois-api/) — IP address WHOIS
+- [WhoisFreaks SSL API](https://apis.io/apis/whoisfreaks/whoisfreaks-ssl-api/) — SSL certificate lookup
+- [WhoisFreaks Subdomains API](https://apis.io/apis/whoisfreaks/whoisfreaks-subdomains-api/) — Subdomain enumeration
+- [WhoisFreaks Typosquatting API](https://apis.io/apis/whoisfreaks/whoisfreaks-typosquatting-api/) — Detect typo variants of brand domains
+- [WhoisFreaks WHOIS API](https://apis.io/apis/whoisfreaks/whoisfreaks-whois-api/) — WHOIS lookup APIs (live, historical, reverse, bulk)
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Whoisfreaks Monitoring Webhooks](https://apis.io/asyncapis/whoisfreaks/whoisfreaks-monitoring-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [whoisfreaks](https://apis.io/servers/whoisfreaks/whoisfreaks/)
+
+#### Collections (22)
+
+Postman and Open Collection request collections.
+
+- [WhoisFreaks Account API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-account-api/)
+- [WhoisFreaks ASN WHOIS API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-asn-whois-api/)
+- [WhoisFreaks Databases - ASN WHOIS API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-asn-whois-api/)
+- [WhoisFreaks Databases - DNS API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-dns-api/)
+- [WhoisFreaks Databases - Expiring & Dropped API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-expiring-dropped-api/)
+- [WhoisFreaks Databases - IP Geolocation API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-ip-geolocation-api/)
+- [WhoisFreaks Databases - IP Security API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-ip-security-api/)
+- [WhoisFreaks Databases - IP WHOIS API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-ip-whois-api/)
+- [WhoisFreaks Databases - Newly Registered API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-newly-registered-api/)
+- [WhoisFreaks Databases - Subdomains API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-subdomains-api/)
+- [WhoisFreaks Databases - Threat Feed API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-threat-feed-api/)
+- [WhoisFreaks Databases - WHOIS API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-databases-whois-api/)
+- [WhoisFreaks DNS API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-dns-api/)
+- [WhoisFreaks Domain Availability API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-domain-availability-api/)
+- [WhoisFreaks Domain Reputation API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-domain-reputation-api/)
+- [WhoisFreaks Geolocation API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-geolocation-api/)
+- [WhoisFreaks IP Reputation API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-ip-reputation-api/)
+- [WhoisFreaks IP WHOIS API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-ip-whois-api/)
+- [WhoisFreaks SSL API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-ssl-api/)
+- [WhoisFreaks Subdomains API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-subdomains-api/)
+- [WhoisFreaks Typosquatting API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-typosquatting-api/)
+- [WhoisFreaks WHOIS API](https://apis.io/collections/whoisfreaks/open-whoisfreaks-whois-api/)
+
+#### Overlays (23)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Whoisfreaks Account Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-account-api-phrasing-overlay/)
+- [Whoisfreaks Asn Whois Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-asn-whois-api-phrasing-overlay/)
+- [Whoisfreaks Databases Asn Whois Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-asn-whois-api-phrasing-overlay/)
+- [Whoisfreaks Databases Dns Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-dns-api-phrasing-overlay/)
+- [Whoisfreaks Databases Expiring Dropped Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-expiring-dropped-api-phrasing-overlay/)
+- [Whoisfreaks Databases Ip Geolocation Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-ip-geolocation-api-phrasing-overlay/)
+- [Whoisfreaks Databases Ip Security Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-ip-security-api-phrasing-overlay/)
+- [Whoisfreaks Databases Ip Whois Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-ip-whois-api-phrasing-overlay/)
+- [Whoisfreaks Databases Newly Registered Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-newly-registered-api-phrasing-overlay/)
+- [Whoisfreaks Databases Subdomains Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-subdomains-api-phrasing-overlay/)
+- [Whoisfreaks Databases Threat Feed Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-threat-feed-api-phrasing-overlay/)
+- [Whoisfreaks Databases Whois Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-databases-whois-api-phrasing-overlay/)
+- [Whoisfreaks Dns Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-dns-api-phrasing-overlay/)
+- [Whoisfreaks Domain Availability Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-domain-availability-api-phrasing-overlay/)
+- [Whoisfreaks Domain Reputation Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-domain-reputation-api-phrasing-overlay/)
+- [Whoisfreaks Geolocation Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-geolocation-api-phrasing-overlay/)
+- [Whoisfreaks Ip Reputation Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-ip-reputation-api-phrasing-overlay/)
+- [Whoisfreaks Ip Whois Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-ip-whois-api-phrasing-overlay/)
+- [Whoisfreaks Openapi Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-openapi-overlay/)
+- [Whoisfreaks Ssl Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-ssl-api-phrasing-overlay/)
+- [Whoisfreaks Subdomains Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-subdomains-api-phrasing-overlay/)
+- [Whoisfreaks Typosquatting Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-typosquatting-api-phrasing-overlay/)
+- [Whoisfreaks Whois Api Phrasing Overlay](https://apis.io/overlays/whoisfreaks/whoisfreaks-whois-api-phrasing-overlay/)
 
-## Tags
+#### Security (2)
 
-- WHOIS
-- DNS
-- Domain Intelligence
-- IP Intelligence / Geolocation
-- Cybersecurity / Threat Intelligence
-- OSINT
-- Reverse Lookup
-- SSL/Certificate
-- Domain Monitoring
-- Brand Protection
-- Threat Feeds
-- Domain Availability
+Authentication, trust centre, and vulnerability disclosure.
 
-## Timestamps
+- [Whoisfreaks Authentication](https://apis.io/security/whoisfreaks/whoisfreaks-authentication/)
+- [Whoisfreaks Domain Security](https://apis.io/security/whoisfreaks/whoisfreaks-domain-security/)
 
-- **Created:** 2026-07-29
-- **Modified:** 2026-08-09
+#### Plans and pricing (1)
 
-## APIs
+Published plans, tiers and prices.
 
-### WhoisFreaks MCP Server
+- [Whoisfreaks Plans](https://apis.io/plans/whoisfreaks/whoisfreaks-plans/)
 
-Official open-source Model Context Protocol server (Java) exposing 14 WhoisFreaks domain-intelligence tools to MCP-compatible AI clients. Distributed as source and as the whoisfreaks/mcp-server Docker image; runs over stdio locally or HTTP/SSE on port 3100 when self-hosted. No vendor-hosted public MCP endpoint.
+#### Rate limits (1)
 
-- **Human URL:** [https://github.com/WhoisFreaks/whoisfreaks-mcp-server](https://github.com/WhoisFreaks/whoisfreaks-mcp-server)
-- **Base URL:** `https://api.whoisfreaks.com`
+Published request limits.
 
-#### Tags
+- [Whoisfreaks Rate Limits](https://apis.io/rate-limits/whoisfreaks/whoisfreaks-rate-limits/)
 
-- MCP
-- Domain Intelligence
-- WHOIS
-- DNS
-- Cybersecurity / Threat Intelligence
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [M C P Server](mcp/whoisfreaks-mcp.yml)
-- [Tool Crosswalk](mcp/whoisfreaks-tool-crosswalk.yml)
-- [Source Code](https://github.com/WhoisFreaks/whoisfreaks-mcp-server)
-- [Postman Collection](collections/whoisfreaks-account-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-account-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-asn-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-asn-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-asn-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-asn-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-dns-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-dns-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-expiring-dropped-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-expiring-dropped-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-ip-geolocation-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-ip-geolocation-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-ip-security-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-ip-security-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-ip-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-ip-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-newly-registered-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-newly-registered-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-subdomains-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-subdomains-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-threat-feed-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-threat-feed-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-databases-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-dns-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-dns-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-domain-availability-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-domain-availability-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-domain-reputation-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-domain-reputation-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-geolocation-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-geolocation-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-ip-reputation-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-ip-reputation-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-ip-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-ip-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-ssl-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-ssl-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-subdomains-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-subdomains-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-typosquatting-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-typosquatting-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/whoisfreaks-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### WhoisFreaks Account API
-
-Account, API key, and usage utilities
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Account
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-account-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-account-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-account-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks ASN WHOIS API
-
-Autonomous System Number WHOIS
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- ASN WHOIS
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-asn-whois-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-asn-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-asn-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - ASN WHOIS API
-
-ASN WHOIS database snapshots
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - ASN WHOIS
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-asn-whois-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-asn-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-asn-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - DNS API
-
-DNS database snapshots
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - DNS
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-dns-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-dns-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-dns-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - Expiring & Dropped API
-
-Expiring and dropped domain downloads
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - Expiring & Dropped
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-expiring-dropped-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-expiring-dropped-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-expiring-dropped-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - IP Geolocation API
-
-IP geolocation database snapshots
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - IP Geolocation
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-ip-geolocation-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-ip-geolocation-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-ip-geolocation-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - IP Security API
-
-IP security database snapshots
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - IP Security
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-ip-security-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-ip-security-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-ip-security-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - IP WHOIS API
-
-IP WHOIS database snapshots
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - IP WHOIS
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-ip-whois-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-ip-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-ip-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - Newly Registered API
-
-Newly registered domain downloads
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - Newly Registered
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-newly-registered-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-newly-registered-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-newly-registered-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - Subdomains API
-
-Subdomain database snapshots
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - Subdomains
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-subdomains-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-subdomains-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-subdomains-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - Threat Feed API
-
-The Databases - Threat Feed API from WhoisFreaks — 6 operation(s) for databases - threat feed.
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - Threat Feed
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-threat-feed-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-threat-feed-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-threat-feed-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Databases - WHOIS API
-
-WHOIS database snapshots
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Databases - WHOIS
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-databases-whois-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-databases-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-databases-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks DNS API
-
-DNS lookup APIs (live, historical, reverse, bulk)
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- DNS
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-dns-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-dns-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-dns-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Domain Availability API
-
-Check domain availability
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Domain Availability
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-domain-availability-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-domain-availability-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-domain-availability-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Domain Reputation API
-
-Real-time domain threat assessment and trust scoring
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Domain Reputation
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-domain-reputation-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-domain-reputation-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-domain-reputation-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Geolocation API
-
-IP geolocation lookup
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Geolocation
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-geolocation-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-geolocation-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-geolocation-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks IP Reputation API
-
-IP threat intelligence
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- IP Reputation
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-ip-reputation-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-ip-reputation-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-ip-reputation-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks IP WHOIS API
-
-IP address WHOIS
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- IP WHOIS
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-ip-whois-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-ip-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-ip-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks SSL API
-
-SSL certificate lookup
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- SSL
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-ssl-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-ssl-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-ssl-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Subdomains API
-
-Subdomain enumeration
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Subdomains
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-subdomains-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-subdomains-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-subdomains-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks Typosquatting API
-
-Detect typo variants of brand domains
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- Typosquatting
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-typosquatting-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-typosquatting-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-typosquatting-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-### WhoisFreaks WHOIS API
-
-WHOIS lookup APIs (live, historical, reverse, bulk)
-
-- **Human URL:** [https://whoisfreaks.com/documentation/whois-api](https://whoisfreaks.com/documentation/whois-api)
-- **Base URL:** `https://api.whoisfreaks.com`
-
-#### Tags
-
-- WHOIS
-
-#### Properties
-
-- [OpenAPI](openapi/whoisfreaks-whois-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/whoisfreaks-whois-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/whoisfreaks-whois-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://whoisfreaks.com/documentation/whois-api)
-- [API Reference](https://whoisfreaks.com/documentation)
-- [Postman Collection](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [L L M S Txt](https://whoisfreaks.com/llms.txt)
-
-## Common Properties
-
-- [Overlay](overlays/whoisfreaks-openapi-overlay.yaml)
-- [Developer Portal](https://whoisfreaks.com/documentation)
+- [Website](https://www.whoisfreaks.com/)
 - [Documentation](https://whoisfreaks.com/documentation)
-- [API Reference](https://whoisfreaks.com/documentation/whois-api)
-- [Getting Started](https://whoisfreaks.com/integrations/sdk/python)
+- [Getting started](https://whoisfreaks.com/integrations/sdk/python)
+- [API reference](https://whoisfreaks.com/documentation/whois-api)
+- [Pricing](https://whoisfreaks.com/pricing)
+- [Sign up](https://whoisfreaks.com/signup)
 - [Support](https://whoisfreaks.com/contact)
 - [Blog](https://whoisfreaks.com/resources/blog)
-- [GitHub Organization](https://github.com/WhoisFreaks)
-- [Pricing](https://whoisfreaks.com/pricing)
-- [Sign Up](https://whoisfreaks.com/signup)
-- [Login](https://whoisfreaks.com/login)
-- [Terms of Service](https://whoisfreaks.com/terms)
-- [Privacy Policy](https://whoisfreaks.com/privacy-policy)
-- [Postman](https://www.postman.com/wf-official/api) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Status Page](https://whoisfreaks.com/uptime-status)
-- [Lifecycle](lifecycle/whoisfreaks-lifecycle.yml)
-- [Authentication](authentication/whoisfreaks-authentication.yml)
-- [Conventions](conventions/whoisfreaks-conventions.yml)
-- [Rate Limits](rate-limits/whoisfreaks-rate-limits.yml)
-- [Plans](plans/whoisfreaks-plans.yml)
-- [Error Catalog](errors/whoisfreaks-problem-types.yml)
-- [Examples](examples/whoisfreaks-code-examples.yml)
-- [Packages](packages/whoisfreaks-packages.yml)
-- [S D Ks](packages/whoisfreaks-packages.yml)
-- [C L I](cli/whoisfreaks-cli.yml)
-- [Console](sandbox/whoisfreaks-sandbox.yml)
-- [Webhooks](asyncapi/whoisfreaks-monitoring-webhooks.yml)
-- [Agent Skill](skills/_index.yml)
-- [L L Ms Txt](llms/whoisfreaks-llms.txt)
-- [Well Known](well-known/whoisfreaks-well-known.yml)
-- [Conformance](conformance/whoisfreaks-conformance.yml)
-- [Data Model](data-model/whoisfreaks-data-model.yml)
-- [Domain Security](security/whoisfreaks-domain-security.yml)
 - [Compliance](https://whoisfreaks.com/privacy-policy)
-- [Changelog](changelog/whoisfreaks-changelog.yml)
+- [Terms of service](https://whoisfreaks.com/terms)
+- [Privacy policy](https://whoisfreaks.com/privacy-policy)
+- [GitHub](https://github.com/WhoisFreaks)
+- [Status](https://whoisfreaks.com/uptime-status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** WhoisFreaks
-**Email:** support@whoisfreaks.com
-**URL:** https://whoisfreaks.com
+**Kin Score 67.1** — exemplar · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 59.4 |
+| Contract governance | 4.5 |
+| Operational transparency | 73.7 |
+| Developer ergonomics | 82.7 |
+| Access clarity | 84.2 |
+
+**Agent readiness 30.7** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/whoisfreaks/](https://apis.io/providers/whoisfreaks/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for WhoisFreaks: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/whoisfreaks/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
