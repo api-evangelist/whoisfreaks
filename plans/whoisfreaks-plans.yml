@@ -75,7 +75,7 @@ notes:
     tiers are listed on the same page but their prices were not captured here
     rather than estimated.
 x-canonical:
-  generated: '2026-11-01'
+  generated: '2026-11-02'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - free
